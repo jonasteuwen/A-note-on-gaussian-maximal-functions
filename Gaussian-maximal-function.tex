@@ -1,0 +1,697 @@
+\RequirePackage[l2tabu, orthodox]{nag}
+\documentclass[a4paper,oneside,10pt]{amsproc}
+
+\usepackage{fixltx2e}
+\usepackage[all, error]{onlyamsmath}
+\usepackage{fixmath} % http://ctan.org/pkg/fixmath
+\usepackage{refcheck}
+% \usepackage{gitinfo} % Information about the version
+\norefnames
+% \showrefnames
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage[x11names]{xcolor}%
+\usepackage{textcomp}
+\usepackage[english]{babel}
+\usepackage{xfrac} % Nice / fractions
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[strict=true]{csquotes} % Needs to be loaded *after* inputenc
+
+%% Tekstiin ja taulukoihin liittyviï¿½ lisï¿½paketteja
+\usepackage{enumerate} 
+\usepackage{booktabs}% Better tables
+
+%% Matematiikkaan liittyviï¿½ lisï¿½paketteja
+
+\usepackage{latexsym}
+\usepackage{bbm}
+\usepackage{enumitem}
+\usepackage[bitstream-charter]{mathdesign}%
+
+\usepackage[bookmarks,colorlinks,breaklinks]{hyperref} % Add hyperref type links in the document, colors
+\definecolor{dullmagenta}{rgb}{0.4,0,0.4} % #660066
+\definecolor{darkblue}{rgb}{0,0,0.4}%
+\hypersetup{linkcolor=red,citecolor=blue,filecolor=dullmagenta,urlcolor=darkblue} % coloured links
+
+
+\usepackage{etoolbox}
+\newcounter{hints}
+\renewcommand{\thehints}{\roman{hints}}
+\newcommand{\hintedrel}[2][]{%
+  \stepcounter{hints}%
+  \if\relax\detokenize{#1}\relax\else\csxdef{hint@#1}{\thehints}\fi
+  \mathrel{\overset{\textrm{(\thehints)}}{\vphantom{\le}{#2}}}%
+}
+\newcommand{\restarthintedrel}{\setcounter{hints}{0}}
+\newcommand{\hintref}[1]{\csuse{hint@#1}}
+\AfterEndEnvironment{align*}{\setcounter{hints}{0}}% Resets numrel at the end of align*
+\AfterEndEnvironment{align}{\setcounter{hints}{0}}% Resets numrel at the end of align
+\AfterEndEnvironment{equation*}{\setcounter{hints}{0}}% Resets numrel at the end of equation*
+\AfterEndEnvironment{equation}{\setcounter{hints}{0}}% Resets numrel at the end of equation
+
+
+
+\makeatletter
+
+\@namedef{subjclassname@2010}{%
+
+  \textup{2010} Mathematics Subject Classification}
+
+\makeatother
+
+% \linespread{1.3}
+
+
+%%%%%%%% Teoreemaympï¿½ristï¿½t
+% HUOM! Kï¿½ytetï¿½ï¿½n amsthm-pakettia, eikï¿½ theorem-pakettia, jos
+% theorem-pakettia kï¿½ytetï¿½ï¿½n tï¿½ytyy myï¿½s nï¿½itï¿½ muuttaa
+
+% Perusteoreematyyli, lause ja lemma numeroidaan sectionin
+% mukaan. Propositio numeroidaan lauseen numeroinnilla
+
+\theoremstyle{plain}
+% \newtheorem*{thmA6.6}{[A, Theorem 6.6]}
+\newtheorem*{problem}{Problem}
+
+
+\swapnumbers
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{remark}
+\renewcommand{\qedsymbol}{\ensuremath{\blacksquare}}
+\newtheorem*{remark}{Remark}
+\newtheorem*{acks}{Acknowledgements}
+\newtheorem*{examples}{Examples}
+
+
+% Mï¿½ï¿½ritelmï¿½tyyli
+
+\theoremstyle{definition} 
+% Mï¿½ï¿½ritelmï¿½, jolla on oma juokseva numerointi 
+% \newtheorem{definition}[theorem]{Definition}
+\newtheorem*{def*}{Definition}
+
+% Huomautustyyli
+
+
+% Omat kï¿½skyt (esimerkkinï¿½ joukkosymbolit)
+
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Sp}{\mathbb{S}}
+\newcommand{\prob}{\mathbb{P}}
+\newcommand{\D}{\,\textup{d}}
+\newcommand{\Dn}{\textup{d}} % One without space.
+\newcommand{\Dt}{\,\frac{\textup{d} t}{t}}
+\newcommand{\Ds}{\,\frac{\textup{d} s}{s}}
+\newcommand{\DyDt}{\frac{\textup{d} y \, \textup{d} t}{t^{n+1}}}
+\newcommand{\Dd}{\mathscr{D}}
+\newcommand{\Tt}{\mathscr{T}}
+\newcommand{\Cc}{\mathscr{C}}
+\newcommand{\Bb}{\mathscr{B}}
+\newcommand{\Rr}{\mathscr{R}}
+\newcommand{\Ff}{\mathscr{F}}
+\newcommand{\Ll}{\mathscr{L}}
+\newcommand{\Mm}{\mathscr{M}}
+\newcommand{\hh}{\mathfrak{h}}
+\newcommand{\ttt}{\mathfrak{t}}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\Rad}{\textup{Rad}}
+\newcommand{\Car}{\textup{Car}}
+\newcommand{\BMO}{\textup{BMO}}
+\newcommand{\loc}{\textup{loc}}
+\newcommand{\LH}{{L^2_\mu}}
+\newcommand{\LHG}{{L^2_\gamma}}
+
+%% Bar int
+\def\Xint#1{\mathchoice
+  {\XXint\displaystyle\textstyle{#1}}%
+  {\XXint\textstyle\scriptstyle{#1}}%
+  {\XXint\scriptstyle\scriptscriptstyle{#1}}%
+  {\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+  \!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+    \vcenter{\hbox{$#2#3$ }}\kern-.535\wd0}}
+\def\ddashint{\Xint=}
+\def\dashint{\Xint-}
+
+\def\LI{{L^1_\gamma}}
+
+
+%% Symbols
+\renewcommand{\bar}[1]{\overline#1}
+\renewcommand{\vec}[1]{\boldsymbol{\mathbf{#1}}}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\Im}{\operatorname{Im}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\Fo}{\mathcal{F}}
+\newcommand{\R}{\mathbf R}
+\newcommand{\C}{\mathbf C}
+\newcommand{\N}{\mathbf N}
+\newcommand{\T}{\mathbb T}
+\newcommand{\Z}{\mathbf Z}
+\newcommand{\B}{\mathcal B}
+\newcommand{\e}{\mathrm{e}} %Roman e for exponentials
+
+\renewcommand{\leq}{\leqslant} % I like this better, change as you
+% please.
+\renewcommand{\geq}{\geqslant} % Same.
+\DeclareMathOperator{\supp}{supp}
+\newcommand{\Dg}{\frac{\textup{d}\gamma (y)}{\gamma (B(y,t))}}
+\newcommand{\Dmu}{\frac{\textup{d}\mu (y)}{\mu (B(y,t))}}
+
+
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\renewcommand{\bar}{\overline}
+
+\usepackage{tikz}
+
+\def\lemmaautorefname{Lemma}
+\def\definitionautorefname{Definition}
+\def\theoremautorefname{Theorem}
+\def\corollaryautorefname{Corollary}
+
+
+%% Bibliography
+\usepackage[backend=biber,doi=false,url=false,isbn=false]{biblatex}
+\bibliography{~/Documents/BibTeX/library.bib}
+
+\newbibmacro{string+doiurlisbn}[1]{%
+  \iffieldundef{doi}{%
+    \iffieldundef{url}{%
+      \iffieldundef{isbn}{%
+        \iffieldundef{issn}{%
+          #1%
+        }{%
+          \href{http://books.google.com/books?vid=ISSN\thefield{issn}}{#1}%
+        }%
+      }{%
+        \href{http://books.google.com/books?vid=ISBN\thefield{isbn}}{#1}%
+      }%
+    }{%
+      \href{\thefield{url}}{#1}%
+    }%
+  }{%
+    \href{http://dx.doi.org/\thefield{doi}}{#1}%
+  }%
+}
+
+\DeclareFieldFormat{title}{\usebibmacro{string+doiurlisbn}{\mkbibemph{#1}}}
+\DeclareFieldFormat[article,incollection]{title}%
+{\usebibmacro{string+doiurlisbn}{\mkbibquote{#1}}}
+
+
+
+\title[Gaussian estimates]{Gaussian estimates}
+\author{Mikko Kemppainen}
+\address{Department of Mathematics and Statistics, University of Helsinki,
+  Gustaf Hï¿½llstrï¿½min katu 2b, FI-00014 Helsinki, Finland}
+\email{mikko.k.kemppainen@helsinki.fi}
+
+\author{Jonas Teuwen}%
+\address{Delft Institute of Applied Mathematics,
+  Delft University of Technology, P.O. Box 5031, 2600 GA Delft, The
+  Netherlands} \email{j.j.b.teuwen@tudelft.nl}%
+\urladdr{http://fa.its.tudelft.nl/~teuwen/}%
+\thanks{}%
+\date{\today}
+
+
+
+\begin{document}
+
+\begin{abstract}
+  The required estimates! An attempt! A good attempt! I hope!
+\end{abstract}
+
+% \subjclass[2010]{42B25 (Primary); 46E40 (Secondary)}
+% \keywords{R-bounds, dyadic cubes}
+
+\maketitle
+\section{The Mehler kernel and friends}
+\subsection{Notation}
+To begin, let us fix some notation. As is common, we use $N$ to
+represent a positive integer. Making this more precise, $N$ is taken
+out of $\Z_+ = \{1, 2, 3, \dots\}$. In the same way we cast letters
+that denote the number of dimensions, e.g.\ $d$ in $\R^d$ as a
+positive integer.
+
+The capital letter $T$ we use to denote a ``time'' endpoint, e.g.,
+when writing $t$ in $(0, T]$.
+
+\subsection{Setting}
+Given the Ornstein-Uhlenbeck operator $L$ defined as:
+\begin{equation}
+  \label{eq:Ornstein-Uhlenbeck-operator}
+  L = -\frac12 \Delta + x \cdot \nabla,
+\end{equation}
+we have the Mehler kernel (See e.g., \cite{Sjogren1997}) as the
+Schwartz kernel associated to the Ornstein-Uhlenbeck semigroup
+$\e^{-tL}$. That is, 
+\begin{equation}
+  \label{eq:Ornstein-Uhlenbeck-semigroup-integral}
+  \e^{-tL} u(x) = \int_{\R^d} M_t(x, \cdot) u \, \D\gamma.
+\end{equation}
+
+\subsection{Rewriting the Mehler kernel}
+There are many ways to write the Mehler kernel, of which the most
+common ones computed in \textcite{Sjogren1997}. In many calculations
+that will follow it turns out that $t^2$ is comparable to $L$ in ways
+that will be made precise when necessary. For this reason we will usually
+consider $\e^{-t^2 L}$ instead of $\e^{-t L}$. 
+
+As one tries to exploit the observation that the kernel $M_t$
+associated to \eqref{eq:Ornstein-Uhlenbeck-semigroup-integral} should be
+symmetric in its arguments one will find a particular useful
+representation to be:
+\begin{equation}
+  \label{eq:Mehler-kernel-1}
+  M_{t^2}(y, \xi) = \frac{\exp\biggl(-\dfrac12 \dfrac{|y - \xi|^2}{1
+      - \e^{-t^2}}  \biggr)}{(1 - \e^{-t^2})^{\frac{d}2}}
+  \frac{\exp\biggl(-\dfrac12 \dfrac{|y + \xi|^2}{1 + \e^{-t^2}}
+    \biggr)}{(1 + \e^{-t^2})^{\frac{d}2}} \e^{|y|^2} \e^{|\xi|^2}.
+\end{equation}
+The second version will be found useful when decomposing the
+integration area into annuli.
+\begin{equation}
+  \label{eq:Mehler-kernel-2}
+  M_{t^2}(y, \xi) = \frac{\exp\biggl(-\e^{-t^2} \dfrac{|y - \xi|^2}{1
+      - \e^{-2 t^2}}  \biggr)}{(1 - \e^{-t^2})^{\frac{d}2}}
+  \frac{\exp\biggl(\e^{-t^2} \dfrac{|y|^2 + |\xi|^2}{1 + \e^{-t^2}}
+    \biggr)}{(1 + \e^{-t^2})^{\frac{d}2}}.
+\end{equation}
+
+\subsection{Some fine lemmata and definitions}
+We recall the lemma from \cite[lemma 2.3]{Maas2011b} which first,
+ --although implicitly-- appeared in \cite{Mauceri2007}.
+\begin{lemma}\label{lem:m-xy-equivalence-no-cone}
+  Let $\alpha$ and $\beta$ be given strictly positive numbers. We then
+  have the following for $x$ and $y$ in $\R^d$:
+  \begin{enumerate}
+  \item If $t \leq \alpha m(x)$ and $|x - y| < \beta t$, then $t
+    \leq (1 + \alpha \beta) m(y)$;
+  \item Likewise, if $|x - y| < \beta m(x)$, then $m(x) \leq (1 +
+    \beta) m(y)$ and $m(y) \leq 2 (1 + \beta) m(x)$. 
+  \end{enumerate}
+\end{lemma}
+We can also write this using the Gaussian cone $\Gamma_x^{(a, A)}$
+which is given as:
+\begin{equation}
+  \label{eq:Gaussian-cone}
+  \Gamma_x^{(A, a)} := \Gamma_x^{(A, a)}(\gamma) := \{(y, t) \in
+  \R^d_+ : |x - y| < At \:\text{and}\: t \leq a m(x)\}.
+\end{equation}
+We will also write $\Gamma_x^a$ for $\Gamma_x^{(1, a)}$. Then we can
+in from \autoref{lem:m-xy-equivalence-no-cone} that:
+\begin{lemma}\label{lem:m-xy-equivalence}
+  Let $a > 0$ and $x, y$ in $\R^d$. If $y$ is in $\Gamma_x^{a}$ then
+  $m(x) \leq (1 + a) m(y)$ and $m(y) \leq 2(1 + a) m(x)$.
+\end{lemma}
+We will also use the global/local region dichotomy and define it as
+follows:
+\begin{definition}
+  Given $\tau > 0$, the set $N_\tau$ is given as:
+  \begin{equation}
+    \label{eq:Definition-local-region}
+    N_\tau := \{(x, \xi) \in \R^{2d} : |x - \xi| \leq \tau m(x) \}.
+  \end{equation}
+  Often it eases the notation to work with the set $N_\tau(B)$ given
+  for $B := B_r(\xi)$ as:
+  \begin{equation}
+    \label{eq:Definition-local-region-ball}
+    N_\tau(x) := \{\xi \in \R^d : |x - \xi| \leq \tau m(x) \}.
+  \end{equation}
+  When we partition the space into $N_\tau$ and its complement, we
+  call the part belonging to $N_\tau$ the \emph{local region} and the
+  part belonging to $\complement N_\tau$ the \emph{global region}.
+\end{definition}
+The next lemma will come useful when we want to cancel exponential
+growth in one variable with exponential decay in the other as long
+both variables are in a Gaussian cone.
+\begin{lemma}\label{lem:Cone-Gaussians-comparable}
+  Let $(y, t) \in \Gamma_x^{(A, a)}$. Then the Gaussian in $x$
+  respectively $y$ are comparable. More precisely this means that,
+  \begin{equation*}
+    \e^{-|x|^2} \simeq \e^{-|y|^2}.
+  \end{equation*}
+  Workable constants are given in \label{eq:Cone-Gaussians-comparable-1}
+  and \label{eq:Cone-Gaussians-comparable-2}.
+\end{lemma}
+
+\begin{proof}
+  Let $(y, t) \in \Gamma_x^{(A, a)}$. Unwrapping the definition we
+  have
+  \begin{equation*}
+    |x - y| < A t \:\text{and}\: t \leq a m(x).
+  \end{equation*}
+  Hence, by the inverse triangle inequality we get,
+  \begin{align*}
+    |y|^2 &\leq (aA m(x) + |x|)^2\\
+    &= (aA m(x))^2 + 2 a A m(x) |x| + |x|^2\\
+    &\leq (aA m(x))^2 + 2 a A + |x|^2\\
+    &\leq (aA)^2 + 2 a A + |x|^2.
+  \end{align*}
+  Therefore,
+  \begin{equation}
+    \label{eq:Cone-Gaussians-comparable-1}
+    \e^{-|y|^2} \geq \e^{-(aA)^2} \e^{-2 aA} \e^{-|x|^2}.
+  \end{equation}
+  By \autoref{lem:m-xy-equivalence-no-cone} we have $t \leq (1 + aA)
+  m(y)$
+  \begin{align*}
+    |x|^2 &\leq ((1 + aA) m(y) + |y|)^2\\
+    &= ((1 + aA) m(y))^2 + 2(1 + aA)m(y)|y| + |y|^2\\
+    &\leq (1 + aA)^2 + 2(1 + aA) + |y|^2.
+  \end{align*}
+  Therefore,
+  \begin{equation}
+    \label{eq:Cone-Gaussians-comparable-2}
+    \e^{-|x|^2} \geq \e^{-(1 + aA)^2} \e^{-2(1 + aA)} \e^{-|y|^2}.
+  \end{equation}
+  Summarizing we thus have that,
+  \begin{equation*}
+    \e^{-|x|^2} \simeq \e^{-|y|^2},
+  \end{equation*}
+  as required.
+\end{proof}
+
+
+
+\begin{lemma}
+  \label{def:Global-region-cone-lemma}
+  Let $x, y$ and $z$ in $\R^d$. Set
+  \begin{equation*}
+    \tau = \frac12 (1 + 2aA)(1 + aA),
+  \end{equation*}
+  Such that if $|y - z| > \tau m(y)$ (i.e., $(y, z) \notin N_\tau$)
+  and $(y, t) \in \Gamma_x^{(A, a)}$ then $|x - z| > \frac12 m(x)$
+  (i.e., $(x, z) \notin N_{\frac12}$).
+\end{lemma}
+\begin{proof}
+  We assume that $(y, z) \notin N_\tau$ and $(y, t) \in \Gamma_x^{(A,
+    a)}$. Written out this gives by \eqref{eq:Definition-local-region}
+  the inequality $|y - z| > \tau m(y)$, and by
+  \eqref{eq:Gaussian-cone} the inequality $|x - y| < aA m(x)$. Note
+  that the latter inequality together with
+  \autoref{lem:m-xy-equivalence-no-cone} yields,
+  \begin{equation}
+    \label{eq:Global-region-cone-lemma-proof-1}
+    \frac12 \frac1{1 + aA} m(y) \leq m(x) \leq (1 + aA) m(y).
+  \end{equation}
+  Combining we get $|x - y| < aA (1 + aA) m(y)$. Now we are in
+  position to apply the triangle inequality:
+  \begin{equation*}
+    |x - z| \geq |y - z| - |x - y| > \tau m(y) - aA (1 + aA) m(y).
+  \end{equation*}
+  As we require an lower bound in terms of $m(x)$ and not $m(y)$, we
+  again apply \eqref{eq:Global-region-cone-lemma-proof-1} to obtain:
+  \begin{align*}
+    |x - z| \geq |y - z| - |x - y| &> \tau m(y) - aA m(y)\\
+    &\geq \tau \frac1{1 + aA} m(x) - aA m(x).
+  \end{align*}
+  Therefore a $\tau$ as requested should satisfy:
+  \begin{equation*}
+    \tau \frac1{1 + aA} - aA = \frac12.
+  \end{equation*}
+  That is,
+  \begin{equation*}
+    \tau = \frac12 (1 + 2aA)(1 + aA).
+  \end{equation*}
+  Which is as requested.
+\end{proof}
+The set $t < m(x)$ is used in the definition of the Gaussian tent
+spaces and we will give it the name $D$, that is:
+\begin{equation}
+  \label{eq:Definition-cut-off-set-D}
+  D := \{(x, t) \in \R^d_+ : t < m(x) \}.
+\end{equation}
+
+\section{On-diagonal estimates}
+\subsection{Kernel estimates}
+We begin with a technical lemma which will be useful on several
+occasions.
+\begin{lemma}\label{lem:Time-part-Mehler-time-transform}
+  Let $t$ in $(0, T]$ and $\alpha > 1$. Then,
+  \begin{equation}\label{eq:Time-part-Mehler-time-transform}
+    \alpha \e^{-T^2} \leq \frac{1 - \e^{-t^2}}{1 -
+      \e^{-\frac{t^2}{\alpha}}} \leq \alpha.
+  \end{equation}
+\end{lemma}
+\begin{proof}
+  Let $t$ in $(0, T]$ and $\alpha > 1$. Applying the mean value theorem to the function $f(\xi) = \xi^\alpha$ gives, for $0 < \xi < \xi'$:
+  \begin{equation*}
+    f(\xi) - f(\xi') = \alpha \hat{\xi}^{\alpha - 1} (\xi - \xi') \text{ for some $\hat \xi$ in $[\xi, \xi']$}.
+  \end{equation*}
+  Picking $\xi = 1$ and $\xi' = \e^{-\frac{t^2}{\alpha}}$ gives
+  \begin{equation}
+    \label{eq:Time-part-Mehler-time-transform-proof-1}
+    \frac{1 - \e^{-t^2}}{1 - \e^{-\frac{t^2}{\alpha}}} = \alpha \hat{\xi}^{\alpha - 1} \:\text{for some}\: \hat{\xi} \:\text{in}\:  [\e^{-\frac{t^2}{\alpha}}, 1].
+  \end{equation}
+  Using $t \leq T$ we get:
+  \begin{equation*}
+    \alpha \e^{-T^2} \leq \alpha \exp\Bigl(-t^2 \frac{\alpha -
+      1}{\alpha} \Bigr)
+    \hintedrel[rel1]{\leq}  \frac{1 - \e^{-t^2}}{1 - \e^{-\frac{t^2}{\alpha}}}
+  \end{equation*}
+
+  Where (\hintref{rel1}) uses
+  \eqref{eq:Time-part-Mehler-time-transform-proof-1} and the
+  monotonicity of $\xi \mapsto \alpha \xi^{\alpha - 1}$.
+
+  Hence, 
+  \begin{equation*}
+   \alpha \e^{-T^2} \leq \lim_{t \downarrow 0} \frac{1 - \e^{-t^2}}{1
+     - \e^{-\frac{t^2}{\alpha}}} \overset{\searrow}{=} \alpha.
+  \end{equation*}
+
+
+ This
+  completes the proof.
+\end{proof}
+
+The following lemma will be useful when transfering estimates from
+$M_{\frac{t^2}{\alpha}}$ to $M_{t^2}$. It follows from the mean value
+theorem applied to $\xi \mapsto \xi^\alpha$.
+\begin{lemma}\label{lem:Exponential-estimates}
+  For $C, T > 0, \alpha > 1, t$ in $(0, T]$ and all $x, y$ in $\R^d$ we have that
+  \begin{equation}
+    \label{eq:Exponential-estimates-1}
+    \exp \biggl (-C \frac{|x - y|^2}{1 - \e^{-\frac{t^2}\alpha}}
+    \biggr ) \leq  \exp \biggl (-C \frac{\alpha}{\e^{T^2}} \frac{|x - y|^2}{1 -
+      \e^{-t^2}} \biggr ).
+  \end{equation}
+\end{lemma}
+\begin{proof}
+  Let $t$ in $(0, T]$ and $\alpha > 1$. By
+  \autoref{lem:Time-part-Mehler-time-transform} we get
+  \begin{equation*}
+    \alpha \e^{-T^2} \leq \alpha \exp\Bigl(-t^2 \frac{\alpha -
+      1}{\alpha} \Bigr)
+    \hintedrel[rel1]{\leq} \frac{1 - \e^{-t^2}}{1 -
+      \e^{-\frac{t^2}{\alpha}}} \leq \lim_{t \downarrow 0} \frac{1 -
+      \e^{-t^2}}{1 - \e^{-\frac{t^2}{\alpha}}} = \alpha.
+  \end{equation*}
+  Noting that $\e^{-t^2} \geq \e^{-T^2}$ we get,
+  \begin{align*}
+    \exp \biggl (-C \frac{|x - y|^2}{1 - \e^{-t^2}} \biggr )
+    &\leq \exp \biggl (-C \frac{|x - y|^2}{1 -
+      \e^{-t^2}} \frac{1 -
+      \e^{-t^2}}{1 - \e^{-\frac{t^2}\alpha}} \biggr )\\
+    &\leq \exp \biggl (-C \frac{\alpha}{\e^{T^2}} \frac{|x - y|^2}{1 -
+      \e^{-t^2}} \biggr ).
+  \end{align*}
+\end{proof}
+
+Later on we will study kernel estimates of kernels related to the
+Mehler kernel, but our first lemma is about estimating
+$M_{\frac{t}\alpha}$ in terms of $M_t$.
+\begin{lemma}\label{lem:Kernel-estimates-1}
+ Let $\alpha \geq 2 \e^{T^2}$, $t$ in $(0, T]$ and $x, y$ in $\R^d$.
+ Finally let $C > 0$ be independent on $x, y$ and $t$. If $t
+ (|x| \vee |y|) \leq C$:
+  \begin{equation}
+    \label{eq:Kernel-lemma-1-estimate} 
+    M_{\frac{t^2}{\alpha}}(x, y) \leq \alpha^{\frac{d}2} \e^{\frac\alpha2 C^2} \exp\biggl (-\frac{\alpha}{2 \e^{T^2}} \frac{|x - y|^2}{1 - \e^{-t^2}} \biggr ) M_{t^2}(x, y).
+  \end{equation}
+\end{lemma}
+\begin{proof}
+  First note that \eqref{eq:Time-part-Mehler-time-transform} tells
+  that:
+  \begin{equation*}
+    \alpha \e^{-T^2} \leq \frac{1 - \e^{-t^2}}{1 -
+      \e^{-\frac{t^2}{\alpha}}} \leq \alpha.
+  \end{equation*}
+  Note that since
+  \begin{equation*}
+    \frac{1}{1 + \e^{-t^2}} - \frac{1}{1 + \e^{-\frac{t^2}{\alpha}}}
+    \geq \frac{1}{1 + \e^{-\frac{t^2}{\alpha}}} - \frac{1}{1 +
+      \e^{-\frac{t^2}{\alpha}}} = 0.
+  \end{equation*}
+  So that
+  \begin{align*}
+    \exp \biggl (-\frac12 \frac{|x + y|^2}{1 + \e^{-\frac{t^2}{\alpha}}}
+    \biggr ) &\exp \biggl (\frac12 \frac{|x + y|^2}{1 + \e^{-t^2}}
+    \biggr )\\
+    &\leq \exp \biggl (\frac12 \biggl[\frac{1}{1 +
+      \e^{-t^2}} - \frac{1}{1 + \e^{-\frac{t^2}{\alpha}}}
+    \biggr] |x + y|^2 \biggr)\\
+    &\leq \exp \biggl (\frac12 \frac1{t^2}\biggl[\frac{1}{1 +
+      \e^{-t^2}} - \frac{1}{1 + \e^{-\frac{t^2}{\alpha}}}
+    \biggr] t^2 |x + y|^2 \biggr).
+  \end{align*}
+  Next,
+  \begin{align*}
+    \lim_{t \to 0} \frac1{t^2}\biggl[\frac{1}{1 +
+      \e^{-t^2}} - \frac{1}{1 + \e^{-\frac{t^2}{\alpha}}} \biggr] &=
+    \lim_{t \to 0} \frac1{2t} \biggl[\frac{2t \e^{-t^2}}{(1 + \e^{-t^2})^2} -
+    \frac1\alpha \frac{2t \e^{-\frac{t^2}{\alpha}}}{(1 +
+      \e^{-\frac{t^2}{\alpha}})^2} \biggr]\\
+    &= \lim_{t \to 0} \biggl[\frac{\e^{-t^2}}{(1 + \e^{-t^2})^2} -
+    \frac1\alpha \frac{\e^{-\frac{t^2}{\alpha}}}{(1 +
+      \e^{-\frac{t^2}{\alpha}})^2} \biggr]\\
+    &= \frac{1}{4} \biggl(1 - \frac1\alpha \biggr).
+  \end{align*}
+  So that
+  \begin{align*}
+    \exp \biggl (-\frac12 \frac{|x + y|^2}{1 + \e^{-\frac{t^2}{\alpha}}}
+    \biggr ) &\exp \biggl (\frac12 \frac{|x + y|^2}{1 + \e^{-t^2}}
+    \biggr )\\
+    &\leq \exp \biggl (\frac18 \biggl(1 - \frac1\alpha \biggr) t^2 |x +
+    y|^2 \biggr)\\
+    &\leq \exp \biggl (\frac14 t^2 |x|^2 \biggr) \exp \biggl (\frac14
+    t^2 |y|^2 \biggr)  \exp \biggl (-\frac{t^2}\alpha \frac18 |x + y|^2 \biggr).
+  \end{align*}
+  So using \autoref{lem:Exponential-estimates} and equation
+  \eqref{eq:Exponential-estimates-1} we get
+  \begin{align*}
+    \frac{M_{\frac{t^2}{\alpha}}(x, y)}{M_{t^2}(x, y)} &\leq \alpha^{\frac{d}2}  \exp\biggl(\dfrac12 \dfrac{|x - y|^2}{1
+      - \e^{-t^2}}  \biggr) \exp\biggl(\dfrac12 \dfrac{|x + y|^2}{1
+      + \e^{t^2}} \biggr)\\
+    &\quad \times \exp\biggl(-\dfrac12 \dfrac{|x - y|^2}{1
+      - \e^{-\frac{t^2}{\alpha}}}  \biggr) \exp\biggl(-\dfrac12
+    \dfrac{|x + y|^2}{1 + \e^{-\frac{t^2}{\alpha}}} \biggr)\\
+    &\leq \alpha^{\frac{d}2} \exp \biggl (\frac12 \biggl[1 -\frac{\alpha}{2\e^{T^2}} \biggr] \frac{|x - y|^2}{1 - \e^{-t^2}}
+    \biggr ) \exp \biggl (-\frac{\alpha}{2\e^{T^2}} \frac{|x - y|^2}{1 - \e^{-t^2}}
+    \biggr )\\
+    &\quad \times  \exp\biggl(\dfrac12 \dfrac{|x + y|^2}{1 + \e^{t^2}}
+    \biggr) \exp\biggl(-\dfrac12 \dfrac{|x + y|^2}{1 + \e^{-\frac{t^2}{\alpha}}} \biggr)\\
+  \end{align*}
+  Thus that,
+  \begin{align*}
+    \frac{M_{\frac{t^2}{\alpha}}(x, y)}{M_{t^2}(x, y)} &\leq \alpha^{\frac{d}2}
+    \exp \biggl (\frac12 \biggl[1
+    -\frac{\alpha}{2\e^{T^2}} \biggr] \frac{|x - y|^2}{1 - \e^{-t^2}}
+    \biggr ) \exp \biggl (-\frac{\alpha}{2\e^{T^2}} \frac{|x - y|^2}{1 - \e^{-t^2}}
+    \biggr )\\
+    &\quad \times \exp \biggl (t^2 \frac{|x|^2 + |y|^2}4 \biggr)
+    \exp\biggl(-\frac{t^2}\alpha \frac{|x + y|^2}8 \biggr).
+  \end{align*}
+  Thus, for $\alpha \geq 2 \e^{T^2}$ we obtain
+  \begin{equation*}
+    \frac{M_{\frac{t^2}{\alpha}}(x, y)}{M_{t^2}(x, y)} \leq \alpha^{\frac{d}2} \exp\biggl(-\frac{\alpha}{2\e^{T^2}} \frac{|x - y|^2}{1 - \e^{-t^2}} \biggr) \exp \biggl (t^2 \frac{|x|^2 + |y|^2}4 \biggr)
+    \exp\biggl(-\frac{t^2}\alpha \frac{|x + y|^2}8 \biggr).
+  \end{equation*}
+  Using $t (|x| \vee |y|) \leq C$ we get
+  \begin{equation*}
+    \frac{M_{\frac{t^2}{\alpha}}(x, y)}{M_{t^2}(x, y)} \leq \alpha^{\frac{d}2}
+    \e^{\frac{C^2}2} \exp\biggl(-\frac{\alpha}{2\e^{T^2}} \frac{|x - y|^2}{1 - \e^{-t^2}} \biggr)
+    \exp\biggl(-\frac{t^2}\alpha \frac{|x + y|^2}8 \biggr).
+  \end{equation*}
+  Which is as asserted.
+\end{proof}
+
+\subsection{On-diagonal kernel estimates on annuli}
+As is common in harmonic analysis, we will often wish to decompose
+$\R^d$ into sets on which certain phenomena are easier to handle. We
+will decompose the space into annuli $C_k$. These are given as:
+\begin{equation}
+  \label{eq:C_k-annulus-decomposition}
+  C_k(B) := C_k =
+  \begin{cases}
+    2B &\text{if $k = 0$,}\\
+    2^{k + 1}B \setminus 2^k B &\text{for $k \geq 1$.}
+  \end{cases}
+\end{equation}
+\begin{lemma}\label{lem:On-diagonal-kernel-estimates-on-Ck}
+  Given $a > 0$, let $B = B_{at}(y)$ and $\xi$ in $C_k$. Then we have
+  for $k \geq 1$:
+  \begin{equation*}
+    M_{t^2}(y, \xi) \leq \frac{\e^{|y|^2}}{(1 - \e^{-t^2})^{\frac{d}2}}
+    \exp\biggl(-\frac{a^2}{2} 4^{k + 1} \biggr) \exp\bigl(2^{k + 1} a t |y|
+    \bigr).
+  \end{equation*}
+  and for $k = 0$:
+  \begin{equation*}
+    M_{t^2}(y, \xi) \leq \frac{\e^{|y|^2}}{(1 -
+      \e^{-t^2})^{\frac{d}2}} \exp\bigl(2^{k + 1} a t |y| \bigr).
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  Let $B = B_{at}(y)$ and let $C_k$ be as in \eqref{eq:C_k-annulus-decomposition}.
+  So, whenever $\xi$ is in $C_k$, we get for $k \geq 1$:
+  \begin{equation*}
+    2^k a t < |\xi - y| \leq 2^{k + 1} a t.
+  \end{equation*}
+  For the case $k = 0$ we get $|\xi - y| \leq 2 a t$.
+  Recall the Mehler kernel of \eqref{eq:Mehler-kernel-2}:
+  \begin{equation*}
+    M_{t^2}(y, \xi) = \frac{\exp\biggl(-\e^{-t^2} \dfrac{|y - \xi|^2}{1
+        - \e^{-2t^2}}  \biggr)}{(1 - \e^{-t^2})^{\frac{d}2}}
+    \frac{\exp\biggl(\e^{-t^2} \dfrac{|y|^2 + |\xi|^2}{1 + \e^{-t^2}}
+      \biggr)}{(1 + \e^{-t^2})^{\frac{d}2}}.
+  \end{equation*}
+  Note that by the triangle inequality there holds that:
+  \begin{equation*}
+    |\xi|^2 \leq |y - \xi|^2 + |y|^2 + 2 |y||y - \xi|.
+  \end{equation*}
+  If we consider the first term on the right-hand side and combine
+  with the first exponential in the Mehler kernel we see that for $k
+  \geq 1$:
+  \begin{align*}
+    \exp\biggl(-\e^{-t^2} \dfrac{|y - \xi|^2}{1 - \e^{-2t^2}}  \biggr)
+    \exp\biggl(-\e^{-t^2} \dfrac{|y - \xi|^2}{1 + \e^{-t^2}}  \biggr)
+    &\leq \exp\biggl(-\e^{-2t^2} \dfrac{|y - \xi|^2}{1 - \e^{-2t^2}}
+    \biggr)\\
+    &\leq \exp\biggl(-\e^{-2t^2} \dfrac{4^{k + 1} a^2 t^2}{1 - \e^{-2t^2}}
+    \biggr).
+  \end{align*}
+  This inequality together with
+  \begin{equation*}
+    \frac{\e^{-2t^2}}{1 - \e^{-2t^2}} t^2 \geq \frac12,
+  \end{equation*}
+  yields,
+    \begin{equation*}
+    \exp\biggl(-\e^{-t^2} \dfrac{|y - \xi|^2}{1 - \e^{-2t^2}}  \biggr)
+    \exp\biggl(-\e^{-t^2} \dfrac{|y - \xi|^2}{1 + \e^{-t^2}}  \biggr)
+    \leq \exp\biggl(-\dfrac{a^2}{2} 4^{k + 1} \biggr).
+  \end{equation*}
+  Thus, we can estimate the Mehler kernel $M_{t^2}$ on $C_k$ for $k
+  \geq 1$ from above by:
+  \begin{equation*}
+    M_{t^2}(y, \xi) \leq \frac{\e^{|y|^2}}{(1 - \e^{-t^2})^{\frac{d}2}}
+    \exp\biggl(-\frac{a^2}{2} 4^{k + 1} \biggr) \exp\bigl(2^{k + 1} a t |y|
+    \bigr).
+  \end{equation*}
+  We are left with the case $k = 0$, which can be done similarly and
+  yields:
+  \begin{equation*}
+    M_{t^2}(y, \xi) \leq \frac{\e^{|y|^2}}{(1 - \e^{-t^2})^{\frac{d}2}}
+    \exp\bigl(2^{k + 1} a t |y| \bigr).
+  \end{equation*}
+  Done.
+\end{proof}
+
+
+\printbibliography
+
+\end{document}

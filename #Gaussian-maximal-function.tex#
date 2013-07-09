@@ -380,7 +380,7 @@ both variables are in a Gaussian cone.
     \e^{-|y|^2} \geq \e^{-(aA)^2} \e^{-2 aA} \e^{-|x|^2}.
   \end{equation}
   By \autoref{lem:m-xy-equivalence-no-cone} we have $t \leq (1 + aA)
-  m(y)$
+  m(y)$ and so,
   \begin{align*}
     |x|^2 &\leq ((1 + aA) m(y) + |y|)^2\\
     &= ((1 + aA) m(y))^2 + 2(1 + aA)m(y)|y| + |y|^2\\

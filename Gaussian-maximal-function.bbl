@@ -81,6 +81,33 @@
       \endverb
       \keyw{a,analisi armonica,analisi tempo-frequenza e,and the progetto cofinanziato,atomic hardy space,bmo,corresponding author,gauss measure,imaginary powers,laplaciani generalizzati,m,n,p,prin2005,project,riesz transform,singular integrals,teoria delle rappresentazioni,the italian g,work partially supported by}
     \endentry
+    \entry{Pineda2008}{article}{}
+      \name{labelname}{2}{}{%
+        {{hash=3d00d353fffa98b253b1f66e05d098a4}{Pineda}{P\bibinitperiod}{E.}{E\bibinitperiod}{}{}{}{}}%
+        {{hash=b4e29c4e79851084c81ed6bc7cddf72b}{Urbina}{U\bibinitperiod}{W.}{W\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=3d00d353fffa98b253b1f66e05d098a4}{Pineda}{P\bibinitperiod}{E.}{E\bibinitperiod}{}{}{}{}}%
+        {{hash=b4e29c4e79851084c81ed6bc7cddf72b}{Urbina}{U\bibinitperiod}{W.}{W\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{23559c3d080caecee646487bdc719703}
+      \strng{fullhash}{23559c3d080caecee646487bdc719703}
+      \field{sortinit}{P}
+      \field{labeltitle}{{Non Tangential Convergence for the Ornstein-Uhlenbeck Semigroup}}
+      \field{journaltitle}{Divulgaciones Matemáticas}
+      \field{number}{2}
+      \field{title}{{Non Tangential Convergence for the Ornstein-Uhlenbeck Semigroup}}
+      \field{volume}{13}
+      \field{year}{2008}
+      \field{pages}{1\bibrangedash 19}
+      \verb{file}
+      \verb :home/aw/teuwen/Localdisk/Mendeley-Desktop/Pineda, Urbina - 2008 - Non Tangential Convergence for the Ornstein-Uhlenbeck Semigroup.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://www.emis.ams.org/journals/DM/v16-1/art7.pdf
+      \endverb
+      \keyw{and phrases,hermite expansions,non tangential convergence,ornstein-,poisson-hermite semigroup,uhlenbeck semigroup}
+    \endentry
     \entry{Portal2012}{unpublished}{}
       \name{labelname}{1}{}{%
         {{hash=72181505e073b35a6d75a96812fb827c}{Portal}{P\bibinitperiod}{Pierre}{P\bibinitperiod}{}{}{}{}}%

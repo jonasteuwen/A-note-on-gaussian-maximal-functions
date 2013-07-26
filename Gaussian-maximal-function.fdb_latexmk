@@ -1,10 +1,11 @@
 # Fdb version 3
-["biber Gaussian-maximal-function"] 1374825082 "Gaussian-maximal-function.bcf" "Gaussian-maximal-function.bbl" "Gaussian-maximal-function" 1374825140
-  "Gaussian-maximal-function.bcf" 1374825140 90942 f681273104b7721930739477892cbe20 ""
+["biber Gaussian-maximal-function"] 1374838055 "Gaussian-maximal-function.bcf" "Gaussian-maximal-function.bbl" "Gaussian-maximal-function" 1374840697
+  "/home/aw/teuwen/Documents/BibTeX/library.bib" 1374769143 284324 60625816767ca183de057b8d8af9c685 ""
+  "Gaussian-maximal-function.bcf" 1374840697 91046 e86422605010bd4e75fe83c30866ab89 ""
   (generated)
   "Gaussian-maximal-function.bbl"
   "Gaussian-maximal-function.blg"
-["pdflatex"] 1374825139 "Gaussian-maximal-function.tex" "Gaussian-maximal-function.pdf" "Gaussian-maximal-function" 1374825140
+["pdflatex"] 1374840695 "Gaussian-maximal-function.tex" "Gaussian-maximal-function.pdf" "Gaussian-maximal-function" 1374840697
   "/opt64/texlive/2012/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/opt64/texlive/2012/texmf-dist/fonts/enc/dvips/ly1/texnansi.enc" 1276641224 6938 5135be6a8802f13a7faf296d1959a1ab ""
   "/opt64/texlive/2012/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
@@ -256,11 +257,11 @@
   "/opt64/texlive/2012/texmf-var/web2c/pdftex/pdflatex.fmt" 1360834928 3693681 d06388659fdb24d8e434dc5907f8af34 ""
   "/opt64/texlive/2012/texmf.cnf" 1360834908 450 4d403dc0cdb7db5aa63be9299ca1475e ""
   "/opt64/texlive/2012/texmf/web2c/texmf.cnf" 1336865692 31299 729e216d9b945005c0d4b079c0500bc9 ""
-  "Gaussian-maximal-function.aux" 1374825140 5450 e0c03015a50cebf0d476cc5138bc8123 ""
-  "Gaussian-maximal-function.bbl" 1374824936 6809 a0356019530e8e9362f31312713bc29f "biber Gaussian-maximal-function"
-  "Gaussian-maximal-function.out" 1374825140 243 95f2be70e21725b35772ef234b920225 ""
-  "Gaussian-maximal-function.run.xml" 1374825140 2468 8eb6e1c2477773d7ca638824b3c47f69 ""
-  "Gaussian-maximal-function.tex" 1374825138 27880 873d191f66735c73158d04155ff8e721 ""
+  "Gaussian-maximal-function.aux" 1374840697 6710 15a536d50a29a94a11d40d3ffb9d6835 ""
+  "Gaussian-maximal-function.bbl" 1374838057 8243 17a52e020c1622005713850882492d2c "biber Gaussian-maximal-function"
+  "Gaussian-maximal-function.out" 1374840697 387 0868718e55fd39d37fa29e91a1a4da7a ""
+  "Gaussian-maximal-function.run.xml" 1374840697 2468 8eb6e1c2477773d7ca638824b3c47f69 ""
+  "Gaussian-maximal-function.tex" 1374840695 60116 805a72cbcc70715dafbd8735e2073312 ""
   (generated)
   "Gaussian-maximal-function.aux"
   "Gaussian-maximal-function.out"

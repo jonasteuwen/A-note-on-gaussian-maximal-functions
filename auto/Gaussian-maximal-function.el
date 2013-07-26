@@ -24,17 +24,28 @@
      "def:Global-region-cone-lemma"
      "eq:Global-region-cone-lemma-proof-1"
      "lem:Time-part-Mehler-time-transform"
-     "eq:Time-part-Mehler-time-transform"
+     "eq:Time-part-Mehler-time-transform-1"
+     "eq:Time-part-Mehler-time-transform-2"
      "eq:Time-part-Mehler-time-transform-proof-1"
      "lem:Exponential-estimates"
      "eq:Exponential-estimates-1"
      "lem:Kernel-estimates-1"
      "eq:Kernel-lemma-1-estimate"
+     "lem:Gaussian-ball-shift-lemma"
+     "eq:Gaussian-ball-shift-lemma"
+     "eq:Gaussian-ball-shift-lemma-proof-1"
      "eq:C_k-annulus-decomposition"
-     "eq:C_k-annulus-decomposition-expand-nonzero"
-     "eq:C_k-annulus-decomposition-expand-zero"
+     "eq:C_k-annulus-decomposition-expand"
      "lem:On-diagonal-kernel-estimates-on-Ck"
-     "lem:On-diagonal-kernel-estimates-on-Ck-proof-1")
+     "lem:On-diagonal-kernel-estimates-on-Ck-proof-1"
+     "lem:Maximal-function-cone"
+     "eq:maximal_function_cone"
+     "eq:Mehler-kernel-estimate-one-sided-bound"
+     "eq:Gaussian-ball-Maximal-function-cone-proof-1"
+     "eq:Maximal-function-cone-intermediate-step-1"
+     "eq:Time-part-Mehler-time-transform"
+     "eq:C_k-annulus-decomposition-expand-nonzero"
+     "eq:C_k-annulus-decomposition-expand-zero")
     (TeX-add-symbols
      '("hintedrel" ["argument"] 1)
      '("hintref" 1)

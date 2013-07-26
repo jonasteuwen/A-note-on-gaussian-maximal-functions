@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.2.14)  26 JUL 2013 09:52
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.2.14)  26 JUL 2013 14:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1858,35 +1858,35 @@ line 228.
 Package nag Info: Command \topcaption not defined, skipping amendment on input 
 line 228.
 LaTeX Font Info:    Font shape `T1/mdbch/m/fsc' will be
-(Font)              scaled to size 7.68005pt on input line 230.
+(Font)              scaled to size 7.68005pt on input line 229.
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 11.52008pt on input line 238.
+(Font)              scaled to size 11.52008pt on input line 246.
 LaTeX Font Info:    Font shape `T1/mdbch/bx/n' in size <12> not available
-(Font)              Font shape `T1/mdbch/b/n' tried instead on input line 238.
+(Font)              Font shape `T1/mdbch/b/n' tried instead on input line 246.
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 11.52008pt on input line 238.
+(Font)              scaled to size 11.52008pt on input line 246.
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 10.56007pt on input line 238.
+(Font)              scaled to size 10.56007pt on input line 246.
 LaTeX Font Info:    Font shape `T1/mdbch/bx/n' in size <10> not available
-(Font)              Font shape `T1/mdbch/b/n' tried instead on input line 238.
+(Font)              Font shape `T1/mdbch/b/n' tried instead on input line 246.
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 9.60007pt on input line 238.
+(Font)              scaled to size 9.60007pt on input line 246.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 240.
+(Font)              scaled to size 9.60007pt on input line 250.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 240.
+(Font)              scaled to size 6.72005pt on input line 250.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 9.60007pt on input line 240.
+(Font)              scaled to size 9.60007pt on input line 250.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 6.72005pt on input line 240.
+(Font)              scaled to size 6.72005pt on input line 250.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 240.
+(Font)              scaled to size 9.60007pt on input line 250.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 240.
+(Font)              scaled to size 6.72005pt on input line 250.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 240.
+(Font)              scaled to size 9.60007pt on input line 250.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 240.
+(Font)              scaled to size 6.72005pt on input line 250.
 
 (/opt64/texlive/2012/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
@@ -1895,86 +1895,115 @@ File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 240.
+(Font)              scaled to size 9.60007pt on input line 250.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 240.
+(Font)              scaled to size 6.72005pt on input line 250.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 240.
+(Font)              scaled to size 9.60007pt on input line 250.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 240.
+(Font)              scaled to size 6.72005pt on input line 250.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 240.
+(Font)              scaled to size 9.60007pt on input line 250.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 240.
+(Font)              scaled to size 6.72005pt on input line 250.
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 6.72005pt on input line 241.
+(Font)              scaled to size 6.72005pt on input line 251.
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 4.80003pt on input line 241.
+(Font)              scaled to size 4.80003pt on input line 251.
+LaTeX Font Info:    Font shape `T1/mdbch/m/it' will be
+(Font)              scaled to size 9.60007pt on input line 268.
 
 <Info by RefCheck> Unused label `eq:Ornstein-Uhlenbeck-operator' on page 1
 <Info by RefCheck> Unused label `eq:Ornstein-Uhlenbeck-semigroup-integral' on p
 age 1
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 259.
+(Font)              scaled to size 6.72005pt on input line 279.
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 259.
+(Font)              scaled to size 4.80003pt on input line 279.
 <Info by RefCheck> Unused label `eq:Mehler-kernel' on page 1
-LaTeX Font Info:    Font shape `T1/mdbch/m/it' will be
-(Font)              scaled to size 9.60007pt on input line 289.
-LaTeX Font Info:    Font shape `T1/mdbch/m/fsc' will be
-(Font)              scaled to size 9.60007pt on input line 289.
 [1{/opt64/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+LaTeX Font Info:    Font shape `T1/mdbch/m/fsc' will be
+(Font)              scaled to size 9.60007pt on input line 310.
+
 <Info by RefCheck> Unused label `eq:Gaussian-cone' on page 2
 <Info by RefCheck> Unused label `eq:Definition-local-region' on page 2
 <Info by RefCheck> Unused label `eq:Definition-local-region-ball' on page 2
 <Info by RefCheck> Unused label `eq:Definition-cut-off-set-D' on page 2
-<Info by RefCheck> Unused label `eq:Cone-Gaussians-comparable-1' on page 2
-<Info by RefCheck> Unused label `eq:Cone-Gaussians-comparable-2' on page 2
 [2]
+<Info by RefCheck> Unused label `eq:Cone-Gaussians-comparable-1' on page 3
+<Info by RefCheck> Unused label `eq:Cone-Gaussians-comparable-2' on page 3
 <Info by RefCheck> Unused label `eq:Global-region-cone-lemma-proof-1' on page 3
 
-<Info by RefCheck> Unused label `eq:Time-part-Mehler-time-transform' on page 3
-<Info by RefCheck> Unused label `eq:Time-part-Mehler-time-transform-proof-1' on
- page 3
+<Info by RefCheck> Unused label `eq:Time-part-Mehler-time-transform-1' on page 
+3
 [3]
+<Info by RefCheck> Unused label `eq:Time-part-Mehler-time-transform-2' on page 
+4
+<Info by RefCheck> Unused label `eq:Time-part-Mehler-time-transform-proof-1' on
+ page 4
 <Info by RefCheck> Unused label `eq:Exponential-estimates-1' on page 4
-<Info by RefCheck> Unused label `eq:Kernel-lemma-1-estimate' on page 4
-[4] [5]
+[4]
+<Info by RefCheck> Unused label `eq:Kernel-lemma-1-estimate' on page 5
+<Info by RefCheck> Unused label `eq:Gaussian-ball-shift-lemma' on page 5
+[5]
+<Info by RefCheck> Unused label `eq:Gaussian-ball-shift-lemma-proof-1' on page 
+6
 <Info by RefCheck> Unused label `eq:C_k-annulus-decomposition' on page 6
-<Info by RefCheck> Unused label `eq:C_k-annulus-decomposition-expand-nonzero' o
-n page 6
-<Info by RefCheck> Unused label `eq:C_k-annulus-decomposition-expand-zero' on p
-age 6
+<Info by RefCheck> Unused label `eq:C_k-annulus-decomposition-expand' on page 6
+
+[6]
 <Info by RefCheck> Unused label `lem:On-diagonal-kernel-estimates-on-Ck-proof-1
-' on page 6
-[6] [7]
+' on page 7
+<Info by RefCheck> Unused label `eq:maximal_function_cone' on page 7
 LaTeX Font Info:    Font shape `T1/mdbch/m/it' will be
-(Font)              scaled to size 7.68005pt on input line 766.
+(Font)              scaled to size 6.72005pt on input line 745.
+LaTeX Font Info:    Font shape `T1/mdbch/m/it' will be
+(Font)              scaled to size 4.80003pt on input line 745.
+<Info by RefCheck> Unused label `eq:Mehler-kernel-estimate-one-sided-bound' on 
+page 7
+<Info by RefCheck> Unused label `eq:Gaussian-ball-Maximal-function-cone-proof-1
+' on page 7
+[7]
+<Info by RefCheck> Unused label `eq:Maximal-function-cone-intermediate-step-1' 
+on page 8
+
+Overfull \hbox (66.9823pt too wide) in paragraph at lines 823--823
+[] 
+ []
+
+
+Overfull \hbox (66.9823pt too wide) in alignment at lines 822--823
+[] [] 
+ []
+
+[8]
+LaTeX Font Info:    Font shape `T1/mdbch/m/it' will be
+(Font)              scaled to size 7.68005pt on input line 841.
 LaTeX Font Info:    Font shape `T1/cmtt/m/n' will be
-(Font)              scaled to size 8.59998pt on input line 766.
+(Font)              scaled to size 8.59998pt on input line 841.
 
 No complaints by nag.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 766.
-[8]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 766.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 841.
+[9]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 841.
  (./Gaussian-maximal-function.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 766.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 766.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 841.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 841.
 Package rerunfilecheck Info: File `Gaussian-maximal-function.out' has not chang
 ed.
-(rerunfilecheck)             Checksum: 95F2BE70E21725B35772EF234B920225;243.
+(rerunfilecheck)             Checksum: 0868718E55FD39D37FA29E91A1A4DA7A;387.
 Package logreq Info: Writing requests to 'Gaussian-maximal-function.run.xml'.
 \openout1 = `Gaussian-maximal-function.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 30679 strings out of 493488
- 542248 string characters out of 3139217
- 978498 words of memory out of 3000000
- 33004 multiletter control sequences out of 15000+200000
- 75479 words of font info for 226 fonts, out of 3000000 for 9000
+ 30758 strings out of 493488
+ 543593 string characters out of 3139217
+ 978909 words of memory out of 3000000
+ 33031 multiletter control sequences out of 15000+200000
+ 83986 words of font info for 261 fonts, out of 3000000 for 9000
  1118 hyphenation exceptions out of 8191
- 56i,15n,55p,814b,2303s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 56i,19n,55p,814b,2305s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/opt64/texlive/2012/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/op
 t64/texlive/2012/texmf-dist/fonts/enc/dvips/ly1/texnansi.enc}</opt64/texlive/20
 12/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb></opt64/texlive/2012/texm
@@ -1987,10 +2016,10 @@ n/mdbch/md-chr8t.pfb></opt64/texlive/2012/texmf-dist/fonts/type1/mathdesign/mdb
 ch/md-chri7m.pfb></opt64/texlive/2012/texmf-dist/fonts/type1/mathdesign/mdbch/m
 d-chrma.pfb></opt64/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sftt080
 0.pfb>
-Output written on Gaussian-maximal-function.pdf (8 pages, 124575 bytes).
+Output written on Gaussian-maximal-function.pdf (9 pages, 132795 bytes).
 PDF statistics:
- 192 PDF objects out of 1000 (max. 8388607)
- 170 compressed objects within 2 object streams
- 55 named destinations out of 1000 (max. 500000)
- 46637 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 246 PDF objects out of 1000 (max. 8388607)
+ 209 compressed objects within 3 object streams
+ 68 named destinations out of 1000 (max. 500000)
+ 47677 words of extra memory for PDF output out of 51595 (max. 10000000)
 

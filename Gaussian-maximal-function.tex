@@ -277,6 +277,7 @@ arguments, a useful expression is:
     \biggr)}{(1 + \e^{-t^2})^{\frac{d}2}}.
 \end{equation}
 
+
 \section{Some fine lemmata and definitions}
 \subsection{$m$inimal function}
 We recall the lemma from \cite[lemma 2.3]{Maas2011b} which first,
@@ -338,7 +339,6 @@ $\Gamma_x^{(A, a)}$ and we will name it $D^a$, that is:
   D^a := \{(x, t) \in \R^d_+ : t \leq a m(x)\}.
 \end{equation}
 We will write $D := D^1$ for simplicity.
-
 
 The next lemma will come useful when we want to cancel exponential
 growth in one variable with exponential decay in the other as long
@@ -432,6 +432,7 @@ both variables are in a Gaussian cone.
   \end{align*}
   So we are done.
 \end{proof}
+
 
 \section{On-diagonal estimates}
 \subsection{Kernel estimates}
@@ -618,7 +619,6 @@ $M_{\frac{t}\alpha}$ in terms of $M_t$.
   \end{equation*}
 \end{remark}
 
-
 \subsection{On-diagonal kernel estimates on annuli}
 As is common in harmonic analysis, we often wish to decompose
 $\R^d$ into sets on which certain phenomena are easier to handle. Thus
@@ -630,7 +630,7 @@ multiplying its radius by $2$.
 The $C_k$ are given by,
 \begin{equation}
   \label{eq:C_k-annulus-decomposition}
-  C_k(B) := C_k =
+  C_k(B) := C_k = (2^{k + 1} - 1)B \setminus (2^k - 1)B.
   \begin{cases}
     2B &\text{if $k = 0$,}\\
     2^{k + 1}B \setminus 2^k B &\text{for $k \geq 1$.}

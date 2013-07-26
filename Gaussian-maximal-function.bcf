@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bcf:controlfile version="2.2" xmlns:bcf="https://sourceforge.net/projects/biblatex">
+<bcf:controlfile version="2.3" xmlns:bcf="https://sourceforge.net/projects/biblatex">
   <!-- BIBER OPTIONS -->
   <bcf:options component="biber" type="global">
     <bcf:option type="singlevalued">
-      <bcf:key>bblencoding</bcf:key>
+      <bcf:key>output_encoding</bcf:key>
       <bcf:value>utf8</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
-      <bcf:key>bibencoding</bcf:key>
+      <bcf:key>input_encoding</bcf:key>
       <bcf:value>utf8</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">

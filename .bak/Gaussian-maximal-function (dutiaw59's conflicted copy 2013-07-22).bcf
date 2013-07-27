@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bcf:controlfile version="2.3" xmlns:bcf="https://sourceforge.net/projects/biblatex">
+<bcf:controlfile version="2.2" xmlns:bcf="https://sourceforge.net/projects/biblatex">
   <!-- BIBER OPTIONS -->
   <bcf:options component="biber" type="global">
     <bcf:option type="singlevalued">
-      <bcf:key>output_encoding</bcf:key>
+      <bcf:key>bblencoding</bcf:key>
       <bcf:value>utf8</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
-      <bcf:key>input_encoding</bcf:key>
+      <bcf:key>bibencoding</bcf:key>
       <bcf:value>utf8</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
@@ -1953,13 +1953,12 @@
   </bcf:bibdata>
   <bcf:section number="0">
     <bcf:citekey order="1">Pineda2008</bcf:citekey>
-    <bcf:citekey order="2">Pineda2008</bcf:citekey>
-    <bcf:citekey order="3">Sjogren1997</bcf:citekey>
-    <bcf:citekey order="4">Portal2012</bcf:citekey>
-    <bcf:citekey order="5">Sjogren1997</bcf:citekey>
-    <bcf:citekey order="6">Maas2011b</bcf:citekey>
-    <bcf:citekey order="7">Mauceri2007</bcf:citekey>
-    <bcf:citekey order="8">Pineda2008</bcf:citekey>
+    <bcf:citekey order="2">Sjogren1997</bcf:citekey>
+    <bcf:citekey order="3">Portal2012</bcf:citekey>
+    <bcf:citekey order="4">Sjogren1997</bcf:citekey>
+    <bcf:citekey order="5">Maas2011b</bcf:citekey>
+    <bcf:citekey order="6">Mauceri2007</bcf:citekey>
+    <bcf:citekey order="7">Pineda2008</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" type="entry" label="nty">
   <bcf:sorting>

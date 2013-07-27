@@ -83,15 +83,15 @@
     \endentry
     \entry{Pineda2008}{article}{}
       \name{labelname}{2}{}{%
-        {{hash=3d00d353fffa98b253b1f66e05d098a4}{Pineda}{P\bibinitperiod}{E.}{E\bibinitperiod}{}{}{}{}}%
-        {{hash=b4e29c4e79851084c81ed6bc7cddf72b}{Urbina}{U\bibinitperiod}{W.}{W\bibinitperiod}{}{}{}{}}%
+        {{hash=c8a0cc9a859f35fc28a242b28abddfde}{Pineda}{P\bibinitperiod}{E}{E\bibinitperiod}{}{}{}{}}%
+        {{hash=a0ac833a551df27bc1b290932c9da11f}{Urbina}{U\bibinitperiod}{W}{W\bibinitperiod}{}{}{}{}}%
       }
       \name{author}{2}{}{%
-        {{hash=3d00d353fffa98b253b1f66e05d098a4}{Pineda}{P\bibinitperiod}{E.}{E\bibinitperiod}{}{}{}{}}%
-        {{hash=b4e29c4e79851084c81ed6bc7cddf72b}{Urbina}{U\bibinitperiod}{W.}{W\bibinitperiod}{}{}{}{}}%
+        {{hash=c8a0cc9a859f35fc28a242b28abddfde}{Pineda}{P\bibinitperiod}{E}{E\bibinitperiod}{}{}{}{}}%
+        {{hash=a0ac833a551df27bc1b290932c9da11f}{Urbina}{U\bibinitperiod}{W}{W\bibinitperiod}{}{}{}{}}%
       }
-      \strng{namehash}{23559c3d080caecee646487bdc719703}
-      \strng{fullhash}{23559c3d080caecee646487bdc719703}
+      \strng{namehash}{730dc549b7d649451c4176cd9a5a4fb9}
+      \strng{fullhash}{730dc549b7d649451c4176cd9a5a4fb9}
       \field{sortinit}{P}
       \field{labeltitle}{{Non Tangential Convergence for the Ornstein-Uhlenbeck Semigroup}}
       \field{journaltitle}{Divulgaciones Matemáticas}

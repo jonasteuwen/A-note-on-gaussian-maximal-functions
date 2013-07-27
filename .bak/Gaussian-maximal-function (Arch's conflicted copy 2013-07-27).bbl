@@ -74,7 +74,7 @@
       \verb 10.1016/j.jfa.2007.06.017
       \endverb
       \verb{file}
-      \verb :home/aw/teuwen/Localdisk/Mendeley-Desktop/Mauceri, Meda - 2007 - $textrm{BMO}$ and $H1$ for the Ornstein-Uhlenbeck operator.pdf:pdf
+      \verb :home/jonasteuwen/Documents/Mendeley/Mauceri, Meda - 2007 - $textrm{BMO}$ and $H1$ for the Ornstein-Uhlenbeck operator.pdf:pdf
       \endverb
       \verb{url}
       \verb http://linkinghub.elsevier.com/retrieve/pii/S0022123607002613%20http://dx.doi.org/10.1016/j.jfa.2007.06.017
@@ -83,15 +83,15 @@
     \endentry
     \entry{Pineda2008}{article}{}
       \name{labelname}{2}{}{%
-        {{hash=3d00d353fffa98b253b1f66e05d098a4}{Pineda}{P\bibinitperiod}{E.}{E\bibinitperiod}{}{}{}{}}%
-        {{hash=b4e29c4e79851084c81ed6bc7cddf72b}{Urbina}{U\bibinitperiod}{W.}{W\bibinitperiod}{}{}{}{}}%
+        {{hash=c8a0cc9a859f35fc28a242b28abddfde}{Pineda}{P\bibinitperiod}{E}{E\bibinitperiod}{}{}{}{}}%
+        {{hash=a0ac833a551df27bc1b290932c9da11f}{Urbina}{U\bibinitperiod}{W}{W\bibinitperiod}{}{}{}{}}%
       }
       \name{author}{2}{}{%
-        {{hash=3d00d353fffa98b253b1f66e05d098a4}{Pineda}{P\bibinitperiod}{E.}{E\bibinitperiod}{}{}{}{}}%
-        {{hash=b4e29c4e79851084c81ed6bc7cddf72b}{Urbina}{U\bibinitperiod}{W.}{W\bibinitperiod}{}{}{}{}}%
+        {{hash=c8a0cc9a859f35fc28a242b28abddfde}{Pineda}{P\bibinitperiod}{E}{E\bibinitperiod}{}{}{}{}}%
+        {{hash=a0ac833a551df27bc1b290932c9da11f}{Urbina}{U\bibinitperiod}{W}{W\bibinitperiod}{}{}{}{}}%
       }
-      \strng{namehash}{23559c3d080caecee646487bdc719703}
-      \strng{fullhash}{23559c3d080caecee646487bdc719703}
+      \strng{namehash}{730dc549b7d649451c4176cd9a5a4fb9}
+      \strng{fullhash}{730dc549b7d649451c4176cd9a5a4fb9}
       \field{sortinit}{P}
       \field{labeltitle}{{Non Tangential Convergence for the Ornstein-Uhlenbeck Semigroup}}
       \field{journaltitle}{Divulgaciones Matemáticas}
@@ -101,14 +101,14 @@
       \field{year}{2008}
       \field{pages}{1\bibrangedash 19}
       \verb{file}
-      \verb :home/aw/teuwen/Localdisk/Mendeley-Desktop/Pineda, Urbina - 2008 - Non Tangential Convergence for the Ornstein-Uhlenbeck Semigroup.pdf:pdf
+      \verb :home/jonasteuwen/Documents/Mendeley/Pineda, Urbina, Urbina R. - 2008 - Non Tangential Convergence for the Ornstein-Uhlenbeck Semigroup.pdf:pdf
       \endverb
       \verb{url}
       \verb http://www.emis.ams.org/journals/DM/v16-1/art7.pdf
       \endverb
       \keyw{and phrases,hermite expansions,non tangential convergence,ornstein-,poisson-hermite semigroup,uhlenbeck semigroup}
     \endentry
-    \entry{Portal2012}{article}{}
+    \entry{Portal2012}{unpublished}{}
       \name{labelname}{1}{}{%
         {{hash=72181505e073b35a6d75a96812fb827c}{Portal}{P\bibinitperiod}{Pierre}{P\bibinitperiod}{}{}{}{}}%
       }
@@ -120,6 +120,7 @@
       \field{sortinit}{P}
       \field{labeltitle}{{Maximal and quadratic Gaussian Hardy spaces}}
       \field{abstract}{Building on the author's recent work with Jan Maas and Jan van Neerven, this paper establishes the equivalence of two norms (one using a maximal function, the other a square function) used to define a Hardy space on $\R^{n}$ with the gaussian measure, that is adapted to the Ornstein-Uhlenbeck semigroup. In contrast to the atomic Gaussian Hardy space introduced earlier by Mauceri and Meda, the $h^{1}(\R^{n};d\gamma)$ space studied here is such that the Riesz transforms are bounded from $h^{1}(\R^{n};d\gamma)$ to $L^{1}(\R^{n};d\gamma)$. This gives a gaussian analogue of the seminal work of Fefferman and Stein in the case of the Lebesgue measure and the usual Laplacian.}
+      \field{annotation}{Preprint}
       \field{eprinttype}{arXiv}
       \field{month}{03}
       \field{title}{{Maximal and quadratic Gaussian Hardy spaces}}
@@ -127,13 +128,9 @@
       \verb{eprint}
       \verb 1203.1998
       \endverb
-      \verb{file}
-      \verb :home/aw/teuwen/Localdisk/Mendeley-Desktop/Portal - 2012 - Maximal and quadratic Gaussian Hardy spaces.pdf:pdf
-      \endverb
       \verb{url}
       \verb http://arxiv.org/abs/1203.1998
       \endverb
-      \keyw{Hardy,gaussian,ornstein,uhlenbeck}
     \endentry
     \entry{Sjogren1997}{article}{}
       \name{labelname}{1}{}{%
@@ -161,7 +158,7 @@
       \verb 10.1007/BF02656487
       \endverb
       \verb{file}
-      \verb :home/aw/teuwen/Localdisk/Mendeley-Desktop/Sjögren - 1997 - Operators associated with the hermite semigroup — A survey.pdf:pdf
+      \verb :home/jonasteuwen/Documents/Mendeley/Sjögren - 1997 - Operators associated with the hermite semigroup — A survey.pdf:pdf
       \endverb
       \verb{url}
       \verb http://link.springer.com/10.1007/BF02656487

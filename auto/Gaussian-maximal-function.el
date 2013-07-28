@@ -38,6 +38,7 @@
      "eq:Mehler-kernel-estimate-one-sided-bound-1"
      "eq:Mehler-kernel-estimate-one-sided-bound"
      "eq:Gaussian-ball-Maximal-function-cone-proof-1"
+     "eq:Gaussian-ball-Maximal-function-cone-proof-2"
      "eq:Maximal-function-cone-intermediate-step-1"
      "lem:m-xy-equivalence-no-cone"
      "eq:Definition-local-region"

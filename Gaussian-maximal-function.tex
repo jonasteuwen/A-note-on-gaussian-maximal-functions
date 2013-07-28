@@ -398,11 +398,11 @@ both variables are in a Gaussian cone.
 We begin with a technical lemma which will be useful on several
 occasions.
 \begin{lemma}\label{lem:Time-part-Mehler-time-transform}
-  Let $t > 0$ and let $\alpha > 2$. Then,
+  Let $t > 0$ and $\alpha \geq 1$. Then,
   \begin{equation}
     \label{eq:Time-part-Mehler-time-transform-1}
-    \alpha \e^{-\frac{t^2}{\alpha}} \leq \frac{1 - \e^{-t^2}}{1 -
-      \e^{-\frac{t^2}{\alpha}}} \leq \alpha,
+    \alpha \frac{\e^{\frac{t^2}{\alpha}}}{\e^{t^2}} \leq \frac{1 -
+      \e^{-t^2}}{1 - \e^{-\frac{t^2}{\alpha}}} \leq \alpha,
   \end{equation}
   and
   \begin{equation}
@@ -430,9 +430,8 @@ occasions.
   Combining this result with the monotonicity of $\xi \mapsto
   \alpha \xi^{\alpha - 1}$ we obtain:
   \begin{equation*}
-    \alpha \e^{-\frac{t^2}\alpha} \leq \alpha \exp\biggl(-t^2 \frac{\alpha -
-      1}{\alpha} \biggr) \leq \frac{1 - \e^{-t^2}}{1 -
-      \e^{-\frac{t^2}{\alpha}}} \leq \alpha,
+    \alpha \exp\biggl(-t^2 \frac{\alpha - 1}{\alpha} \biggr) \leq
+    \frac{1 - \e^{-t^2}}{1 - \e^{-\frac{t^2}{\alpha}}} \leq \alpha, 
   \end{equation*}
   where the last bound follows from the monotonicity together with the
   limit as $t \downarrow 0$.
@@ -465,13 +464,13 @@ The following lemma will be useful when transfering estimates from
 $M_{\frac{t^2}{\alpha}}$ to $M_{t^2}$. It follows from the mean value
 theorem applied to $\xi \mapsto \xi^\alpha$.
 \begin{lemma}\label{lem:Exponential-estimates}
-  For $\alpha > 1$ and $t$ in $(0, T]$ and all let $x, y$ in $\R^d$
+  For $\alpha > 1$ and $t \in (0, T]$ and all let $x, y \in \R^d$
   we have that:
   \begin{equation}
     \label{eq:Exponential-estimates-1}
-    \exp \biggl (-\frac12\frac{|x - y|^2}{1 - \e^{-\frac{t^2}\alpha}}
-    \biggr ) \leq  \exp \biggl (-\frac12\frac{\alpha}{\e^{T^2}} \frac{|x -
-      y|^2}{1 - \e^{-t^2}} \biggr ).
+    \exp \biggl (-\e^{-2\frac{t^2}\alpha} \frac{|x - y|^2}{1 - \e^{-2\frac{t^2}\alpha}}
+    \biggr ) \leq \exp \biggl(-\frac{\alpha}{2\e^{2T^2}} \frac{|x -
+      y|^2}{1 - \e^{-t^2}} \biggr).
   \end{equation}
 \end{lemma}
 \begin{proof}
@@ -484,34 +483,30 @@ Therefore,
  \exp\biggl(-\e^{-2t^2} \dfrac{|x - y|^2}{1 - \e^{-2 t^2}} \biggr)
  &\leq \exp\biggl(-\dfrac{\e^{-2t^2}}{1 + \e^{-t^2}} \dfrac{|x -
    y|^2}{1 - \e^{-t^2}} \biggr)\\
- &\leq \exp\biggl(-\frac1{2\e^{2T^2}} \dfrac{|x - y|^2}{1 - \e^{-t^2}} \biggr)
+ &\leq \exp\biggl(-\frac1{2\e^{2T^2}} \dfrac{|x - y|^2}{1 - \e^{-t^2}} \biggr).
 \end{align*}
-
-
-
-
-  Let $t > 0$. Applying
-  \eqref{eq:Time-part-Mehler-time-transform-1} we get:
-  \begin{align*}
-    \exp \biggl (-\e^{-\frac{t^2}\alpha} \frac{|x - y|^2}{1 - \e^{-2\frac{t^2}\alpha}}
-    \biggr ) &= \exp \biggl (-\frac1{2\e^{2\frac{T^2}{\alpha}}} \frac{1
-      - \e^{-t^2}}{1 - \e^{-\frac{t^2}\alpha}}  \frac{|x - y|^2}{1 - \e^{-t^2}} \biggr )\\
-    &\leq \exp \biggl(-\frac{\alpha}{2\e^{2\frac{T^2}{\alpha}}}
-    \frac{\alpha}{\e^{T^2}} \frac{|x - y|^2}{1 - \e^{-t^2}} \biggr).
-  \end{align*}
-  Which is as asserted.
+Applying \eqref{eq:Time-part-Mehler-time-transform-1} we get:
+\begin{align*}
+  \exp \biggl (-\e^{-2\frac{t^2}\alpha} \frac{|x - y|^2}{1 - \e^{-2\frac{t^2}\alpha}}
+  \biggr ) &= \exp \biggl (-\frac1{2\e^{2\frac{T^2}{\alpha}}} \frac{1
+    - \e^{-t^2}}{1 - \e^{-\frac{t^2}\alpha}}  \frac{|x - y|^2}{1 - \e^{-t^2}} \biggr )\\
+  &\leq \exp \biggl(-\frac{1}{2\e^{\frac{T^2}{\alpha}}}
+  \frac{\alpha}{\e^{T^2}} \frac{|x - y|^2}{1 - \e^{-t^2}} \biggr)\\
+  &\leq \exp \biggl(-\frac{\alpha}{2\e^{2T^2}} \frac{|x - y|^2}{1 - \e^{-t^2}} \biggr).
+\end{align*}
+Which is as asserted.
 \end{proof}
 Our first lemma is about estimating $M_{\frac{t^2}\alpha}$ in terms of
 $M_{t^2}$.
 \subsubsection{Time-scaling of the Mehler kernel}
 \begin{lemma}\label{lem:Kernel-estimates-1}
- Let $T > 0$, $\alpha \geq 2 \e^{T^2}$, $t$ in $(0, T]$ and $x, y \in
+ Let $T > 0$, $\alpha \geq 4 \e^{2 T^2}$, $t \in (0, T]$ and $x, y \in
  \R^d$. Then:
   \begin{equation}
     \label{eq:Kernel-lemma-1-estimate} 
     M_{\frac{t^2}{\alpha}}(x, y) \leq \alpha^{\frac{d}2}
-    \e^{\frac{t^2}4 |\la x, y \ra|} \exp\biggl (-\frac{\alpha}{2
-      \e^{T^2}} \frac{|x - y|^2}{1 - \e^{-t^2}} \biggr ) M_{t^2}(x,
+    \e^{\frac{t^2}4 |\la x, y \ra|} \exp\biggl (-\frac{\alpha}{4
+      \e^{2 T^2}} \frac{|x - y|^2}{1 - \e^{-t^2}} \biggr ) M_{t^2}(x,
     y).
   \end{equation}
 \end{lemma}
@@ -531,25 +526,31 @@ $M_{t^2}$.
     \biggl (\frac2{t^2}\biggl[\frac{1}{1 + \e^{-t^2}} - \frac{1}{1 +
       \e^{-\frac{t^2}{\alpha}}} \biggr] t^2 \la x, y \ra \biggr)\\
     &\stackrel{\eqref{eq:Time-part-Mehler-time-transform-2}}{\leq}
-    \exp\biggl (\frac{t^2}4 |\la x, y \ra| \biggr).
+    \e^{\frac{t^2}4 |\la x, y \ra|}.
   \end{align*}
 
   Combining \autoref{lem:Exponential-estimates} and equation
   \eqref{eq:Exponential-estimates-1} gives is almost the final estimate.
   \begin{align*}
     \frac{M_{\frac{t^2}{\alpha}}(x, y)}{M_{t^2}(x, y)} &\leq
-    \alpha^{\frac{d}2} \e^{\frac{t^2}4 |\la x, y \ra|} \exp\biggl(\dfrac12 \dfrac{|x - y|^2}{1 -
-      \e^{-t^2}} \biggr) \exp\biggl(-\dfrac12 \dfrac{|x - y|^2}{1
-      - \e^{-\frac{t^2}{\alpha}}}  \biggr)\\
-    &\leq \alpha^{\frac{d}2} \e^{\frac{t^2}4 |\la x, y \ra|} \exp \biggl (\frac12 \biggl[1
-    -\frac{\alpha}{2\e^{T^2}} \biggr] \frac{|x - y|^2}{1 - \e^{-t^2}}
-    \biggr ) \exp \biggl (-\frac{\alpha}{2\e^{T^2}} \frac{|x - y|^2}{1
-      - \e^{-t^2}} \biggr ).
+    \alpha^{\frac{d}2} \e^{\frac{t^2}4 |\la x, y \ra|} \exp\biggl(\e^{-2t^2} \dfrac{|x - y|^2}{1 -
+      \e^{-2t^2}} \biggr) \exp\biggl(-\e^{-2\frac{t^2}{\alpha}} \dfrac{|x - y|^2}{1
+      - \e^{-2\frac{t^2}{\alpha}}}  \biggr)\\
+    &\leq
+    \alpha^{\frac{d}2} \e^{\frac{t^2}4 |\la x, y \ra|}
+    \exp\biggl(\dfrac{|x - y|^2}{1 - \e^{-2t^2}} \biggr)
+    \exp\biggl(-\e^{-2\frac{t^2}{\alpha}} \dfrac{|x - y|^2}{1 -
+      \e^{-2\frac{t^2}{\alpha}}}  \biggr)\\ 
+    &\leq \alpha^{\frac{d}2} \e^{\frac{t^2}4 |\la x, y \ra|} \exp
+    \biggl (\biggl[1 -\frac{\alpha}{4\e^{2 T^2}} \biggr]
+    \frac{|x - y|^2}{1 - \e^{-t^2}} \biggr ) \exp \biggl
+    (-\frac{\alpha}{4\e^{2 T^2}} \frac{|x - y|^2}{1 - \e^{-t^2}} \biggr
+    ).
   \end{align*}
-  Finally, we apply the assumption $\alpha \geq 2 \e^{T^2}$ to obtain:
+  Finally, we apply the assumption $\alpha \geq 4 \e^{2 T^2}$ to obtain:
   \begin{equation*}
     \frac{M_{\frac{t^2}{\alpha}}(x, y)}{M_{t^2}(x, y)} \leq \alpha^{\frac{d}2}
-    \e^{\frac{t^2}4 |\la x, y \ra|} \exp\biggl(-\frac{\alpha}{2\e^{T^2}} \frac{|x -
+    \e^{\frac{t^2}4 |\la x, y \ra|} \exp\biggl(-\frac{\alpha}{4\e^{2T^2}} \frac{|x -
       y|^2}{1 - \e^{-t^2}} \biggr).
   \end{equation*}
   Which is as asserted.
@@ -709,10 +710,25 @@ Our theorem is a small modification of \cite[lemma 1.1]{Pineda2008} with a new p
   \end{equation}
   Recalling \autoref{lem:Gaussian-ball-shift-lemma} we get using $t|x|
   \leq a$ that
+  \begin{equation*}
+    \frac{\gamma(B_t(x))}{V_d(t)} \leq d \e^{2 a} \e^{-t^2} \gamma(x)
+    \leq d \e^{2 a} \gamma(x).
+  \end{equation*}
   \begin{equation}
     \label{eq:Gaussian-ball-Maximal-function-cone-proof-1}
-    \frac{\gamma(B_t(x))}{V_d(t)} \leq d \e^{-t^2} \e^{2 t |x|} \gamma(x).
+    \frac{\gamma(B_t(x))}{V_d} \leq d \e^{2 a} t^d \gamma(x).
   \end{equation}
+  Where we abbreviate $V_d(1)$ with $V_d$.
+  Recall
+  \begin{equation*}
+    V_d \leq \frac1{\sqrt{\pi}} \biggl(\frac{2\pi e}{d} \biggr)^{\frac{d}{2}}.
+  \end{equation*}
+  To get,
+  \begin{equation}
+    \label{eq:Gaussian-ball-Maximal-function-cone-proof-2}
+    \gamma(B_t(x)) \leq t^d \e^{-(t - |x|)^2} \frac{d}{\sqrt{\pi}} \biggl(\frac{2 e}{d} \biggr)^{\frac{d}{2}}
+  \end{equation}
+
   This allows us to estimate the remaining unbounded exponential in the
   Mehler kernel and allow a penalty up to $\e^{-|x|^2}$. Furthermore,
   we have the following estimate which will make clear how to handle the

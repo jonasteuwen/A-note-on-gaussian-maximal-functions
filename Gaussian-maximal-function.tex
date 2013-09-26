@@ -243,77 +243,93 @@
 \section{Introduction}
 Maximal functions are one of the most studied objects in harmonic
 analysis. 
-For instance, the classical real-valued harmonic analytic maximal
-function can be seen to be of the form
+The classical real-valued harmonic analytic maximal
+function, for instance, can be seen to be of the form
 \begin{equation*}
-  \sup_{(y, t) \in \Gamma_x} |\e^{-t^2 \Delta} u(y)| \lesssim \sup_{r
+  \sup_{(y, t) \in \Gamma_x} |\e^{-t \Delta} u(y)| \lesssim \sup_{r
     > 0}  \dashint_{B_r(x)} |u| \D\lambda.
 \end{equation*}
-
+where the action of \emph{heat semigroup} $\e^{-t^2 \Delta} u$ is
+given by a convolution of $u$ with the \emph{heat kernel}
 \begin{equation*}
-  \rho_t(s) := \frac{\e^{-|s|^2/4t}}{\pi^{\frac{d}2}} \frac1{(4t)^{\frac{d}2}}
+  \rho_t(s) := \frac{\e^{-|s|^2/4t}}{\pi^{\frac{d}2}}
+  \frac1{(4t)^{\frac{d}2}},
 \end{equation*}
-\textbf{(verify)}
-In this note we are interested in gaussian harmonic analysis
-which is harmonic analysis with respect to the gaussian measure as
-opposed to the Lebesgue measure in classical real-valued harmonic
-analysis. As the gaussian maximal function will be of our main
-interest we 
+so that,
+\begin{equation*}
+  \e^{-t \Delta} u(x) = (\rho_t \ast u)(x).
+\end{equation*}
+In this note we are interested in its gaussian harmonic analysis
+counterpart. Gaussian harmonic analysis seems to be conceptually
+nothing more than harmonic analysis with the gaussian measure, but
+this is far off from reality. This change of measure introduces quite
+some intricate technical and conceptually difficulties which appears
+to be due to the fact that the Gaussian measure is non-doubling
+whereas the Lebesgue measure is.
 
-The gaussian maximal function will be our main interest.
-Formally we are looking for 
-
-We define the \emph{Gaussian measure} as:
+The \emph{Gaussian measure} which we will use in multitudinous
+occasions in this note is fixed here.
 \begin{equation}
   \label{eq:Gaussian-measure}
-  \mathrm{d}\gamma(x) := \frac{\e^{-|x|^2}}{\pi^{\frac{d}2}} \D{x}.
+  \mathrm{d}\gamma(x) := \pi^{-\frac{d}2} \e^{-|x|^2} \D{x}.
 \end{equation}
+As an analogue to the Laplacian which is symmetric in $L^2$ with
+respect to the Lebesgue measure next we introduce the
+\emph{Ornstein-Uhlenbeck} operator $L$ which is symmetric with respect
+to the Gaussian measure.
+\begin{equation}
+  \label{eq:Ornstein-Uhlenbeck-operator}
+  L := -\frac12 \Delta + \la x, \nabla \ra.
+\end{equation}
+In \autoref{thm:Gaussian-maximal-function} we will prove the analogue
+of the result with respect to the Lebesgue measure.
+% perhaps we should skip the t^2 too, changed for now.
+\begin{equation*}
+  \sup_{(y, t) \in \Gamma_x^{(A, a)}} |\e^{-t L} u(y)| \lesssim
+  \sup_{r > 0} \dashint_{B_r(x)} |u| \, \D\gamma.
+\end{equation*}
+We extend the result of \cite[Lemma~1.1]{Pineda2008}. Our contribution
+is a different proof of this result and an extension to the complete
+Gaussian cone \eqref{eq:Gaussian-cone} for all $A, a > 0$.
+
+Furthermore, this proof justifies the claim made by \cite{Portal2012}
+above Lemma 2.3 that the proof extends to general $a, A > 0$. 
 
 \subsection{\Textcite{Pineda2008}}
-
-\textcite{Pineda2008} use a different minimal function $\widetilde{m}$,
-namely:
-\begin{equation*}
-  \widetilde{m}(x) = \min\biggl\{\frac12, \frac1{|x|}\biggr\},
-\end{equation*}
-and their proof does not easily extend the range of $t$ up to $1$.
-Using our notation they have shown that 
-
-\begin{equation*}
-   \widetilde{\Gamma}_x(x) = \{(y, t) \in \R^d_+ : |x - y| < t \leq
-   \widetilde{m}(x)\}.
-\end{equation*}
-
-\begin{equation*}
-  \sup_{(y, t) \in \widetilde{\Gamma}_x} |\e^{-t^2 \Delta} u(y)|
-  \lesssim \sup_{r > 0}  \dashint_{B_r(x)} |u| \D\gamma.
-\end{equation*}
-
-
-Our contribution is the extension of the result \textcite[Lemma
-2.1]{Pineda2008} to the complete Gaussian cone 
-We define:
+We will use as Gaussian cone:
 \begin{equation}
   \label{eq:Gaussian-cone}
   \Gamma_x^{(A, a)} := \Gamma_x^{(A, a)}(\gamma) := \{(y, t) \in
-  \R^d_+ : |x - y| < At \:\text{and}\: t \leq a m(x)\}.
+  \R^d_+ : |x - y| < At \:\text{and}\: t \leq a m(x)\},
 \end{equation}
-To ease the notational burden a bit, we will write $\Gamma_x^a$ and
-mean $\Gamma_x^{(1, a)}$. Using the following $m$-function:
+where,
 \begin{equation}\label{eq:m-function}
   m(x) := \min\biggl\{1, \frac1{|x|} \biggr\} = 1 \wedge \frac1{|x|}.
 \end{equation}
+To save writing, we write $\Gamma_x^a$ to mean $\Gamma_x^{(1,
+  a)}$.
+In \cite{Pineda2008} the authors use a slightly different cut-off
+function $\widetilde{m}$:
+\begin{equation*}
+  \widetilde{m}(x) = \min\biggl\{\frac12, \frac1{|x|}\biggr\},
+\end{equation*}
+and their proof does not seem to easily generalize the range of $t$ up
+to $1$.
+In brief, they have used the cone
+\begin{equation*}
+   \widetilde{\Gamma}_x(x) = \{(y, t) \in \R^d_+ : |x - y| < t \leq
+   \widetilde{m}(x)\},
+\end{equation*}
+and have shown that,
+\begin{equation*}
+  \sup_{(y, t) \in \widetilde{\Gamma}_x} |\e^{-t \Delta} u(y)|
+  \lesssim \sup_{r > 0}  \dashint_{B_r(x)} |u| \D\gamma.
+\end{equation*}
 
-
-
-\subsection{Notation}
-To begin, let us fix some notation. As is common, we use $N$ to
-represent a positive integer. That is, $N \in \Z_+ = \{1, 2, 3,
-\dots\}$. In the same way we cast letters that denote the number of
-dimensions, e.g.\ $d \in \Z_+$ as positive integers.
-
-We use the capital letter $T$ to denote a ``time'' endpoint, for
-instance, when writing $t \in (0, T]$.
+Before we continue, let us fix some notation. We will use without
+further reference notation such as $\Z^d$ while we implicitly imply
+that $d$ is a positive integer. To avoid possible confusion, we define
+the \emph{positive integers} as the set $\Z_+ = \{1, 2, 3, \dots\}$. 
 
 % How do cone scalings behave wrt several maximal functions?
 % Especially for the latter.
@@ -325,17 +341,13 @@ instance, when writing $t \in (0, T]$.
 
 \subsubsection{$m$inimal function}
 We recall the lemma from \cite[lemma 2.3]{Maas2011b} which first
---although implicitly-- appeared in \cite{Mauceri2007}. For what
-follows it will be convenient to define a function $m$ as:
+--although implicitly-- appeared in \cite{Mauceri2007}.
 
 \section{The Mehler kernel}
 \subsection{Setting}
-We are concerned with the \emph{Ornstein-Uhlenbeck} operator $L$ which
-is defined as:
-\begin{equation}
-  \label{eq:Ornstein-Uhlenbeck-operator}
-  L := -\frac12 \Delta + \la x, \nabla \ra.
-\end{equation}
+Recall that we work with the \emph{Ornstein-Uhlenbeck} operator $L$ as
+given by \eqref{eq:Ornstein-Uhlenbeck-operator}.
+
 We define the Mehler kernel (see e.g., \textcite{Sjogren1997}) as the
 Schwartz kernel associated to the Ornstein-Uhlenbeck semigroup
 $(\e^{-tL})_{t \geq 0}$. More precisely, this means:
@@ -388,16 +400,9 @@ both variables are in a Gaussian cone.
   \end{equation*}
 \end{lemma}
 \begin{proof}
-  By the inverse triangle inequality we get, 
-  \begin{align*}
-    |y|^2 &\leq (\alpha m(x) + |x|)^2\\
-    &= \alpha^2 + 2 \alpha m(x) |x| + |x|^2\\
-    &\leq \alpha^2 + 2 \alpha + |x|^2.
-  \end{align*}
-  Therefore,
+  By the inverse triangle inequality and $m(x)|x| \leq 1$ we get, 
   \begin{equation}
-    \label{eq:Cone-Gaussians-comparable-1}
-    \e^{-|x|^2} \leq \e^{-|y|^2} \e^{\alpha^2} \e^{2\alpha}.
+    |y|^2 \leq (\alpha m(x) + |x|)^2 \leq \alpha^2 + 2 \alpha + |x|^2.
   \end{equation}
   For the reverse direction we use
   \autoref{lem:m-xy-equivalence} to infer $m(x) \leq (1 + \alpha)
@@ -405,19 +410,12 @@ both variables are in a Gaussian cone.
   \begin{equation*}
     |x|^2 \leq \alpha^2 (1 + \alpha)^2 + 2 \alpha (1 + \alpha) + |y|^2.
   \end{equation*}
-  Therefore,
-  \begin{equation}
-    \label{eq:Cone-Gaussians-comparable-2}
-    \e^{-|y|^2} \leq \e^{-|x|^2} \e^{\alpha^2 (1 + \alpha)^2} \e^{2
-      \alpha (1 + \alpha)}.
-  \end{equation}
   Combining we get:
-  \begin{equation*}
+  \begin{equation}
+   \label{eq:Cone-Gaussians-comparable}
     \e^{-\alpha^2(1 + \alpha)^2} \e^{-2\alpha(1 + \alpha)} \e^{-|y|^2}
-    \overset{\eqref{eq:Cone-Gaussians-comparable-2}}{\leq} \e^{-|x|^2}
-    \overset{\eqref{eq:Cone-Gaussians-comparable-1}}{\leq}
-    \e^{\alpha^2} \e^{2\alpha} \e^{-|y|^2}.
-  \end{equation*}
+    \leq \e^{-|x|^2} \leq \e^{\alpha^2} \e^{2\alpha} \e^{-|y|^2}.
+  \end{equation}
   As required.
 \end{proof}
 
@@ -426,19 +424,28 @@ both variables are in a Gaussian cone.
 We begin with a technical lemma which will be useful on several
 occasions.
 \begin{lemma}\label{lem:Time-part-Mehler-time-transform}
-  Let $t > 0$ and $\alpha \geq 2$. Then,
+  Let $t > 0$ and $\alpha \geq 1$. Then,
   \begin{equation}
     \label{eq:Time-part-Mehler-time-transform-1}
-    \alpha \e^{\frac{t^2}{\alpha}} \e^{-t^2} \leq \frac{1 -
-      \e^{-t^2}}{1 - \e^{-\frac{t^2}{\alpha}}} \leq \alpha,
+    \alpha \e^{\frac{t}{\alpha}} \e^{-t} \leq \frac{1 -
+      \e^{-t}}{1 - \e^{-\frac{t}{\alpha}}} \leq \alpha,
   \end{equation}
   and
   \begin{equation}
     \label{eq:Time-part-Mehler-time-transform-2}
-       0 \leq \frac1{t^2} \biggl[\frac{1}{1 + \e^{-t^2}} - \frac{1}{1 +
-         \e^{-\frac{t^2}{\alpha}}} \biggr] \leq \frac{1}{4} \biggl(1 -
-       \frac1\alpha \biggr) \leq \frac18.
+       0 \leq \frac1t \biggl[\frac{1}{1 + \e^{-t}} - \frac{1}{1 +
+         \e^{-\frac{t}{\alpha}}} \biggr] \leq \frac{1}{4} \biggl(1 -
+       \frac1\alpha \biggr),
   \end{equation}
+  and
+  \begin{equation}
+    \label{eq:Time-part-Mehler-time-transform-3}
+       0 \leq \frac1t \biggl[\frac{\e^{-t}}{1 + \e^{-t}} - \frac{\e^{-\frac{t}\alpha}}{1 +
+         \e^{-\frac{t}{\alpha}}} \biggr] \leq \frac{1}{4} \biggl(1 -
+       \frac1\alpha \biggr).
+  \end{equation}
+
+
 \end{lemma}
 \begin{proof}
   We start with \eqref{eq:Time-part-Mehler-time-transform-1} and apply
@@ -448,79 +455,81 @@ occasions.
     f(\xi) - f(\xi') = \alpha \hat{\xi}^{\alpha - 1} (\xi - \xi')
     \text{ for some $\hat \xi$ in $[\xi, \xi']$}.
   \end{equation*}
-  Picking $\xi = 1$ and $\xi' = \e^{-\frac{t^2}{\alpha}}$ yields:
+  Picking $\xi = 1$ and $\xi' = \e^{-\frac{t}{\alpha}}$ yields:
   \begin{equation}
     \label{eq:Time-part-Mehler-time-transform-proof-1}
-    \frac{1 - \e^{-t^2}}{1 - \e^{-\frac{t^2}{\alpha}}} = \alpha
+    \frac{1 - \e^{-t}}{1 - \e^{-\frac{t}{\alpha}}} = \alpha
     \hat{\xi}^{\alpha - 1} \:\text{for some}\: \hat{\xi} \:\text{in}\:
-    \biggl[\exp \Bigl(-\frac{t^2}{\alpha} \Bigr), 1 \biggr].
+    \Bigl[\e^{-\frac{t^2}{\alpha}}, 1 \Bigr].
   \end{equation}
   Combining this result with the monotonicity of $\xi \mapsto
   \alpha \xi^{\alpha - 1}$ we obtain:
   \begin{equation*}
-    \alpha \exp\biggl(-t^2 \frac{\alpha - 1}{\alpha} \biggr) \leq
-    \frac{1 - \e^{-t^2}}{1 - \e^{-\frac{t^2}{\alpha}}} \leq \alpha, 
+    \alpha \e^{\frac{t}{\alpha}} \e^{-t} \leq \frac{1 - \e^{-t}}{1 -
+      \e^{-\frac{t}{\alpha}}} \leq \alpha,
   \end{equation*}
   where the last bound follows from the monotonicity together with the
   limit as $t \downarrow 0$.
 
+
+  \begin{equation*}
+    \frac{\e^{-t}}{1 - \e^{-t}} \leq \frac1\alpha \frac{\e^{-\frac{t}{\alpha}}}{1 -
+      \e^{-\frac{t}{\alpha}}} \leq \frac{\e^{-\frac{t}{\alpha}}}{1 - \e^{-t}}
+  \end{equation*}
+
   We proceed with \eqref{eq:Time-part-Mehler-time-transform-2}.
-  Recalling that $\alpha > 2$ one can directly verify that the
+  Recalling that $\alpha \geq 1$ one can directly verify that the
   function
   \begin{equation*}
-    \frac1{t^2} \biggl[\frac{1}{1 + \e^{-t^2}} - \frac{1}{1 +
-      \e^{-\frac{t^2}{\alpha}}} \biggr]
+    \frac1t \biggl[\frac{1}{1 + \e^{-t}} - \frac{1}{1 +
+      \e^{-\frac{t}{\alpha}}} \biggr]
   \end{equation*}
   is non-negative and decreasing in $t$. To find
   an upper bound we compute the limit as $t$ goes to $0$. That is:
-  \begin{align*}
-    \lim_{t \to 0} \frac1{t^2}\biggl[\frac{1}{1 +
-      \e^{-t^2}} - \frac{1}{1 + \e^{-\frac{t^2}{\alpha}}} \biggr] 
-    &= \lim_{t \to 0} \frac1{2t} \biggl[\frac{2t \e^{-t^2}}{(1 +
-      \e^{-t^2})^2} - \frac1\alpha \frac{2t
-      \e^{-\frac{t^2}{\alpha}}}{(1 + \e^{-\frac{t^2}{\alpha}})^2}
-    \biggr]\\ 
-    &= \lim_{t \to 0} \biggl[\frac{\e^{-t^2}}{(1 + \e^{-t^2})^2} -
-    \frac1\alpha \frac{\e^{-\frac{t^2}{\alpha}}}{(1 +
-      \e^{-\frac{t^2}{\alpha}})^2} \biggr]\\
-    &\uparrow \frac{1}{4} \biggl(1 - \frac1\alpha \biggr).
-  \end{align*}
+  \begin{equation*}
+    \lim_{t \to 0} \frac1t \biggl[\frac{1}{1 + \e^{-t}} - \frac{1}{1 +
+      \e^{-\frac{t}{\alpha}}} \biggr] 
+    = \lim_{t \to 0} \biggl[\frac{\e^{-t}}{(1 + \e^{-t})^2} -
+    \frac1\alpha \frac{\e^{-\frac{t}{\alpha}}}{(1 +
+      \e^{-\frac{t}{\alpha}})^2} \biggr] \uparrow \frac{1}{4} \biggl(1
+    - \frac1\alpha \biggr).
+  \end{equation*}
   Which is as asserted and completes the proof.
 \end{proof}
 
 The following lemma will be useful when transfering estimates from
-$M_{\frac{t^2}{\alpha}}$ to $M_{t^2}$. It follows from the mean value
+$M_{\frac{t}{\alpha}}$ to $M_t$. It follows from the mean value
 theorem applied to $\xi \mapsto \xi^\alpha$.
 \begin{lemma}\label{lem:Exponential-estimates}
-  For $\alpha > 1$ and $t \in (0, T]$ and all let $x, y \in \R^d$
+  For $\alpha \geq 1$ and $0 < t \leq T < \infty$ and all let $x, y \in \R^d$
   we have that:
   \begin{equation}
     \label{eq:Exponential-estimates-1}
-    \exp \biggl (-\e^{-2\frac{t^2}\alpha} \frac{|x - y|^2}{1 - \e^{-2\frac{t^2}\alpha}}
-    \biggr ) \leq \exp \biggl(-\frac{\alpha}{2\e^{2T^2}} \frac{|x -
-      y|^2}{1 - \e^{-t^2}} \biggr).
+    \exp \biggl (-\e^{-2\frac{t}\alpha} \frac{|x - y|^2}{1 - \e^{-2\frac{t}\alpha}}
+    \biggr ) \leq \exp \biggl(-\frac{\alpha}{2\e^{2T}} \frac{|x -
+      y|^2}{1 - \e^{-t}} \biggr).
   \end{equation}
 \end{lemma}
 \begin{proof}
 First note that
 \begin{equation*}
-  \frac1{2 \e^{2T^2}} \leq \frac{\e^{-2t^2}}{1 + \e^{-t^2}} \leq \frac12.
+  \frac{\e^{-2t}}2 \leq \frac{\e^{-2t}}{1 + \e^{-t}} \leq \frac12.
 \end{equation*}
 Therefore,
 \begin{align*}
- \exp\biggl(-\e^{-2t^2} \dfrac{|x - y|^2}{1 - \e^{-2 t^2}} \biggr)
- &\leq \exp\biggl(-\dfrac{\e^{-2t^2}}{1 + \e^{-t^2}} \dfrac{|x -
-   y|^2}{1 - \e^{-t^2}} \biggr)\\
- &\leq \exp\biggl(-\frac1{2\e^{2T^2}} \dfrac{|x - y|^2}{1 - \e^{-t^2}} \biggr).
+ \exp\biggl(-\e^{-2t} \dfrac{|x - y|^2}{1 - \e^{-2 t}} \biggr)
+ &= \exp\biggl(-\dfrac{\e^{-2t}}{1 + \e^{-t}} \dfrac{|x -
+   y|^2}{1 - \e^{-t}} \biggr)\\
+ &\leq \exp\biggl(-\frac1{2\e^{2T}} \dfrac{|x - y|^2}{1 - \e^{-t}} \biggr).
 \end{align*}
 Applying \eqref{eq:Time-part-Mehler-time-transform-1} we get:
 \begin{align*}
-  \exp \biggl (-\e^{-2\frac{t^2}\alpha} \frac{|x - y|^2}{1 - \e^{-2\frac{t^2}\alpha}}
-  \biggr ) &= \exp \biggl (-\frac1{2\e^{2\frac{T^2}{\alpha}}} \frac{1
-    - \e^{-t^2}}{1 - \e^{-\frac{t^2}\alpha}}  \frac{|x - y|^2}{1 - \e^{-t^2}} \biggr )\\
-  &\leq \exp \biggl(-\frac{1}{2\e^{\frac{T^2}{\alpha}}}
-  \frac{\alpha}{\e^{T^2}} \frac{|x - y|^2}{1 - \e^{-t^2}} \biggr)\\
-  &\leq \exp \biggl(-\frac{\alpha}{2\e^{2T^2}} \frac{|x - y|^2}{1 - \e^{-t^2}} \biggr).
+  \exp \biggl (-\e^{-2\frac{t}\alpha} \frac{|x - y|^2}{1 - \e^{-2\frac{t}\alpha}}
+  \biggr ) &= \exp \biggl (-\frac{\e^{-2\frac{t}\alpha}}{1 + \e^{-\frac{t}\alpha}} \frac{1 - \e^{-t}}{1 -
+    \e^{-\frac{t}\alpha}}  \frac{|x - y|^2}{1 - \e^{-t}} \biggr )\\
+  &\leq \exp \biggl(-\alpha \frac{1}{2\e^{2\frac{t}{\alpha}}}
+  \frac{\e^{\frac{t}\alpha}}{\e^t} \frac{|x - y|^2}{1 - \e^{-t}} \biggr)\\
+  &\leq \exp \biggl(-\frac{\alpha}{2\e^{2T}} \frac{|x - y|^2}{1 - \e^{-t}} \biggr).
 \end{align*}
 Which is as asserted.
 \end{proof}
@@ -528,58 +537,52 @@ Our first lemma is about estimating $M_{\frac{t^2}\alpha}$ in terms of
 $M_{t^2}$.
 \subsubsection{Time-scaling of the Mehler kernel}
 \begin{lemma}\label{lem:Kernel-estimates-1}
- Let $T > 0$, $\alpha \geq 4 \e^{2 T^2}$, $t \in (0, T]$ and $x, y \in
- \R^d$. Then:
+ Let $T > 0$, $\alpha \geq 1$, and $x, y \in \R^d$. Then:
   \begin{equation}
     \label{eq:Kernel-lemma-1-estimate} 
-    M_{\frac{t^2}{\alpha}}(x, y) \leq \alpha^{\frac{d}2}
-    \e^{\frac{t^2}4 |\la x, y \ra|} \exp\biggl (-\frac{\alpha}{4
-      \e^{2 T^2}} \frac{|x - y|^2}{1 - \e^{-t^2}} \biggr ) M_{t^2}(x,
+    M_{\frac{t}{\alpha}}(x, y) \leq \alpha^{\frac{d}2}
+    \e^{\frac{t}4 |\la x, y \ra|} \exp\biggl (-\frac{\alpha}{4
+      \e^{2 T}} \frac{|x - y|^2}{1 - \e^{-t}} \biggr ) M_{t}(x,
     y).
   \end{equation}
 \end{lemma}
 \begin{proof}
-  To prove the lemma we compute $M_{\frac{t^2}{\alpha}} M_{t^2}^{-1}$.
+  To prove the lemma we compute $M_{\frac{t}{\alpha}} M_t^{-1}$.
   First note that \eqref{eq:Time-part-Mehler-time-transform-1} gives
   \begin{equation*}
-        \alpha^{\frac{d}2} \e^{-\frac{d}2 T^2} \leq \frac{(1 - \e^{-t^2})^{\frac{d}2}}{(1 -
-          \e^{-\frac{t^2}{\alpha}})^{\frac{d}2}} \leq \alpha^{\frac{d}2}.
+        \alpha^{\frac{d}2} \e^{-\frac{d}2 T} \leq \frac{(1 - \e^{-t})^{\frac{d}2}}{(1 -
+          \e^{-\frac{t}{\alpha}})^{\frac{d}2}} \leq \alpha^{\frac{d}2}.
   \end{equation*}
   Combining the exponentials also gives,
   \begin{align*}
-    \exp \biggl (-2\e^{-\frac{t^2}\alpha} \frac{\la x, y \ra}{1 + \e^{-\frac{t^2}{\alpha}}}
-    \biggr ) &\exp \biggl (2 \e^{-t^2} \frac{\la x, y \ra}{1 + \e^{-t^2}}
+    \exp \biggl (-2\e^{-\frac{t}\alpha} \frac{\la x, y \ra}{1 + \e^{-\frac{t}{\alpha}}}
+    \biggr ) &\exp \biggl (2 \e^{-t} \frac{\la x, y \ra}{1 + \e^{-t}}
     \biggr )\\
     &\stackrel{\phantom{\eqref{eq:Time-part-Mehler-time-transform-2}}}{=}
-    \biggl (\frac2{t^2}\biggl[\frac{1}{1 + \e^{-t^2}} - \frac{1}{1 +
-      \e^{-\frac{t^2}{\alpha}}} \biggr] t^2 \la x, y \ra \biggr)\\
+    \exp\biggl (\frac2{t}\biggl[\frac{\e^{-t}}{1 + \e^{-t}} - \frac{\e^{-\frac{t}\alpha}}{1 +
+      \e^{-\frac{t}{\alpha}}} \biggr] t \la x, y \ra \biggr)\\
     &\stackrel{\eqref{eq:Time-part-Mehler-time-transform-2}}{\leq}
-    \e^{\frac{t^2}4 |\la x, y \ra|}.
+    \exp\biggl (\frac{1}{2} \biggl(1 - \frac1\alpha \biggr) t |\la x, y \ra| \biggr).
   \end{align*}
-
   Combining \autoref{lem:Exponential-estimates} and equation
-  \eqref{eq:Exponential-estimates-1} gives is almost the final estimate.
+  \eqref{eq:Exponential-estimates-1} almost gives the final estimate.
   \begin{align*}
-    \frac{M_{\frac{t^2}{\alpha}}(x, y)}{M_{t^2}(x, y)} &\leq
-    \alpha^{\frac{d}2} \e^{\frac{t^2}4 |\la x, y \ra|} \exp\biggl(\e^{-2t^2} \dfrac{|x - y|^2}{1 -
-      \e^{-2t^2}} \biggr) \exp\biggl(-\e^{-2\frac{t^2}{\alpha}} \dfrac{|x - y|^2}{1
-      - \e^{-2\frac{t^2}{\alpha}}}  \biggr)\\
-    &\leq
-    \alpha^{\frac{d}2} \e^{\frac{t^2}4 |\la x, y \ra|}
-    \exp\biggl(\dfrac{|x - y|^2}{1 - \e^{-2t^2}} \biggr)
-    \exp\biggl(-\e^{-2\frac{t^2}{\alpha}} \dfrac{|x - y|^2}{1 -
-      \e^{-2\frac{t^2}{\alpha}}}  \biggr)\\ 
-    &\leq \alpha^{\frac{d}2} \e^{\frac{t^2}4 |\la x, y \ra|} \exp
-    \biggl (\biggl[1 -\frac{\alpha}{4\e^{2 T^2}} \biggr]
-    \frac{|x - y|^2}{1 - \e^{-t^2}} \biggr ) \exp \biggl
-    (-\frac{\alpha}{4\e^{2 T^2}} \frac{|x - y|^2}{1 - \e^{-t^2}} \biggr
+    \frac{M_{\frac{t}{\alpha}}(x, y)}{M_{t}(x, y)} &\leq
+    \alpha^{\frac{d}2} \e^{\frac{t}4 |\la x, y \ra|}
+    \exp\biggl(\e^{-2t} \dfrac{|x - y|^2}{1 - \e^{-2t}} \biggr)
+    \exp\biggl(-\e^{-2\frac{t}{\alpha}} \dfrac{|x - y|^2}{1 -
+      \e^{-2\frac{t}{\alpha}}}  \biggr)\\ 
+    &\leq \alpha^{\frac{d}2} \e^{\frac{t}4 |\la x, y \ra|} \exp
+    \biggl (\biggl[1 -\frac{\alpha}{4\e^{2 T}} \biggr]
+    \frac{|x - y|^2}{1 - \e^{-t}} \biggr ) \exp \biggl
+    (-\frac{\alpha}{4\e^{2 T}} \frac{|x - y|^2}{1 - \e^{-t}} \biggr
     ).
   \end{align*}
-  Finally, we apply the assumption $\alpha \geq 4 \e^{2 T^2}$ to obtain:
+  Finally, we apply the assumption $\alpha \geq 4 \e^{2 T}$ to obtain:
   \begin{equation*}
-    \frac{M_{\frac{t^2}{\alpha}}(x, y)}{M_{t^2}(x, y)} \leq \alpha^{\frac{d}2}
-    \e^{\frac{t^2}4 |\la x, y \ra|} \exp\biggl(-\frac{\alpha}{4\e^{2T^2}} \frac{|x -
-      y|^2}{1 - \e^{-t^2}} \biggr).
+    \frac{M_{\frac{t}{\alpha}}(x, y)}{M_t(x, y)} \leq \alpha^{\frac{d}2}
+    \e^{\frac{t}4 |\la x, y \ra|} \exp\biggl(-\frac{\alpha}{4\e^{2T}}
+    \frac{|x - y|^2}{1 - \e^{-t}} \biggr).
   \end{equation*}
   Which is as asserted.
 \end{proof}
@@ -595,7 +598,7 @@ $M_{t^2}$.
   \end{equation}
 \end{lemma}
 \begin{proof}
-    Next, remark that for a ball $B:= B_t(x)$ there holds that
+  Remark that for a ball $B:= B_t(x)$ there holds that
   \begin{align*}
     \int_B \e^{-|\xi|^2} \D\xi &= \e^{-|x|^2} \int_{B} \e^{-|\xi -
       x|^2} \e^{-2 \la x, \xi - x \ra} \D\xi\\
@@ -636,19 +639,19 @@ The $C_k$ are given by,
   \label{eq:C_k-annulus-decomposition}
   C_k(B) := C_k = (2^{k + 1} - 1)B \setminus (2^k - 1)B.
 \end{equation}
-So, whenever $\xi$ is in $C_k(B_t(x))$, we get for $k \geq 0$:
+So, whenever $\xi$ is in $C_k(B_{\sqrt t}(x))$, we get for $k \geq 0$:
 \begin{equation}
   \label{eq:C_k-annulus-decomposition-expand}
   (2^k - 1) t < |y - \xi| \leq (2^{k + 1} - 1) t.
 \end{equation}
 
 \begin{lemma}\label{lem:On-diagonal-kernel-estimates-on-Ck}
-  Given $A > 0$, let $B = B_{At}(y)$, $t \in (0, T]$ and $\xi \in C_k$. Then we have:
+  Given $A > 0$, let $B = B_{At}(y)$, $0 < t \leq T < \infty$ and $\xi \in C_k$. Then we have:
   \begin{equation*}
-    M_{t^2}(y, \xi) \leq \frac{\e^{-\beta} \e^{|y|^2}}{(1 - \e^{-t^2})^{\frac{d}2}}
+    M_t(y, \xi) \leq \frac{\e^{-\beta} \e^{|y|^2}}{(1 - \e^{-t})^{\frac{d}2}}
     \exp\bigl((2^{k + 1} - 1) A t |y| \bigr) \e^{\beta 2^{k + 1}} \e^{-\beta 4^k},
   \end{equation*}
-  where $\beta = \frac{A^2}{2 \e^{2T^2}}$.
+  where $\beta = \frac{A^2}{2 \e^{2T}}$.
 \end{lemma}
 \begin{proof}
   Let $B = B_{At}(y)$ and let $C_k$ be as in
@@ -657,14 +660,13 @@ So, whenever $\xi$ is in $C_k(B_t(x))$, we get for $k \geq 0$:
   \eqref{eq:Mehler-kernel} together with
   \eqref{eq:C_k-annulus-decomposition-expand} gives for $k \geq 0$:
   \begin{align*}
-    \exp\biggl(-\e^{-2t^2} \dfrac{|y - \xi|^2}{1 - \e^{-2t^2}} \biggr)
-    &\leq \exp\biggl(-\e^{-2t^2} \dfrac{(2^k - 1)^2 A^2 t^2}{1 -
-      \e^{-2t^2}} \biggr)\\
-   &\hintedrel[rel1]{\leq} \exp\biggl(-\frac{A^2}{2 \e^{2t^2}} (2^k - 1)^2 \biggr).
+    \exp\biggl(-\e^{-2t} \dfrac{|y - \xi|^2}{1 - \e^{-2t}} \biggr)
+    &\leq \exp\biggl(-\e^{-2t} \dfrac{(2^k - 1)^2 A^2 t}{1 - \e^{-2t}} \biggr)\\
+   &\hintedrel[rel1]{\leq} \exp\biggl(-\frac{A^2}{2 \e^{2t}} (2^k - 1)^2 \biggr).
   \end{align*}
   Where (\hintref{rel1}) follows from
   \begin{equation*}
-    \frac{t^2}{1 - \e^{-2t^2}} \geq \frac12.
+    \frac{t}{1 - \e^{-2t}} \geq \frac12.
   \end{equation*}
   Before we consider the last exponential in the Mehler kernel we note
   that by Cauchy-Schwarz:
@@ -675,26 +677,26 @@ So, whenever $\xi$ is in $C_k(B_t(x))$, we get for $k \geq 0$:
   \end{equation}
   Furthermore we have the estimate:
   \begin{equation*}
-    \frac{\e^{-t^2}}{1 + \e^{-t^2}} \leq \frac12, 
+    \frac{\e^{-t}}{1 + \e^{-t}} \leq \frac12, 
   \end{equation*}
   Using these we get for the last exponential in the Mehler kernel
   \eqref{eq:Mehler-kernel}:
   \begin{align*}
-    \exp\biggl(2\e^{-t^2} \dfrac{\la y, \xi \ra}{1 + \e^{-t^2}}
+    \exp\biggl(2\e^{-t} \dfrac{\la y, \xi \ra}{1 + \e^{-t}}
     \biggr) &\leq \exp(|\la y, \xi \ra|)\\
     &\stackrel{\eqref{lem:On-diagonal-kernel-estimates-on-Ck-proof-1}}{\leq}
     \exp(|y - \xi||y|) \e^{|y|^2}.
   \end{align*}
   Wrapping it up, we can estimate the Mehler kernel
-  \eqref{eq:Mehler-kernel} $M_{t^2}$ on $C_k$ from above by:
+  \eqref{eq:Mehler-kernel} $M_t$ on $C_k$ from above by:
   \begin{equation*}
-    M_{t^2}(y, \xi) \leq \frac{\e^{|y|^2}}{(1 - \e^{-t^2})^{\frac{d}2}}
-    \exp\bigl((2^{k + 1} - 1) A t |y| \bigr) \exp\biggl(-\frac{A^2}{2 \e^{2t^2}} (2^k - 1)^2 \biggr).
+    M_t(y, \xi) \leq \frac{\e^{|y|^2}}{(1 - \e^{-t})^{\frac{d}2}}
+    \exp\bigl((2^{k + 1} - 1) A t |y| \bigr) \exp\biggl(-\frac{A^2}{2 \e^{2t}} (2^k - 1)^2 \biggr).
   \end{equation*}
-  Setting $\beta = \frac{A^2}{2 \e^{2T^2}}$ and expanding the last
+  Setting $\beta = \frac{A^2}{2 \e^{2T}}$ and expanding the last
   exponential we get:
   \begin{equation*}
-    M_{t^2}(y, \xi) \leq \frac{\e^{-\beta} \e^{|y|^2}}{(1 - \e^{-t^2})^{\frac{d}2}}
+    M_t(y, \xi) \leq \frac{\e^{-\beta} \e^{|y|^2}}{(1 - \e^{-t})^{\frac{d}2}}
     \exp\bigl((2^{k + 1} - 1) A t |y| \bigr) \e^{\beta 2^{k + 1}} \e^{-\beta 4^k}.
   \end{equation*}
   Which is as claimed.
@@ -705,10 +707,10 @@ So, whenever $\xi$ is in $C_k(B_t(x))$, we get for $k \geq 0$:
  \e^{|y|^2} \leq \e^{|x|^2}  \e^{\alpha^4} \e^{2\alpha^2}
   \end{equation*}
     \begin{align*}
-    M_{t^2}(y, \xi) &\leq \frac{\e^{-\beta} \e^{|y|^2}}{(1 - \e^{-t^2})^{\frac{d}2}}
+    M_t(y, \xi) &\leq \frac{\e^{-\beta} \e^{|y|^2}}{(1 - \e^{-t})^{\frac{d}2}}
     \exp\bigl((2^{k + 1} - 1) \alpha (1 + \alpha) \bigr) \e^{\beta
       2^{k + 1}} \e^{-\beta 4^k}\\
-    &\leq \e^{-(\alpha + \beta)} \e^{\alpha^4} \e^{\alpha^2} \frac{ \e^{|x|^2} }{(1 - \e^{-t^2})^{\frac{d}2}}
+    &\leq \e^{-(\alpha + \beta)} \e^{\alpha^4} \e^{\alpha^2} \frac{ \e^{|x|^2} }{(1 - \e^{-t})^{\frac{d}2}}
     \exp\bigl(2^{k + 1} \alpha (1 + \alpha) \bigr)  \e^{\beta 2^{k + 1}} \e^{-\beta 4^k}.
   \end{align*}
   Which is as claimed.
@@ -719,7 +721,7 @@ So, whenever $\xi$ is in $C_k(B_t(x))$, we get for $k \geq 0$:
 
 \section{The boundedness of some non-tangential maximal operators}
 Our theorem is a small modification of \cite[lemma 1.1]{Pineda2008} with a new proof.
-\begin{theorem}\label{lem:Maximal-function-cone}
+\begin{theorem}\label{thm:Gaussian-maximal-function}
   Let $A, a > 0$. For all $x$ in $\R^d$ and all $u$ in $\LHG$ we have
   \begin{equation}
     \label{eq:Maximal-function-cone}
@@ -742,9 +744,9 @@ Our theorem is a small modification of \cite[lemma 1.1]{Pineda2008} with a new p
   We will prove \eqref{eq:Maximal-function-cone} by splitting up the
   integration domain in annuli.
   \begin{equation*}
-    \e^{-t^2 L} |u(y)| \leq \sum_{k = 0}^\infty I_k(y),
-    \:\text{where}\: I_k(y) := \int_{C_k(B)} M_{t^2}(y,
-    \cdot) |u| \,\D\gamma.
+    \e^{-t L} |u(y)| \leq \sum_{k = 0}^\infty I_k(y),
+    \:\text{where}\: I_k(y) := \int_{C_k(B)} M_t(y, \cdot) |u|
+    \,\D\gamma.
   \end{equation*}
   More precisely, we will set $B = B(y, aAt)$ in the above and find a
   suitable upper bound for each integral on the right-hand side which
@@ -752,7 +754,7 @@ Our theorem is a small modification of \cite[lemma 1.1]{Pineda2008} with a new p
 
 
   \begin{equation*}
-    M_{t^2}(y, \xi) \leq \frac{\e^{-\beta} \e^{|y|^2}}{(1 - \e^{-t^2})^{\frac{d}2}}
+    M_t(y, \xi) \leq \frac{\e^{-\beta} \e^{|y|^2}}{(1 - \e^{-t})^{\frac{d}2}}
     \exp\bigl((2^{k + 1} - 1) \alpha t |y| \bigr) \e^{\beta 2^{k + 1}} \e^{-\beta 4^k},
   \end{equation*}
   where $\beta = \frac{\alpha^2}{2 \e^{2\alpha^2}}$.
@@ -763,7 +765,7 @@ Our theorem is a small modification of \cite[lemma 1.1]{Pineda2008} with a new p
   \autoref{lem:On-diagonal-kernel-estimates-on-Ck} we infer that:
   \begin{equation}
     \label{eq:Mehler-kernel-estimate-one-sided-bound-1}
-    M_{t^2}(y, \xi) \leq \e^{-\beta} \e^{-\alpha(1 + \alpha)} \frac{\e^{|y|^2}}{(1 - \e^{-t^2})^{\frac{d}2}}
+    M_t(y, \xi) \leq \e^{-\beta} \e^{-\alpha(1 + \alpha)} \frac{\e^{|y|^2}}{(1 - \e^{-t})^{\frac{d}2}}
      \exp\bigl(2^{k + 1} \alpha (1 + \alpha) \bigr) \e^{\beta 2^{k + 1}} \e^{-\beta 4^k},
   \end{equation}
 
@@ -772,15 +774,15 @@ is maximal for $\alpha = \frac12$ and after this value, $\beta$ is decreasing.
   Setting $\lambda := \alpha(1 + \alpha)$ we get:
   \begin{equation}
     \label{eq:Mehler-kernel-estimate-one-sided-bound-2}
-    M_{t^2}(y, \xi) \lesssim_\alpha  \e^{-(\alpha + \beta)} \e^{\alpha^4} \e^{\alpha^2} \frac{ \e^{|x|^2} }{(1 - \e^{-t^2})^{\frac{d}2}} \e^{(\lambda + \beta) 2^{k + 1}} \e^{-\beta 4^k}.
+    M_t(y, \xi) \lesssim_\alpha  \e^{-(\alpha + \beta)} \e^{\alpha^4} \e^{\alpha^2} \frac{ \e^{|x|^2} }{(1 - \e^{-t})^{\frac{d}2}} \e^{(\lambda + \beta) 2^{k + 1}} \e^{-\beta 4^k}.
   \end{equation}
   Where the implied constant is given by $\e^{-(\alpha + \beta)} \e^{\alpha^4} \e^{\alpha^2}$
 
   Or, using $\Lambda = \beta + \lambda$ we get:
   \begin{equation}
     \label{eq:Mehler-kernel-estimate-one-sided-bound-2}
-    M_{t^2}(y, \xi) \lesssim_\alpha \frac{\e^{|x|^2}}{(1
-      - \e^{-t^2})^{\frac{d}2}} \e^{\Lambda 2^{k + 1}}
+    M_t(y, \xi) \lesssim_\alpha \frac{\e^{|x|^2}}{(1
+      - \e^{-t})^{\frac{d}2}} \e^{\Lambda 2^{k + 1}}
     \e^{-\beta 4^k},
   \end{equation}
 
@@ -1403,8 +1405,8 @@ both variables are in a Gaussian cone.
   \end{equation*}
 \end{lemma}
 \begin{remark}
-  More precisely, from the proof we get the estimates \eqref{eq:Cone-Gaussians-comparable-1}
-  and \eqref{eq:Cone-Gaussians-comparable-2}. That is:
+  More precisely, from the proof we get by the  in estimates
+  \eqref{eq:Cone-Gaussians-comparable}. That is:
   \begin{equation*}
     \e^{-|x|^2} \leq \e^{(1 + aA)^2 - 1} \e^{-|y|^2},
   \end{equation*}

@@ -82,18 +82,21 @@
       \keyw{a,analisi armonica,analisi tempo-frequenza e,and the progetto cofinanziato,atomic hardy space,bmo,corresponding author,gauss measure,imaginary powers,laplaciani generalizzati,m,n,p,prin2005,project,riesz transform,singular integrals,teoria delle rappresentazioni,the italian g,work partially supported by}
     \endentry
     \entry{Pineda2008}{article}{}
-      \name{labelname}{2}{}{%
-        {{hash=3d00d353fffa98b253b1f66e05d098a4}{Pineda}{P\bibinitperiod}{E.}{E\bibinitperiod}{}{}{}{}}%
+      \name{labelname}{3}{}{%
+        {{hash=1f293fe44ccb3c5464406798f57dc9dd}{Pineda}{P\bibinitperiod}{Ebner}{E\bibinitperiod}{}{}{}{}}%
         {{hash=b4e29c4e79851084c81ed6bc7cddf72b}{Urbina}{U\bibinitperiod}{W.}{W\bibinitperiod}{}{}{}{}}%
+        {{hash=618e5d5cdcfe90803955259b2170a5bf}{{Urbina\bibnamedelimb R.}}{U\bibinitperiod}{Wilfredo}{W\bibinitperiod}{}{}{}{}}%
       }
-      \name{author}{2}{}{%
-        {{hash=3d00d353fffa98b253b1f66e05d098a4}{Pineda}{P\bibinitperiod}{E.}{E\bibinitperiod}{}{}{}{}}%
+      \name{author}{3}{}{%
+        {{hash=1f293fe44ccb3c5464406798f57dc9dd}{Pineda}{P\bibinitperiod}{Ebner}{E\bibinitperiod}{}{}{}{}}%
         {{hash=b4e29c4e79851084c81ed6bc7cddf72b}{Urbina}{U\bibinitperiod}{W.}{W\bibinitperiod}{}{}{}{}}%
+        {{hash=618e5d5cdcfe90803955259b2170a5bf}{{Urbina\bibnamedelimb R.}}{U\bibinitperiod}{Wilfredo}{W\bibinitperiod}{}{}{}{}}%
       }
-      \strng{namehash}{23559c3d080caecee646487bdc719703}
-      \strng{fullhash}{23559c3d080caecee646487bdc719703}
+      \strng{namehash}{6a9820b6e3956b2494f188b82bd5f16e}
+      \strng{fullhash}{6a9820b6e3956b2494f188b82bd5f16e}
       \field{sortinit}{P}
       \field{labeltitle}{{Non Tangential Convergence for the Ornstein-Uhlenbeck Semigroup}}
+      \field{issn}{1315-2068}
       \field{journaltitle}{Divulgaciones Matemáticas}
       \field{number}{2}
       \field{title}{{Non Tangential Convergence for the Ornstein-Uhlenbeck Semigroup}}
@@ -106,9 +109,9 @@
       \verb{url}
       \verb http://www.emis.ams.org/journals/DM/v16-1/art7.pdf
       \endverb
-      \keyw{and phrases,hermite expansions,non tangential convergence,ornstein1-,poisson-hermite semigroup,uhlenbeck semigroup}
+      \keyw{and phrases,hermite expansions,non tangential convergence,ornstein-,ornstein1-,poisson-hermite semigroup,uhlenbeck semigroup}
     \endentry
-    \entry{Portal2012}{article}{}
+    \entry{Portal2012}{unpublished}{}
       \name{labelname}{1}{}{%
         {{hash=72181505e073b35a6d75a96812fb827c}{Portal}{P\bibinitperiod}{Pierre}{P\bibinitperiod}{}{}{}{}}%
       }
@@ -120,6 +123,7 @@
       \field{sortinit}{P}
       \field{labeltitle}{{Maximal and quadratic Gaussian Hardy spaces}}
       \field{abstract}{Building on the author's recent work with Jan Maas and Jan van Neerven, this paper establishes the equivalence of two norms (one using a maximal function, the other a square function) used to define a Hardy space on $\R^{n}$ with the gaussian measure, that is adapted to the Ornstein-Uhlenbeck semigroup. In contrast to the atomic Gaussian Hardy space introduced earlier by Mauceri and Meda, the $h^{1}(\R^{n};d\gamma)$ space studied here is such that the Riesz transforms are bounded from $h^{1}(\R^{n};d\gamma)$ to $L^{1}(\R^{n};d\gamma)$. This gives a gaussian analogue of the seminal work of Fefferman and Stein in the case of the Lebesgue measure and the usual Laplacian.}
+      \field{annotation}{Preprint}
       \field{eprinttype}{arXiv}
       \field{month}{03}
       \field{title}{{Maximal and quadratic Gaussian Hardy spaces}}
@@ -127,13 +131,9 @@
       \verb{eprint}
       \verb 1203.1998
       \endverb
-      \verb{file}
-      \verb :home/aw/teuwen/Localdisk/Mendeley-Desktop/Portal - 2012 - Maximal and quadratic Gaussian Hardy spaces.pdf:pdf
-      \endverb
       \verb{url}
       \verb http://arxiv.org/abs/1203.1998
       \endverb
-      \keyw{Hardy,gaussian,ornstein,uhlenbeck}
     \endentry
     \entry{Sjogren1997}{article}{}
       \name{labelname}{1}{}{%

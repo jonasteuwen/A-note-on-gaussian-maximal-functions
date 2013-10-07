@@ -5,7 +5,6 @@
 \usepackage[all, error]{onlyamsmath}
 \usepackage{fixmath} % http://ctan.org/pkg/fixmath
 \usepackage{refcheck}
-\usepackage{gitinfo} % Information about the version
 \norefnames
 % \showrefnames
 \usepackage{microtype}
@@ -32,21 +31,6 @@
 \definecolor{darkblue}{rgb}{0,0,0.4}%
 \hypersetup{linkcolor=red,citecolor=blue,filecolor=dullmagenta,urlcolor=darkblue} % coloured links
 
-
-\usepackage{etoolbox}
-\newcounter{hints}
-\renewcommand{\thehints}{\roman{hints}}
-\newcommand{\hintedrel}[2][]{%
-  \stepcounter{hints}%
-  \if\relax\detokenize{#1}\relax\else\csxdef{hint@#1}{\thehints}\fi
-  \mathrel{\overset{\textrm{(\thehints)}}{\vphantom{\le}{#2}}}%
-}
-\newcommand{\restarthintedrel}{\setcounter{hints}{0}}
-\newcommand{\hintref}[1]{\csuse{hint@#1}}
-\AfterEndEnvironment{align*}{\setcounter{hints}{0}}% Resets numrel at the end of align*
-\AfterEndEnvironment{align}{\setcounter{hints}{0}}% Resets numrel at the end of align
-\AfterEndEnvironment{equation*}{\setcounter{hints}{0}}% Resets numrel at the end of equation*
-\AfterEndEnvironment{equation}{\setcounter{hints}{0}}% Resets numrel at the end of equation
 
 \makeatletter
 
@@ -193,7 +177,7 @@
 
 
 \title[Gaussian maximal functions]{A note on the Gaussian maximal
-  function - Version 3 October 2013}
+  function - Version 7 October 2013 + JvN additions}
 %\author{Mikko Kemppainen}
 %\address{Department of Mathematics and Statistics, University of Helsinki,
 %  Gustaf Hï¿½llstrï¿½min katu 2b, FI-00014 Helsinki, Finland}
@@ -202,26 +186,36 @@
 \author{Jonas Teuwen}%
 \address{Delft Institute of Applied Mathematics,
   Delft University of Technology, P.O. Box 5031, 2600 GA Delft, The
-  Netherlands} \email{j.j.b.teuwen@tudelft.nl}%
+  Netherlands}%
+\email{j.j.b.teuwen@tudelft.nl}%
 \urladdr{http://fa.its.tudelft.nl/~teuwen/}%
 \thanks{}%
 \date{\today}
 
-
 \begin{document}
 \begin{abstract}
-  This note presents a proof that the Gaussian Hardy-Littlewood maximal
-  function bounds the general non-tangential gaussian heat semigroup -the
-  so-called Ornstein-Uhlenbeck semigroup.
-
-  In particular we give an improvement on a result by
-  \textcite{Pineda2008} which gives the boundedness of the Gaussian
-  maximal function associated to the Ornstein-Uhlenbeck operator.
-
-  We present a proof which is at least to the author more transparant.
-  Our main finding in this note is that our proof allows to use a
-  larger cone and actually obtain the maximal function boundedness for
-  a whole class of cones $\Gamma^{(A, a)}_x(\gamma)$.
+  This note presents a proof that 
+  the non-tangential maximal function of the Ornstein-Uhlenbeck semigroup
+  is bounded almost surely by the Gaussian Hardy-Littlewood maximal
+  function.  In particular this entails improvement on a result by
+  Pineda and Urbina \cite{Pineda2008} who proved a similar result for 
+  a `trunctated' version of the non-tangential maximal function. 
+  We actually obtain boundedness of the maximal function on non-tangential
+  cones of arbitrary aperture.
+% 
+% 
+% This note presents a proof that the Gaussian Hardy-Littlewood maximal
+%   function bounds the general non-tangential gaussian heat semigroup -the
+%   so-called Ornstein-Uhlenbeck semigroup.
+% 
+%   In particular we give an improvement on a result by
+%   \textcite{Pineda2008} which gives the boundedness of the Gaussian
+%   maximal function associated to the Ornstein-Uhlenbeck operator.
+% 
+%   We present a proof which is at least to the author more transparant.
+%   Our main finding in this note is that our proof allows to use a
+%   larger cone and actually obtain the maximal function boundedness for
+%   a whole class of cones $\Gamma^{(A, a)}_x(\gamma)$.
 \end{abstract}
 
 % \subjclass[2010]{42B25 (Primary); 46E40 (Secondary)}
@@ -229,95 +223,95 @@
 
 \maketitle
 \section{Introduction}
-Maximal functions are one of the most studied objects in harmonic
+Maximal functions are among the most studied objects in harmonic
 analysis. 
-The classical real-valued harmonic analytic maximal
-function, for instance, can be seen to be of the form
-\begin{equation*}
+It is well known that the classical real-valued maximal
+function associated with the heat semigroup is bounded almost everywhere
+by the Hardy-Littlewood maximal function, 
+\begin{equation}\label{eq:classical}
   \sup_{(y, t) \in \Gamma_x} |\e^{-t \Delta} u(y)| \lesssim \sup_{r
     > 0}  \dashint_{B_r(x)} |u| \D\lambda.
-\end{equation*}
-where the action of \emph{heat semigroup} $\e^{-t^2 \Delta} u$ is
+\end{equation}
+Here the action of \emph{heat semigroup} $\e^{-t^2 \Delta} u = \rho_t \ast u$ is
 given by a convolution of $u$ with the \emph{heat kernel}
 \begin{equation*}
   \rho_t(s) := \frac{\e^{-|s|^2/4t}}{\pi^{\frac{d}2}}
-  \frac1{(4t)^{\frac{d}2}},
+  \frac1{(4t)^{\frac{d}2}}.
 \end{equation*}
-so that,
-\begin{equation*}
-  \e^{-t \Delta} u(x) = (\rho_t \ast u)(x).
-\end{equation*}
-In this note we are interested in its gaussian harmonic analysis
-counterpart. Gaussian harmonic analysis seems to be conceptually
-nothing more than harmonic analysis with the gaussian measure, but
-this is far off from reality. This change of measure introduces quite
-some intricate technical and conceptually difficulties which appears
-to be due to the fact that the Gaussian measure is non-doubling
-whereas the Lebesgue measure is.
-
-The \emph{Gaussian measure} which we will use in multitudinous
-occasions in this note is fixed here.
+%so that,
+%\begin{equation*}
+%  \e^{-t \Delta} u(x) = (\rho_t \ast u)(x).
+%\end{equation*}
+In this note we are interested in its gaussian counterpart. 
+%Gaussian harmonic analysis seems to be conceptually
+%nothing more than harmonic analysis with the gaussian measure, but
+%this is far off from reality. 
+The change from Lebesgue measure to the gaussian measure
 \begin{equation}
   \label{eq:Gaussian-measure}
-  \mathrm{d}\gamma(x) := \pi^{-\frac{d}2} \e^{-|x|^2} \D{x}.
+  \mathrm{d}\gamma(x) := \pi^{-\frac{d}2} \e^{-|x|^2} \D{x}
 \end{equation}
+introduces quite
+some intricate technical and conceptually difficulties which appears
+to be due to the fact that the Gaussian measure is non-doubling.
+
 As an analogue to the Laplacian which is symmetric in $L^2$ with
 respect to the Lebesgue measure next we introduce the
 \emph{Ornstein-Uhlenbeck} operator $L$ which is symmetric with respect
-to the Gaussian measure.
+to the Gaussian measure:
 \begin{equation}
   \label{eq:Ornstein-Uhlenbeck-operator}
-  L := -\frac12 \Delta + \la x, \nabla \ra.
+  L := -\frac12 \Delta + \la x, \nabla \ra = \frac12 \nabla_\gamma^* \nabla_\gamma,
 \end{equation}
-In \autoref{thm:Gaussian-maximal-function} we will prove the analogue
-of the result with respect to the Lebesgue measure.
+where $\nabla_\gamma$ denotes the realisation of the gradient in $L^2(\R^d,\gamma)$.
+Our main result, to be proved in  \eqref{thm:Gaussian-maximal-function}, is the 
+following gaussian analogue of \eqref{eq:classical}:
 % perhaps we should skip the t^2 too, changed for now.
-\begin{equation*}
+\begin{equation}\label{eq:main}
   \sup_{(y, t) \in \Gamma_x^{(A, a)}} |\e^{-t L} u(y)| \lesssim
   \sup_{r > 0} \dashint_{B_r(x)} |u| \, \D\gamma.
-\end{equation*}
-We extend the result of \cite[Lemma~1.1]{Pineda2008}. Our contribution
-is a different proof of this result and an extension to the complete
-Gaussian cone \eqref{eq:Gaussian-cone} for all $A, a > 0$.
-
-Furthermore, this proof justifies the claim made by \cite{Portal2012}
-above Lemma 2.3 that the proof extends to general $a, A > 0$. 
-
-\subsection{\Textcite{Pineda2008}}
-We will use as Gaussian cone:
+\end{equation}
+Here, $\Gamma_x^{(A, a)}$ is the Gaussian cone defined by
 \begin{equation}
   \label{eq:Gaussian-cone}
   \Gamma_x^{(A, a)} := \Gamma_x^{(A, a)}(\gamma) := \{(y, t) \in
   \R^d_+ : |x - y| < At \:\text{and}\: t \leq a m(x)\},
 \end{equation}
-where,
+where
 \begin{equation}\label{eq:m-function}
   m(x) := \min\biggl\{1, \frac1{|x|} \biggr\} = 1 \wedge \frac1{|x|}.
 \end{equation}
-To save writing, we write $\Gamma_x^a$ to mean $\Gamma_x^{(1,
-  a)}$.
-In \cite{Pineda2008} the authors use a slightly different cut-off
-function $\widetilde{m}$:
-\begin{equation*}
-  \widetilde{m}(x) = \min\biggl\{\frac12, \frac1{|x|}\biggr\},
-\end{equation*}
-and their proof does not seem to easily generalize the range of $t$ up
-to $1$.
-In brief, they have used the cone
-\begin{equation*}
-   \widetilde{\Gamma}_x(x) = \{(y, t) \in \R^d_+ : |x - y| < t \leq
-   \widetilde{m}(x)\},
-\end{equation*}
-and have shown that,
+
+A slighly weaker version of the inequality \eqref{eq:main} has been proved by 
+Pineda and Urbina \cite{Pineda2008} who 
+shows that 
 \begin{equation*}
   \sup_{(y, t) \in \widetilde{\Gamma}_x} |\e^{-t \Delta} u(y)|
-  \lesssim \sup_{r > 0}  \dashint_{B_r(x)} |u| \D\gamma.
+  \lesssim \sup_{r > 0}  \dashint_{B_r(x)} |u| \D\gamma,
 \end{equation*}
+where
+\begin{equation*}
+   \widetilde{\Gamma}_x(x) = \{(y, t) \in \R^d_+ : |x - y| < t \leq
+   \widetilde{m}(x)\}
+\end{equation*}
+is the `reduced' gaussian cone corresponding to the function
+\begin{equation*}
+  \widetilde{m}(x) = \min\biggl\{\frac12, \frac1{|x|}\biggr\}.
+\end{equation*}
+Their proof does not seem to easily generalize the range of $t$ from $\frac12$ up
+to $1$. The proof of \eqref{eq:main} is different and, we believe, more transparent 
+than the one presented in \cite{Pineda2008}. It has the further virtue of allowing 
+the extension to the cones
+with arbitrary aperture $A>0$ and cut-off parameter $a>0$. This additional generality
+is very important and has already been used by Portal (cf. 
+the claim made by \cite[discussion preceding Lemma 2.3]{Portal2012}) to prove the 
+$H^1$-boundedness of the Riesz transform associated with $L$.
 
 Before we continue, let us fix some notation. We will use without
 further reference notation such as $\Z^d$ while we implicitly imply
 that $d$ is a positive integer. To avoid possible confusion, we define
 the \emph{positive integers} as the set $\Z_+ = \{1, 2, 3, \dots\}$. 
+
 
 % How do cone scalings behave wrt several maximal functions?
 % Especially for the latter.
@@ -328,8 +322,8 @@ the \emph{positive integers} as the set $\Z_+ = \{1, 2, 3, \dots\}$.
 %
 
 \subsubsection{$m$inimal function}
-We recall the lemma from \cite[lemma 2.3]{Maas2011b} which first
---although implicitly-- appeared in \cite{Mauceri2007}.
+We recall the lemma from \cite[lemma 2.3]{Maas2011} which first
+--although implicitly-- appeared in \cite{Mauceri2007}. \footnote{Nog materiaal toevoegen?}
 
 \section{The Mehler kernel}
 \subsection{Setting}
@@ -633,9 +627,9 @@ So, whenever $\xi$ is in $C_k(B_{\sqrt t}(x))$, we get for $k \geq 0$:
   \begin{align*}
     \exp\biggl(-\e^{-2t} \dfrac{|y - \xi|^2}{1 - \e^{-2t}} \biggr)
     &\leq \exp\biggl(-\e^{-2t} \dfrac{(2^k - 1)^2 A^2 t}{1 - \e^{-2t}} \biggr)\\
-   &\hintedrel[rel1]{\leq} \exp\biggl(-\frac{A^2}{2 \e^{2t}} (2^k - 1)^2 \biggr).
+   &\overset{1}{\leq} \exp\biggl(-\frac{A^2}{2 \e^{2t}} (2^k - 1)^2 \biggr).
   \end{align*}
-  Where (\hintref{rel1}) follows from
+  Where (1) follows from
   \begin{equation*}
     \frac{t}{1 - \e^{-2t}} \geq \frac12.
   \end{equation*}
@@ -800,7 +794,7 @@ is maximal for $\alpha = \frac12$ and after this value, $\beta$ is decreasing.
       \e^{-t^2})^{\frac{d}2}}  \e^{|x|^2} \int_{D_k(B)} |u| \,\D\gamma\\ 
     &\leq (M_\gamma u)(x) \frac{\e^{\Lambda 2^{k + 1}} \e^{-\beta
         4^k}}{(1 -  \e^{-t^2})^{\frac{d}2}}  \e^{|x|^2} \gamma(D_k)\\
-  &\hintedrel[rel1]{\leq} (M_\gamma u)(x) C_d \alpha^d 2^{d(k + 1)} t^d
+  &\overset{(1)}{\leq} (M_\gamma u)(x) C_d \alpha^d 2^{d(k + 1)} t^d
   \frac{\e^{\Lambda 2^{k + 1}} \e^{-\beta 4^k}}{(1 -
     \e^{-t^2})^{\frac{d}2}}  \e^{|x|^2} \e^{-(t - |x|)^2}\\
   &\leq(M_\gamma u)(x)  2^{k d} \e^{\Lambda 2^{k + 1}} \e^{-\beta 4^k}
@@ -809,7 +803,7 @@ is maximal for $\alpha = \frac12$ and after this value, $\beta$ is decreasing.
 
 
 
-  Where (\hintref{rel1}) uses \autoref{lem:Gaussian-ball-shift-lemma}
+  Where (1) uses \autoref{lem:Gaussian-ball-shift-lemma}
   and $t |x| \leq a$.
 
 
@@ -943,7 +937,7 @@ Setting $\beta = \frac{A^2}{2 \e^{2T^2}}$.
     \int_{C_k(B)}  M_{t^2}(y, \cdot) |u| \,\D\gamma &\leq \int_{C_k(B)}
     M_{t^2}(y, \cdot) |u| \,\D\gamma\\
     &\leq (M_\gamma u)(x) \gamma(B(x, 2^{k + 1} A t))\\
-    &\hintedrel[rel1]{\leq} (M_\gamma u)(x) C_d A^d 2^{d(k + 1)} t^d \e^{-(t - |x|)^2}.
+    &\overset{(1)}{\leq} (M_\gamma u)(x) C_d A^d 2^{d(k + 1)} t^d \e^{-(t - |x|)^2}.
   \end{align*}
 
 
@@ -951,9 +945,9 @@ Setting $\beta = \frac{A^2}{2 \e^{2T^2}}$.
   \begin{align*}
     \int_{C_k(B)}  |u| \,\D\gamma &\leq \int_{B'}  |u| \,\D\gamma\\
     &\leq (M_\gamma u)(x) \gamma(B(x, 2^{k + 1} A t))\\
-    &\hintedrel[rel1]{\leq} (M_\gamma u)(x) C_d A^d 2^{d(k + 1)} t^d \e^{-(t - |x|)^2}.
+    &\overset{(1)}{\leq} (M_\gamma u)(x) C_d A^d 2^{d(k + 1)} t^d \e^{-(t - |x|)^2}.
   \end{align*}
-  Where (\hintref{rel1}) uses \autoref{lem:Gaussian-ball-shift-lemma}
+  Where (1) uses \autoref{lem:Gaussian-ball-shift-lemma}
   and $t |x| \leq a$. \autoref{lem:Cone-Gaussians-comparable} gives us
   by using $|x - y| \leq aA m(x)$ the following estimate:
   \begin{equation*}
@@ -970,7 +964,7 @@ Setting $\beta = \frac{A^2}{2 \e^{2T^2}}$.
   \begin{align*}
  \int_{C_k(B)} |u| \,\D\gamma &\leq \int_{B'} |u| \,\D\gamma\\
     &\leq \gamma(B(x, 2^{k + 1} A t)) (M_\gamma u)(x)\\
-    &\hintedrel[rel1]{\leq} d \e^{2^{k + 1} 2aA} 2^{d(k + 1)} V_d(A t)
+    &\overset{(1)}{\leq} d \e^{2^{k + 1} 2aA} 2^{d(k + 1)} V_d(A t)
     \gamma(x) (M_\gamma u)(x).
   \end{align*}
 
@@ -1057,22 +1051,6 @@ Setting $\beta = \frac{A^2}{2 \e^{2T^2}}$.
 \definecolor{dullmagenta}{rgb}{0.4,0,0.4} % #660066
 \definecolor{darkblue}{rgb}{0,0,0.4}%
 \hypersetup{linkcolor=red,citecolor=blue,filecolor=dullmagenta,urlcolor=darkblue} % coloured links
-
-
-\usepackage{etoolbox}
-\newcounter{hints}
-\renewcommand{\thehints}{\roman{hints}}
-\newcommand{\hintedrel}[2][]{%
-  \stepcounter{hints}%
-  \if\relax\detokenize{#1}\relax\else\csxdef{hint@#1}{\thehints}\fi
-  \mathrel{\overset{\textrm{(\thehints)}}{\vphantom{\le}{#2}}}%
-}
-\newcommand{\restarthintedrel}{\setcounter{hints}{0}}
-\newcommand{\hintref}[1]{\csuse{hint@#1}}
-\AfterEndEnvironment{align*}{\setcounter{hints}{0}}% Resets numrel at the end of align*
-\AfterEndEnvironment{align}{\setcounter{hints}{0}}% Resets numrel at the end of align
-\AfterEndEnvironment{equation*}{\setcounter{hints}{0}}% Resets numrel at the end of equation*
-\AfterEndEnvironment{equation}{\setcounter{hints}{0}}% Resets numrel at the end of equation
 
 
 
@@ -1303,7 +1281,7 @@ arguments, a useful expression is:
 
 \section{Some fine lemmata and definitions}
 \subsection{$m$inimal function}
-We recall the lemma from \cite[lemma 2.3]{Maas2011b} which first,
+We recall the lemma from \cite[lemma 2.3]{Maas2011} which first,
 --although implicitly-- appeared in \cite{Mauceri2007}. It will be
 convenient to define a function $m$ as:
 \begin{equation*}
@@ -1709,11 +1687,10 @@ While we get for $k = 0$:
      \exp\biggl(\e^{-t^2} \dfrac{|y|^2 + |\xi|^2}{1 + \e^{-t^2}}
      \biggr) &\leq \exp\biggl(\e^{-t^2} \dfrac{|y - \xi|^2}{1 +
        \e^{-t^2}} \biggr) \exp(|y - \xi||y|) \exp(|y|^2)\\
-         &\hintedrel[rel1]{\leq} \exp\biggl(\e^{-t^2} \dfrac{|y - \xi|^2}{1 +
+         &\overset{(1)}{\leq} \exp\biggl(\e^{-t^2} \dfrac{|y - \xi|^2}{1 +
        \e^{-t^2}} \biggr) \exp( 2^{k + 1} a t |y|) \exp(|y|^2)
   \end{align*}
-  Where (\hintref{rel1})
-  uses \eqref{eq:C_k-annulus-decomposition-expand-nonzero}
+  Where (1) uses \eqref{eq:C_k-annulus-decomposition-expand-nonzero}
   or \eqref{eq:C_k-annulus-decomposition-expand-zero}. Next we
   consider the exponential:
   \begin{equation*}

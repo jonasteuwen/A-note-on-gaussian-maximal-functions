@@ -1,6 +1,7 @@
 ## .gitignore for emacs LaTeX projects
 
 # Emacs files, lisp etc
+auto/*
 .el
 
 *.*_latexmk

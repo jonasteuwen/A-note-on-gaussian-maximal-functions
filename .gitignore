@@ -2,7 +2,6 @@
 
 # Emacs files, lisp etc
 .el
-auto/
 
 *.aux
 *.glo

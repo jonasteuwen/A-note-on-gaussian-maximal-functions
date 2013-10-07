@@ -3,6 +3,7 @@
 # Emacs files, lisp etc
 .el
 
+*.*_latexmk
 *.aux
 *.glo
 *.idx
@@ -16,6 +17,7 @@
 *.bcf
 *.blg
 *.dvi
+*.fls
 *.glg
 *.gls
 *.ilg

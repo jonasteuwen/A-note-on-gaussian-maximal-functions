@@ -635,7 +635,7 @@ So, whenever $\xi$ is in $C_k(B_{\sqrt t}(x))$, we get for $k \geq 0$:
     &\leq \exp\biggl(-\e^{-2t^2} \dfrac{(2^k - 1)^2 A^2 t^2}{1 - \e^{-2t^2}} \biggr)\\
     &\overset{(\dagger)}{\leq} \exp\biggl(-\frac{A^2}{2 \e^{2t^2}} (2^k - 1)^2 \biggr).
   \end{align*}
-  Where $(1)$ follows from
+  Where $(\dagger)$ follows from
   \begin{equation*}
     \frac{t}{1 - \e^{-2t}} \geq \frac12.
   \end{equation*}
@@ -651,9 +651,9 @@ So, whenever $\xi$ is in $C_k(B_{\sqrt t}(x))$, we get for $k \geq 0$:
     \frac{\e^{-t}}{1 + \e^{-t}} \leq \frac12, 
   \end{equation*}
   Using these we get for the last exponential in the Mehler kernel
-  \eqref{eq:Mehler-kernel}:
+  \eqref{eq:Mehler-kernel} $M_{t^2}$:
   \begin{align*}
-    \exp\biggl(2\e^{-t} \dfrac{\la y, \xi \ra}{1 + \e^{-t}}
+    \exp\biggl(2\e^{-t^2} \dfrac{\la y, \xi \ra}{1 + \e^{-t}}
     \biggr) &\leq \exp(|\la y, \xi \ra|)\\
     &\stackrel{\eqref{lem:On-diagonal-kernel-estimates-on-Ck-proof-1}}{\leq}
     \exp(|y - \xi||y|) \e^{|y|^2}.
@@ -661,13 +661,13 @@ So, whenever $\xi$ is in $C_k(B_{\sqrt t}(x))$, we get for $k \geq 0$:
   Wrapping it up, we can estimate the Mehler kernel
   \eqref{eq:Mehler-kernel} $M_t$ on $C_k$ from above by:
   \begin{equation*}
-    M_t(y, \xi) \leq \frac{\e^{|y|^2}}{(1 - \e^{-t})^{\frac{d}2}}
-    \exp\bigl((2^{k + 1} - 1) A t |y| \bigr) \exp\biggl(-\frac{A^2}{2 \e^{2t}} (2^k - 1)^2 \biggr).
+    M_{t^2}(y, \xi) \leq \frac{\e^{|y|^2}}{(1 - \e^{-{t^2}})^{\frac{d}2}}
+    \exp\bigl((2^{k + 1} - 1) A t |y| \bigr) \exp\biggl(-\frac{A^2}{2 \e^{2t^2}} (2^k - 1)^2 \biggr).
   \end{equation*}
   Setting $\beta = \frac{A^2}{2 \e^{2T}}$ and expanding the last
   exponential we get:
   \begin{equation*}
-    M_t(y, \xi) \leq \frac{\e^{-\beta} \e^{|y|^2}}{(1 - \e^{-t})^{\frac{d}2}}
+    M_{t^2}(y, \xi) \leq \frac{\e^{-\beta} \e^{|y|^2}}{(1 - \e^{-{t^2}})^{\frac{d}2}}
     \exp\bigl((2^{k + 1} - 1) A t |y| \bigr) \e^{\beta 2^{k + 1}} \e^{-\beta 4^k}.
   \end{equation*}
   Which is as claimed.

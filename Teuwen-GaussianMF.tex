@@ -162,7 +162,7 @@
 
 
 \title[Gaussian maximal functions]{A note on the Gaussian maximal
-  function - Version 8 October 2013 + JvN additions}
+  function - Version 9 October 2013 + JvN additions}
 
 
 
@@ -610,7 +610,7 @@ The $C_k$ are given by,
   \label{eq:C_k-annulus-decomposition}
   C_k(B) := C_k = (2^{k + 1} - 1)B \setminus (2^k - 1)B.
 \end{equation}
-So, whenever $\xi$ is in $C_k(B_{\sqrt t}(x))$, we get for $k \geq 0$:
+So, whenever $\xi$ is in $C_k(B_t(x))$, we get for $k \geq 0$:
 \begin{equation}
   \label{eq:C_k-annulus-decomposition-expand}
   (2^k - 1) t < |y - \xi| \leq (2^{k + 1} - 1) t.
@@ -620,7 +620,7 @@ So, whenever $\xi$ is in $C_k(B_{\sqrt t}(x))$, we get for $k \geq 0$:
   Given $A > 0$, let $B = B_{At}(y)$, $0 < t \leq T < \infty$ and $\xi \in C_k$. Then we have:
   \begin{equation*}
     M_{t^2}(y, \xi) \leq \frac{\e^{-\beta} \e^{|y|^2}}{(1 - \e^{-t^2})^{\frac{d}2}}
-    \exp\bigl((2^{k + 1} - 1) A t^2 |y| \bigr) \e^{\beta 2^{k + 1}} \e^{-\beta 4^k},
+    \exp\bigl((2^{k + 1} - 1) A t |y| \bigr) \e^{\beta 2^{k + 1}} \e^{-\beta 4^k},
   \end{equation*}
   where $\beta = \frac{A^2}{2 \e^{2T}}$.
 \end{lemma}
@@ -678,10 +678,10 @@ So, whenever $\xi$ is in $C_k(B_{\sqrt t}(x))$, we get for $k \geq 0$:
     \e^{|y|^2} \leq \e^{|x|^2}  \e^{\alpha^4} \e^{2\alpha^2}
   \end{equation*}
   \begin{align*}
-    M_t(y, \xi) &\leq \frac{\e^{-\beta} \e^{|y|^2}}{(1 - \e^{-t})^{\frac{d}2}}
+    M_{t^2}(y, \xi) &\leq \frac{\e^{-\beta} \e^{|y|^2}}{(1 - \e^{-t^2})^{\frac{d}2}}
     \exp\bigl((2^{k + 1} - 1) \alpha (1 + \alpha) \bigr) \e^{\beta
       2^{k + 1}} \e^{-\beta 4^k}\\
-    &\leq \e^{-(\alpha + \beta)} \e^{\alpha^4} \e^{\alpha^2} \frac{ \e^{|x|^2} }{(1 - \e^{-t})^{\frac{d}2}}
+    &\leq \e^{-(\alpha + \beta)} \e^{\alpha^4} \e^{\alpha^2} \frac{ \e^{|x|^2} }{(1 - \e^{-t^2})^{\frac{d}2}}
     \exp\bigl(2^{k + 1} \alpha (1 + \alpha) \bigr)  \e^{\beta 2^{k + 1}} \e^{-\beta 4^k}.
   \end{align*}
   Which is as claimed.

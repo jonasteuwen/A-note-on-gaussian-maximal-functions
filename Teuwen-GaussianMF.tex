@@ -410,9 +410,8 @@ will be used on several occasions.
   \end{equation}
   \begin{equation}
     \label{eq:Time-part-Mehler-time-transform-2}
-    0 \leq \frac1t \biggl[\frac{\e^{-t}}{1 + \e^{-t}} -
-    \frac{\e^{-\frac{t}\alpha}}{1 + \e^{-\frac{t}{\alpha}}} \biggr]
-    \leq \frac{1}{2 \mu}.
+    0 \leq \frac1t \biggl[\frac{\e^{-\frac{t}\alpha}}{1 + \e^{-\frac{t}{\alpha}}}
+    - \frac{\e^{-t}}{1 + \e^{-t}} \biggr] \leq \frac{1}{2 \mu}.
   \end{equation}
 \end{lemma}
 \begin{proof}
@@ -442,17 +441,16 @@ will be used on several occasions.
   Recalling that $\alpha \geq 1$ one can directly verify that the
   function
   \begin{equation*}
-    t \mapsto \frac1t \biggl[\frac{\e^{-t}}{1 + \e^{-t}} - \frac{\e^{-\frac{t}{\alpha}}}{1
-        + \e^{-\frac{t}{\alpha}}} \biggr]
+    t \mapsto \frac1t \biggl[\frac{\e^{-\frac{t}{\alpha}}}{1 +
+      \e^{-\frac{t}{\alpha}}} - \frac{\e^{-t}}{1 + \e^{-t}} \biggr]
   \end{equation*}
   is non-negative and decreasing. To find an upper bound we compute the limit
   as $t$ goes to $0$. That is: 
    \begin{equation*}
-    \lim_{t \to 0} \frac1t \biggl[\frac{\e^{-t}}{1 + \e^{-t}} -
-    \frac{\e^{-\frac{t}\alpha}}{1 + \e^{-\frac{t}{\alpha}}} \biggr] 
-    = \lim_{t \to 0} \biggl[\frac{\e^{-2t}}{(1 + \e^{-t})^2} -
-    \frac1\alpha \frac{\e^{-2\frac{t}{\alpha}}}{(1 +
-      \e^{-\frac{t}{\alpha}})^2} \biggr] \uparrow \frac{1}{2\mu}.
+    \lim_{t \to 0} \frac1t \biggl[\frac{\e^{-\frac{t}\alpha}}{1 +
+      \e^{-\frac{t}{\alpha}}} - \frac{\e^{-t}}{1 + \e^{-t}} \biggr] 
+    = \lim_{t \to 0} \biggl[\frac1\alpha \frac{\e^{-2\frac{t}{\alpha}}}{(1 +
+      \e^{-\frac{t}{\alpha}})^2} - \frac{\e^{-2t}}{(1 + \e^{-t})^2} \biggr] \uparrow \frac{1}{2\mu}.
   \end{equation*}
   Which is as asserted and completes the proof.
 \end{proof}
@@ -484,7 +482,7 @@ theorem applied to $\xi \mapsto \xi^\alpha$.
     \exp\biggl(-\e^{-2t} \dfrac{|x - y|^2}{1 - \e^{-2 t}} \biggr)
     \leq \exp\biggl(-\frac1{2\e^{2t}} \dfrac{|x - y|^2}{1 - \e^{-t}} \biggr).
   \end{equation*}
-  Using the substitution $t \to t/\alpha$ we see that 
+  Using the substitution $t \to t/\alpha$ we remark that 
   \begin{align*}
     \exp\biggl(-\e^{-2 \frac{t}{\alpha}} \frac{|x - y|^2}{1 - \e^{-2 \frac{t}{\alpha}}} \biggr)
     &\overset{\phantom{\eqref{eq:Time-part-Mehler-time-transform-1}}}{\leq} \exp\biggl(-\frac1{2\e^{2\frac{t}{\alpha}}} \frac{|x - y|^2}{1 -
@@ -497,62 +495,58 @@ theorem applied to $\xi \mapsto \xi^\alpha$.
         \frac{t}{\mu}}} \frac{|x - y|^2}{1 - \e^{-t}} \biggr)\\
     &\overset{\vphantom{\eqref{eq:Time-part-Mehler-time-transform-1}}}{\leq}
     \exp\biggl(-\frac\alpha{2\e^{2\frac{t}{\kappa}}} \frac{|x - y|^2}{1 -
-      \e^{-t}} \biggr).
+      \e^{-t}} \biggr),
   \end{align*}
-
-  Applying \eqref{eq:Time-part-Mehler-time-transform-1} we get:
-  \begin{align*}
-    \exp \biggl (-\e^{-2\frac{t}\alpha} \frac{|x - y|^2}{1 - \e^{-2\frac{t}\alpha}}
-    \biggr ) &= \exp \biggl (-\frac{\e^{-2\frac{t}\alpha}}{1 + \e^{-\frac{t}\alpha}} \frac{1 - \e^{-t}}{1 -
-      \e^{-\frac{t}\alpha}}  \frac{|x - y|^2}{1 - \e^{-t}} \biggr )\\
-    &\leq \exp \biggl(-\frac{\alpha}{2\e^{2\frac{t}{\alpha}}}
-    \frac1{\e^t \e^{-\frac{t}\alpha}} \frac{|x - y|^2}{1 - \e^{-t}}
-    \biggr)\\
-    &\leq \exp \biggl(-\frac{\alpha}{2\e^{2\frac{t}\kappa}} \frac{|x -
-      y|^2}{1 - \e^{-t}} \biggr).
-  \end{align*}
-  Which is as asserted.
+  to finish the proof.
 \end{proof}
-Our first lemma is about estimating $M_{\frac{t}\alpha}$ in terms of
-$M_{t}$.
+Our first proposition will be useful when we want transfer bounds on $M_t$
+for large values of $t$ where the potential plays a smaller role compared to
+the diffusion to a bound on $M_{t'}$ for $t'$ close to $0$ where diffusion
+plays a much smaller role.
 \subsubsection{Time-scaling of the Mehler kernel}
-\begin{lemma}\label{lem:Kernel-estimates-1}
-  Let $T > 0$, $\alpha \geq 1$, and $x, y \in \R^d$. Then:
+\begin{proposition}\label{lem:Kernel-estimates-1}
+  Let $\alpha \geq 1$, and $x, y \in \R^d$. Assume that $\alpha \geq 4 \e^{2
+    \frac{t}{\kappa}}$, then:
   \begin{equation}
     \label{eq:Kernel-lemma-1-estimate} 
     M_{\frac{t}{\alpha}}(x, y) \leq \alpha^{\frac{d}2}
-    \exp\biggl (\frac{t}{2\mu} |\la x, y \ra| \biggr)
-   \exp\biggl(-\frac{\alpha}{4\e^{2T}} \frac{|x - y|^2}{1 - \e^{-t}}
+    \exp\biggl (\frac{t}{\mu} |\la x, y \ra| \biggr)
+   \exp\biggl(-\frac{\alpha}{4\e^{2 \frac{t}{\kappa}}} \frac{|x - y|^2}{1 - \e^{-t}}
    \biggr) M_{t}(x, y).
   \end{equation}
-\end{lemma}
+\end{proposition}
 \begin{proof}
   To prove the lemma we compute $M_{\frac{t}{\alpha}} M_t^{-1}$.
   First recall that \eqref{eq:Time-part-Mehler-time-transform-1} gives
   \begin{equation*}
-    \alpha \e^{-\frac{t}\mu} \leq \frac{1 - \e^{-t}}{1 -
-      \e^{-2\frac{t}{\alpha}}} \leq \alpha.
+    \alpha \e^{-2\frac{t}\mu} \leq \frac{1 - \e^{-t}}{1 -
+      \e^{-\frac{t}{\alpha}}} \leq \alpha.
   \end{equation*}
-  Combining the exponentials also gives,
+  This implies that
+  \begin{equation*}
+    \frac{(1 - \e^{-t})^{\frac{d}2}}{(1 -
+      \e^{-\frac{t}{\alpha}})^{\frac{d}{2}}} \leq \alpha^{\frac{d}2}.
+  \end{equation*}
+  Compute the bounds for the exponentials in the product $M_{\frac{t}{\alpha}}
+  M_t^{-1}$ separately.
   \begin{align*}
-    \exp \biggl (-2\e^{-\frac{t}\alpha} \frac{\la x, y \ra}{1 + \e^{-\frac{t}{\alpha}}}
-    \biggr ) &\exp \biggl (2 \e^{-t} \frac{\la x, y \ra}{1 + \e^{-t}}
+    \exp \biggl (2\e^{-\frac{t}\alpha} \frac{\la x, y \ra}{1 + \e^{-\frac{t}{\alpha}}}
+    \biggr ) &\exp \biggl (-2 \e^{-t} \frac{\la x, y \ra}{1 + \e^{-t}}
     \biggr )\\
     &\stackrel{\phantom{\eqref{eq:Time-part-Mehler-time-transform-2}}}{=}
-    \exp\biggl (\frac2{t}\biggl[\frac{\e^{-t}}{1 + \e^{-t}} - \frac{\e^{-\frac{t}\alpha}}{1 +
-      \e^{-\frac{t}{\alpha}}} \biggr] t \la x, y \ra \biggr)\\
+    \exp\biggl (\frac2{t}\biggl[\frac{\e^{-\frac{t}\alpha}}{1 +
+      \e^{-\frac{t}{\alpha}}} - \frac{\e^{-t}}{1 + \e^{-t}} \biggr] t \la x, y \ra \biggr)\\
     &\stackrel{\eqref{eq:Time-part-Mehler-time-transform-2}}{\leq}
     \exp\biggl (\frac{t}{\mu} |\la x, y \ra| \biggr).
   \end{align*}
-  Combining \autoref{lem:Exponential-estimates} and equation
-  \eqref{eq:Exponential-estimates-1} almost gives the final estimate.
+  We proceed using \autoref{lem:Exponential-estimates}.
   \begin{align*}
-    \frac{M_{\frac{t}{\alpha}}(x, y)}{M_{t}(x, y)} &\leq
+    \frac{M_{\frac{t}{\alpha}}(x, y)}{M_{t}(x, y)} &\stackrel{\phantom{\eqref{eq:Exponential-estimates-1}}}{\leq}
     \alpha^{\frac{d}2} \exp\biggl (\frac{t}{\mu} |\la x, y \ra| \biggr)
     \exp\biggl(\e^{-2t} \frac{|x - y|^2}{1 - \e^{-2t}} \biggr)
-    \exp\biggl(-\frac1{\e^{2\frac{t}{\alpha}}} \frac{|x - y|^2}{1 -
+    \exp\biggl(-\e^{-2\frac{t}{\alpha}} \frac{|x - y|^2}{1 -
       \e^{-2\frac{t}{\alpha}}}  \biggr)\\ 
-    &\leq \alpha^{\frac{d}2} \exp\biggl (\frac{t}{\mu} |\la x, y \ra|
+    &\stackrel{\eqref{eq:Exponential-estimates-1}}{\leq} \alpha^{\frac{d}2} \exp\biggl (\frac{t}{\mu} |\la x, y \ra|
     \biggr) \exp \biggl (\biggl[1 -\frac{\alpha}{4\e^{2
         \frac{t}{\kappa}}} \biggr]  \frac{|x - y|^2}{1 - \e^{-t}}
     \biggr ) \exp \biggl (-\frac{\alpha}{4\e^{2 \frac{t}{\kappa}}} \frac{|x - y|^2}{1
@@ -568,9 +562,8 @@ $M_{t}$.
  \end{equation*}
   Which is as asserted. The assumption $\alpha \geq 4 \e^{2
     \frac{t}{\kappa}}$ can be rephrased as the requirement that
-  $\Bigl(1 + \frac1\alpha \Bigr)^{-1} \log\Bigl( \frac\alpha4 \Bigr) \geq t$.
+  $\frac{\kappa}2 \log\Bigl( \frac\alpha4 \Bigr) \geq t$.
 \end{proof}
- 
 
 \subsection{An estimate on Gaussian balls}
 \begin{lemma}\label{lem:Gaussian-ball-shift-lemma}

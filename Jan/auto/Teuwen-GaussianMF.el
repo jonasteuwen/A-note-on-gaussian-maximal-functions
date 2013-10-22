@@ -65,8 +65,6 @@
      "e"
      "Dg"
      "Dmu"
-     "red"
-     "blue"
      "LI"
      "lemmaeqrefname"
      "definitioneqrefname"
@@ -90,5 +88,6 @@
      "amsmath"
      "latex2e"
      "amsart10"
-     "amsart")))
+     "amsart"
+     "")))
 

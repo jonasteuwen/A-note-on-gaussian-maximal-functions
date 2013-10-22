@@ -186,7 +186,7 @@
 \section{Introduction}
 Maximal functions are among the most studied objects in harmonic
 analysis. 
-It is well known that the classical non-tangential maximal
+It is well-known that the classical non-tangential maximal
 function associated with the heat semigroup is bounded almost everywhere
 by the Hardy-Littlewood maximal function, 
 \begin{equation}\label{eq:classical}
@@ -204,15 +204,14 @@ In this note we are interested in its Gaussian counterpart. The change from Lebe
   \mathrm{d}\gamma(x) := \pi^{-\frac{d}2} \e^{-|x|^2} \D{x}
 \end{equation}
 introduces quite some intricate technical and conceptual difficulties which are
-caused by the fact that the Gaussian measure is non-doubling. 
-The Gaussian analogue to the Laplacian is the
-\emph{Ornstein-Uhlenbeck operator} $L$,
+due to its non-doubling nature. Instead of the Laplacian, will use its Gaussian
+analogue, the \emph{Ornstein-Uhlenbeck operator} $L$ given by,
 \begin{equation}
   \label{eq:Ornstein-Uhlenbeck-operator}
   L := -\frac12 \Delta + \la x, \nabla \ra = \frac12 \nabla_\gamma^* \nabla_\gamma,
 \end{equation}
 where $\nabla_\gamma$ denotes the realisation of the gradient in $L^2(\R^d,\gamma)$.
-Our main result, to be proved in Theorem \ref{thm:Gaussian-maximal-function},
+Our main result, to be proved in Theorem~\ref{thm:Gaussian-maximal-function},
 is the following Gaussian analogue of \eqref{eq:classical}:
 \begin{equation}
   \label{eq:main}
@@ -403,22 +402,21 @@ multiplying its radius by $r$.
 The annuli $C_k$ are given by:
 \begin{equation}
   \label{eq:C_k-annulus-decomposition}
-  C_k : = (2^{k + 1} - 1)B_{\alpha t}(x) \setminus (2^k - 1)B_{\alpha t}(x)
+  C_k : = (2^{k + 1} - 1)B_t(x) \setminus (2^k - 1)B_t(x)
   \:\text{with}\: k \geq 0.
 \end{equation}
-Note that $C_0 = B_{\alpha t}(x)$. Whenever $\xi$ is in $C_k$, we get for $k
+Note that $C_0 = B_t(x)$. Whenever $\xi$ is in $C_k$, we get for $k
 \geq 0$:
 \begin{equation}
   \label{eq:C_k-annulus-decomposition-expand}
-  (2^k - 1)\alpha t < |y - \xi| \leq (2^{k + 1} - 1) \alpha t.
+  (2^k - 1) t < |y - \xi| \leq (2^{k + 1} - 1) t.
 \end{equation}
-
 On $C_k$ we have the following bound for $M_{t^2}(y,\cdot)$:
 \begin{lemma}\label{lem:On-diagonal-kernel-estimates-on-Ck}
   For all $\xi \in C_k$ we have:
   \begin{equation}
     M_{t^2}(y, \xi) \leq \frac{\e^{|y|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}}
-    \exp\bigl((2^{k + 1} - 1) \alpha t |y| \bigr) \exp\Big(\!-\!\frac{\alpha^2}{2 \e^{2 a^2}} (2^k - 1)^2 \Big),
+    \exp\bigl((2^{k + 1} - 1) t |y| \bigr) \exp\Big(\!-\!\frac1{2 \e^{2 a^2}} (2^k - 1)^2 \Big),
   \end{equation}
 \end{lemma}
 \begin{proof}
@@ -427,11 +425,11 @@ On $C_k$ we have the following bound for $M_{t^2}(y,\cdot)$:
   \eqref{eq:C_k-annulus-decomposition-expand} gives for $k \geq 0$:
   \begin{align*}
     \exp\biggl(-\e^{-2t^2} \frac{|y - \xi|^2}{1 - \e^{-2t^2}} \biggr)
-    &\overset{\phantom{(\dagger)}}{\leq} \exp\biggl(-\e^{-2t^2} \frac{(2^k - 1)^2 \alpha^2 t^2}{1 - \e^{-2t^2}} \biggr)\\
-    &\overset{(\dagger)}{\leq} \exp\biggl(-\frac{\alpha^2}{2 \e^{2t^2}} (2^k - 1)^2 \biggr)
-    \overset{(\dagger\dagger)}{\leq} \exp\biggl(-\frac{\alpha^2}{2 \e^{2a^2}} (2^k - 1)^2 \biggr),
+    &\overset{\phantom{(\dagger)}}{\leq} \exp\biggl(-\e^{-2t^2} \frac{(2^k - 1)^2 t^2}{1 - \e^{-2t^2}} \biggr)\\
+    &\overset{(\dagger)}{\leq} \exp\biggl(-\frac1{2 \e^{2t^2}} (2^k - 1)^2 \biggr)
+    \overset{(\ddagger)}{\leq} \exp\biggl(-\frac1{2 \e^{2a^2}} (2^k - 1)^2 \biggr),
   \end{align*}
-  where $(\dagger)$ follows from $1 - \e^{-x} \leq x$ for $x \geq 0$, and $(\dagger\dagger)$
+  where $(\dagger)$ follows from $1 - \e^{-x} \leq x$ for $x \geq 0$, and $(\ddagger)$
   uses that $t \leq am(x) \leq a$. Using the estimate $1+x \geq 2x$ for $0 \leq
   x \leq 1$, for the second exponential in the Mehler kernel
   \eqref{eq:Mehler-kernel} we obtain, by
@@ -440,7 +438,7 @@ On $C_k$ we have the following bound for $M_{t^2}(y,\cdot)$:
     \exp\biggl(2\e^{-t^2} \frac{\la y, \xi \ra}{1 + \e^{- t^2}} \biggr)
     & \leq \exp(|\la y, \xi \ra|)\\
     & \leq \exp(|\langle y, \xi-y\rangle|) \e^{|y|^2}\\
-    & \leq \exp\bigl((2^{k + 1} - 1) \alpha t |y| \bigr) \e^{|y|^2}.
+    & \leq \exp\bigl((2^{k + 1} - 1) t |y| \bigr) \e^{|y|^2}.
   \end{align*}
   Combining things, we obtain the estimate in the formulation of the lemma.
 \end{proof}
@@ -474,23 +472,24 @@ Our theorem is a modification of \cite[lemma 1.1]{Pineda2008} with a new proof.
   \begin{equation}
     \label{eq:Mehler-kernel-estimate-one-sided-bound-1}
     M_{t^2}(y, \xi) \leq  \frac{\e^{|y|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}}
-    \exp\bigl((2^{k + 1} - 1) \alpha (1 + \alpha) \bigr)
-    \exp\Big(\!-\!\frac{\alpha^2}{2 \e^{2a^2}} (2^k - 1)^2 \Big).
+    \exp\bigl((2^{k + 1} - 1) (1 + \alpha) \bigr)
+    \exp\Big(\!-\!\frac1{2 \e^{2a^2}} (2^k - 1)^2 \Big).
   \end{equation}
   Combining \eqref{eq:Mehler-kernel-estimate-one-sided-bound-1} and
   Lemma~\ref{lem:Cone-Gaussians-comparable}, we obtain
   \begin{equation*}
-    M_{t^2}(y, \xi) \leq  c_k\frac{\e^{|x|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}}
+    M_{t^2}(y, \xi) \leq \frac{\e^{|x|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}} c_k
   \end{equation*}       
   where $c_k$ depends only on $A$, $a$, and $t$. Also, by
   \eqref{eq:C_k-annulus-decomposition-expand},
   \begin{equation*}
-    |x - \xi| \leq |x - y| + |\xi - y| \leq (A + 2^{k + 1}\alpha)t .
+    |x - \xi| \leq |x - y| + |\xi - y| \leq (A + 2^{k + 1})t .
   \end{equation*}
-  It follows that $ C_k$ is contained in $D_k := B_{(A +2^{k + 1}\alpha)t}(x)$.
+  It follows that $ C_k$ is contained in $D_k := B_{(A +2^{k + 1})t}(x)$.
 
-  Let us denote the supremum on right-hand side of \eqref{eq:Maximal-function-cone} by $M_\gamma u (x)$.
-  Using \eqref{eq:Mehler-kernel-estimate-one-sided-bound-1}, we can bound the
+  Let us denote the supremum on right-hand side of
+  \eqref{eq:Maximal-function-cone} by $M_\gamma u (x)$. Using
+  \eqref{eq:Mehler-kernel-estimate-one-sided-bound-1}, we can bound the
   integral on the right-hand side of
   \eqref{eq:Maximal-function-cone-intermediate-step-1} by
   \begin{align*}
@@ -501,11 +500,11 @@ Our theorem is a modification of \cite[lemma 1.1]{Pineda2008} with a new proof.
       \e^{-2t^2})^{\frac{d}2}} \int_{D_k} |u| \,\D\gamma\\ 
     &\leq c_k  \frac {\e^{|x|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}}  \gamma(D_k) M_\gamma u(x)\\
     &\overset{(\dagger)}{\lesssim}_{A,a,d} c_k 
-    \frac {t^d}{(1 - \e^{-2t^2})^{\frac{d}2}} \e^{2((A +2^{k + 1}\alpha)t)|x|} M_\gamma u(x)\\
-    &\overset{(\dagger\dagger)}{\lesssim}_{A,a,d} c_k \e^{2^{k + 2}\alpha a} M_\gamma u(x),
+    \frac {t^d}{(1 - \e^{-2t^2})^{\frac{d}2}} \e^{2((A +2^{k + 1})t)|x|} M_\gamma u(x)\\
+    &\overset{(\ddagger)}{\lesssim}_{A,a,d} c_k \e^{2^{k + 2} a} M_\gamma u(x),
   \end{align*}
   where ($\dagger$) uses Lemma~\ref{lem:Gaussian-ball-shift-lemma} applied to
-  $D_k$ and ($\dagger\dagger$) uses that $t \leq am(x)$ implies $t|x|\leq a$
+  $D_k$ and ($\ddagger$) uses that $t \leq am(x)$ implies $t|x|\leq a$
   and $t\leq a$, the latter implying
   \begin{equation*}
     \biggl(\frac{t^2}{1 -
@@ -520,8 +519,8 @@ Our theorem is a modification of \cite[lemma 1.1]{Pineda2008} with a new proof.
   we can then bound the maximal function as follows: 
   \begin{align*}
     |\e^{-t^2 L} u(y)| &= \sum_{k = 0}^\infty I_k
-    \lesssim_{A,a,d} M_\gamma u(x) \sum_{k = 0}^\infty 2^{kd} \e^{\alpha(1+\alpha) 2^{k + 1}} 
-    \e^{-\frac{\alpha^2}{2 \e^{2a^2}}  4^k} \e^{ 2^{k + 2} \alpha a}.
+    \lesssim_{A,a,d} M_\gamma u(x) \sum_{k = 0}^\infty 2^{kd} \e^{(1+\alpha) 2^{k + 1}} 
+    \e^{-\frac1{2 \e^{2a^2}}  4^k} \e^{ 2^{k + 2} a}.
   \end{align*}
   Evidently the sum on the right-hand side converges.
 \end{proof}

@@ -16,13 +16,6 @@
 \usepackage{latexsym}
 \usepackage{bbm}
 \usepackage{enumitem}
-% \usepackage[bitstream-charter]{mathdesign}%
-
-% \usepackage[bookmarks,colorlinks,breaklinks]{hyperref} % Add hyperref type links in the document, colors
-% \definecolor{dullmagenta}{rgb}{0.4,0,0.4} % #660066
-% \definecolor{darkblue}{rgb}{0,0,0.4}%
-% \hypersetup{linkcolor=red,citecolor=blue,filecolor=dullmagenta,urlcolor=darkblue} % coloured links
-
 
 % \makeatletter
 
@@ -44,31 +37,13 @@
 \newtheorem*{examples}{Examples}
 
 
-\newcommand{\E}{\mathbb{E}}
-\newcommand{\Sp}{\mathbb{S}}
-\newcommand{\prob}{\mathbb{P}}
 \newcommand{\D}{\,\textup{d}}
 \newcommand{\Dn}{\textup{d}} % One without space.
 \newcommand{\Dt}{\,\frac{\textup{d} t}{t}}
 \newcommand{\Ds}{\,\frac{\textup{d} s}{s}}
 \newcommand{\DyDt}{\frac{\textup{d} y \, \textup{d} t}{t^{n+1}}}
-\newcommand{\Dd}{\mathscr{D}}
-\newcommand{\Tt}{\mathscr{T}}
-\newcommand{\Cc}{\mathscr{C}}
-\newcommand{\Bb}{\mathscr{B}}
-\newcommand{\Rr}{\mathscr{R}}
-\newcommand{\Ff}{\mathscr{F}}
-\newcommand{\Ll}{\mathscr{L}}
-\newcommand{\Mm}{\mathscr{M}}
-\newcommand{\hh}{\mathfrak{h}}
-\newcommand{\ttt}{\mathfrak{t}}
 \newcommand{\la}{\langle}
 \newcommand{\ra}{\rangle}
-\newcommand{\Rad}{\textup{Rad}}
-\newcommand{\Car}{\textup{Car}}
-\newcommand{\BMO}{\textup{BMO}}
-\newcommand{\loc}{\textup{loc}}
-\newcommand{\LH}{{L^2_\mu}}
 \newcommand{\LHG}{{L^2(\R^d,\gamma)}}
 
 %% Bar int
@@ -87,34 +62,17 @@
 
 
 %% Symbols
-\renewcommand{\bar}[1]{\overline#1}
-\renewcommand{\vec}[1]{\boldsymbol{\mathbf{#1}}}
-\renewcommand{\leq}{\leqslant}
-\renewcommand{\Im}{\operatorname{Im}}
-\renewcommand{\Re}{\operatorname{Re}}
 \renewcommand{\leq}{\leqslant}
 \renewcommand{\geq}{\geqslant}
 \renewcommand{\epsilon}{\varepsilon}
-\renewcommand{\emptyset}{\varnothing}
 \newcommand{\Fo}{\mathcal{F}}
 \newcommand{\R}{\mathbf R}
-\newcommand{\C}{\mathbf C}
-\newcommand{\N}{\mathbf N}
-\newcommand{\T}{\mathbb T}
-\newcommand{\Z}{\mathbf Z}
-\newcommand{\B}{\mathcal B}
 \newcommand{\e}{\mathrm{e}} %Roman e for exponentials
 
-\renewcommand{\leq}{\leqslant}%
-\renewcommand{\geq}{\geqslant}%
 \DeclareMathOperator{\supp}{supp}
 \newcommand{\Dg}{\frac{\textup{d}\gamma (y)}{\gamma (B(y,t))}}
 \newcommand{\Dmu}{\frac{\textup{d}\mu (y)}{\mu (B(y,t))}}
 
-
-\renewcommand{\Re}{\operatorname{Re}}
-\renewcommand{\Im}{\operatorname{Im}}
-\renewcommand{\bar}{\overline}
 
 % \usepackage{tikz}
 
@@ -123,33 +81,6 @@
 \def\theoremeqrefname{Theorem}
 \def\corollaryeqrefname{Corollary}
 
-%% Bibliography
-% \usepackage[backend=biber,doi=false,url=false,isbn=false]{biblatex}
-% \bibliography{~/Documents/BibTeX/library.bib}
-% 
-% \newbibmacro{string+doiurlisbn}[1]{%
-% \iffieldundef{doi}{%
-% \iffieldundef{url}{%
-% \iffieldundef{isbn}{%
-% \iffieldundef{issn}{%
-% #1%
-% }{%
-%   \href{http://books.google.com/books?vid=ISSN\thefield{issn}}{#1}%
-% }%
-% }{%
-%   \href{http://books.google.com/books?vid=ISBN\thefield{isbn}}{#1}%
-% }%
-% }{%
-%   \href{\thefield{url}}{#1}%
-% }%
-% }{%
-%   \href{http://dx.doi.org/\thefield{doi}}{#1}%
-% }%
-% }
-%   
-%   \DeclareFieldFormat{title}{\usebibmacro{string+doiurlisbn}{\mkbibemph{#1}}}
-%   \DeclareFieldFormat[article,incollection]{title}%
-%   {\usebibmacro{string+doiurlisbn}{\mkbibquote{#1}}}
 
 
 \begin{document}
@@ -186,9 +117,9 @@
 \section{Introduction}
 Maximal functions are among the most studied objects in harmonic
 analysis. 
-It is well-known that the classical non-tangential maximal
-function associated with the heat semigroup is bounded almost everywhere
-by the Hardy-Littlewood maximal function, 
+It is well-known that the classical non-tangential maximal function associated
+with the heat semigroup is bounded almost everywhere by the Hardy-Littlewood
+maximal function,
 \begin{equation}\label{eq:classical}
   \sup_{\substack{(y, t) \in   \R^{d + 1}_+\\ |x - y| < t}} |\e^{-t \Delta} u(y)| \lesssim \sup_{r
     > 0}  \frac1{|B_r(x)|}\int_{B_r(x)} |u| \D\lambda.
@@ -196,21 +127,23 @@ by the Hardy-Littlewood maximal function,
 Here the action of \emph{heat semigroup} $\e^{-t \Delta} u = \rho_t \ast u$ is
 given by a convolution of $u$ with the \emph{heat kernel}
 \begin{equation*}
-  \rho_t(s) := \frac{\e^{-|s|^2/4t}}{(4\pi t)^{\frac{d}2}}.
+  \rho_t(\xi) := \frac{\e^{-|\xi|^2/4t}}{(4\pi t)^{\frac{d}2}}, \:\text{with}\:
+  t > 0 \:\text{and}\: \xi \in \R^d.
 \end{equation*}
-In this note we are interested in its Gaussian counterpart. The change from Lebesgue measure to the Gaussian measure
+In this note we are interested in its Gaussian counterpart. The change from
+Lebesgue measure to the \textit{Gaussian measure}
 \begin{equation}
   \label{eq:Gaussian-measure}
   \mathrm{d}\gamma(x) := \pi^{-\frac{d}2} \e^{-|x|^2} \D{x}
 \end{equation}
 introduces quite some intricate technical and conceptual difficulties which are
 due to its non-doubling nature. Instead of the Laplacian, will use its Gaussian
-analogue, the \emph{Ornstein-Uhlenbeck operator} $L$ given by,
+analogue, the \emph{Ornstein-Uhlenbeck operator} $L$ which is given by,
 \begin{equation}
   \label{eq:Ornstein-Uhlenbeck-operator}
   L := -\frac12 \Delta + \la x, \nabla \ra = \frac12 \nabla_\gamma^* \nabla_\gamma,
 \end{equation}
-where $\nabla_\gamma$ denotes the realisation of the gradient in $L^2(\R^d,\gamma)$.
+where $\nabla_\gamma$ denotes the realisation of the gradient in $\LHG$.
 Our main result, to be proved in Theorem~\ref{thm:Gaussian-maximal-function},
 is the following Gaussian analogue of \eqref{eq:classical}:
 \begin{equation}
@@ -221,11 +154,12 @@ is the following Gaussian analogue of \eqref{eq:classical}:
 Here, 
 \begin{equation}
   \label{eq:Gaussian-cone}
-  \Gamma_x^{(A, a)} := \Gamma_x^{(A, a)}(\gamma) := \{(y, t) \in \R^{d + 1}_+ \,: \, |x - y| < At \:\text{and}\: t \leq a m(x)\}
+  \Gamma_x^{(A, a)} := \Gamma_x^{(A, a)}(\gamma) := \{(y, t) \in \R^{d + 1}_+
+  \,: \, |x - y| < At \:\text{and}\: t \leq a m(x)\}
 \end{equation}
-is the Gaussian cone with aperture $A$ and cut-off parameter $a$, and 
+is the \textit{Gaussian cone} with aperture $A$ and cut-off parameter $a$, and
 \begin{equation}\label{eq:m-function}
-  m(x) := \min\biggl\{1, \frac1{|x|} \biggr\}. % = 1 \wedge \frac1{|x|}.
+  m(x) := \min\biggl\{1, \frac1{|x|} \biggr\}.
 \end{equation}
 
 A slighly weaker version of the inequality \eqref{eq:main} has been proved by 
@@ -243,60 +177,32 @@ is the `reduced' Gaussian cone corresponding to the function
 \begin{equation*}
   \widetilde{m}(x) = \min\biggl\{\frac12, \frac1{|x|}\biggr\}.
 \end{equation*}
-Their proof does not seem to easily generalize the range of $t$ from $\frac12$ up
-to $1$.
-Our proof of \eqref{eq:main} is different and, we believe, more transparent 
-than the one presented in \cite{Pineda2008}. It has the further advantage of allowing 
-the extension to cones
-with arbitrary aperture $A>0$ and cut-off parameter $a > 0$ without any
-additional technicalities. This additional generality
-is very important and has already been used by Portal (cf. 
-the claim made in \cite[discussion preceding Lemma 2.3]{Portal2012}) to prove the 
+Our proof of \eqref{eq:main} is much shorter and, we believe, more transparent
+than the one presented in \cite{Pineda2008}. It has the further advantage of
+allowing the extension to cones with arbitrary aperture $A > 0$ and cut-off
+parameter $a > 0$ without any additional technicalities. This additional
+generality is very important and has already been used by Portal (cf. the claim
+made in \cite[discussion preceding Lemma 2.3]{Portal2012}) to prove the
 $H^1$-boundedness of the Riesz transform associated with $L$.
 
-To save writing, let us fix some notation. The number $d$ is a positive
-integer. To avoid possible confusion, we define the \emph{positive integers} as
-the set $\Z_+ = \{1, 2, 3, \dots\}$.
-
-
-% How do cone scalings behave wrt several maximal functions?
-% Especially for the latter.
-% 
-% Need to add domain and measure in first section, but that can be in
-% the introduction later on.
-% 
-% 
-
-% \subsubsection{$m$inimal function}
-% We recall the lemma from \cite[lemma 2.3]{Maas2011} which first
-% --although implicitly-- appeared in \cite{Mauceri2007}.
-% \fbox{Nog materiaal toevoegen?}
-
 \section{The Mehler kernel}
-% \subsection{Setting}
-% Recall that we work with the \emph{Ornstein-Uhlenbeck} operator $L$ as
-% given by \eqref{eq:Ornstein-Uhlenbeck-operator}.
-
-The Mehler kernel (see e.g., \cite{Sjogren1997}) is the
-Schwartz kernel associated to the Ornstein-Uhlenbeck semigroup
-$(\e^{-tL})_{t \geq 0}$, that is,
+The \textit{Mehler kernel} (see e.g., \cite{Sjogren1997}) is the Schwartz
+kernel associated to the Ornstein-Uhlenbeck semigroup $(\e^{-tL})_{t \geq 0}$,
+that is,
 \begin{equation}
   \label{eq:Ornstein-Uhlenbeck-semigroup-integral}
   \e^{-tL} u(x) = \int_{\R^d} M_t(x, \cdot) u \, \D\gamma.
 \end{equation}
-% It is often more convenient to use $\e^{-t^2 L}$ instead of $\e^{-tL}$
-% as is done in e.g., \cite{Portal2012}.
-% \subsection{The Mehler kernel}
 There is an abundance of literature on the Mehler kernel and its
 properties. We shall only use the fact, proved e.g. in the review paper
-\cite{Sjogren1997}, that the Mehler kernel is given explicitly
-by
-\begin{equation*}
+\cite{Sjogren1997}, that it is given explicitly by
+\begin{equation}
+  \label{eq:Mehler-kernel-Sjogren}
   M_t(x,y) = \frac{\exp\biggl(-\dfrac{|\e^{-t} x - y|^2}{1 - \e^{-2t}}
     \biggr)}{(1 - \e^{-2t})^{\frac{d}2}} \e^{|y|^2}.
-\end{equation*}
-Note that $M_t(x,y)$ is symmetric in $x$ and $y$. A formula for $M_t$ which
-honors this observation is: 
+\end{equation}
+Note that $M_t(x,y)$ is symmetric in $x$ and $y$. A formula for
+\eqref{eq:Mehler-kernel-Sjogren} honoring this observation is:
 \begin{equation}
   \label{eq:Mehler-kernel}
   M_t(x, y) = \frac{\exp\biggl(-\e^{-2t} \dfrac{|x - y|^2}{1
@@ -336,7 +242,7 @@ both variables are in a Gaussian cone.
     |y|^2 \leq (\alpha m(x) + |x|)^2 \leq \alpha^2 + 2 \alpha + |x|^2.
   \end{equation*}
   This gives the first inequality.  For the second we use
-  Lemma \ref{lem:m-xy-equivalence} to infer $m(x) \leq (1 + \alpha)
+  Lemma~\ref{lem:m-xy-equivalence} to infer $m(x) \leq (1 + \alpha)
   m(y)$. Proceeding as before we obtain: 
   \begin{equation*}
     |x|^2 \leq \alpha^2 (1 + \alpha)^2 + 2 \alpha (1 + \alpha) + |y|^2.
@@ -345,19 +251,19 @@ both variables are in a Gaussian cone.
 \end{proof}
 
 \subsection{An estimate on Gaussian balls}
-Let $B = B_t(x)$ be the open Euclidean ball with radius $t$ and center $x$
+Let $B := B_t(x)$ be the open Euclidean ball with radius $t$ and center $x$
 and let $\gamma$ be the Gaussian measure as defined by
 \eqref{eq:Gaussian-measure}. We shall denote by $S_d$ the surface area 
 of the unit sphere in $\R^d$.
 
 \begin{lemma}\label{lem:Gaussian-ball-shift-lemma}
-  For all $x\in\R^d$ and $t>0$ we have the inequality:
+  For all $x \in \R^d$ and $t > 0$ we have the inequality:
   \begin{equation}\label{eq:Gaussian-ball-shift-lemma}
     \gamma(B_t(x)) \leq \frac12 S_d t^{d} \e^{2t|x|} \e^{-|x|^2}. 
   \end{equation}
 \end{lemma}
 \begin{proof}
-  Remark that
+  Remark that, with $B := B_t(x)$,
   \begin{align*}
     \int_B \e^{-|\xi|^2} \D\xi &= \e^{-|x|^2} \int_{B} \e^{-|\xi -
       x|^2} \e^{-2 \la x, \xi - x \ra} \D\xi\\
@@ -379,7 +285,7 @@ of the unit sphere in $\R^d$.
     &= \frac12 \pi^{-\frac{d}2}S_d t^{d-2} (1-\e^{-t^2})\\
     &\leq \frac12 \pi^{-\frac{d}2}S_d t^{d},
   \end{align*}
-  where the last step uses $1-\e^{-x} \leq x$ for $x\geq 0$. The case
+  where the last step uses $1 - \e^{-t} \leq t$ for $t \geq 0$. The case
   for $d = 1$ follows by a simplified argument.
   Upon combining this result with
   \eqref{eq:Gaussian-ball-shift-lemma-proof-1} we obtain
@@ -391,15 +297,11 @@ As is common in harmonic analysis, we often wish to decompose
 $\R^d$ into sets on which certain phenomena are easier to handle. Here
 we will decompose the space into disjoint annuli. 
 
-Throughout this subsection we fix $x\in \R^d$, constants $A,a>0$, a pair
-$(y,t)\in \Gamma_x^{(A,a)}$, and we put $\alpha:=Aa$. 
-% {\red \fbox{Later need $\alpha > 2\e^{\frac{2t}{\kappa(\alpha)}}$?}}
-% We write {\red $B^\alpha := B_{\alpha t}(x)$} and mean that $B^\alpha$ is the
-% {\red open} ball with center $x$ and radius $\alpha t$. Furthermore, w
-We use the notation $rB$ to mean the ball obtained from the ball $B$ by
-multiplying its radius by $r$.
+Throughout this subsection we fix $x \in \R^d$, constants $A, a > 0$, a pair
+$(y,t) \in \Gamma_x^{(A,a)}$. We use the notation $rB$ to mean the ball obtained
+from the ball $B$ by multiplying its radius by $r$.
 
-The annuli $C_k$ are given by:
+The annuli $C_k := C_k(B_t(x))$ are given by:
 \begin{equation}
   \label{eq:C_k-annulus-decomposition}
   C_k : = (2^{k + 1} - 1)B_t(x) \setminus (2^k - 1)B_t(x)
@@ -429,9 +331,9 @@ On $C_k$ we have the following bound for $M_{t^2}(y,\cdot)$:
     &\overset{(\dagger)}{\leq} \exp\biggl(-\frac1{2 \e^{2t^2}} (2^k - 1)^2 \biggr)
     \overset{(\ddagger)}{\leq} \exp\biggl(-\frac1{2 \e^{2a^2}} (2^k - 1)^2 \biggr),
   \end{align*}
-  where $(\dagger)$ follows from $1 - \e^{-x} \leq x$ for $x \geq 0$, and $(\ddagger)$
-  uses that $t \leq am(x) \leq a$. Using the estimate $1+x \geq 2x$ for $0 \leq
-  x \leq 1$, for the second exponential in the Mehler kernel
+  where $(\dagger)$ follows from $1 - \e^{-s} \leq s$ for $s \geq 0$, and $(\ddagger)$
+  uses that $t \leq am(x) \leq a$. Using the estimate $1 + s \geq 2s$ for $0
+  \leq s \leq 1$, for the second exponential in the Mehler kernel
   \eqref{eq:Mehler-kernel} we obtain, by
   \eqref{eq:C_k-annulus-decomposition-expand}:
   \begin{align*}
@@ -444,7 +346,8 @@ On $C_k$ we have the following bound for $M_{t^2}(y,\cdot)$:
 \end{proof}
 
 \section{The main result}
-Our theorem is a modification of \cite[lemma 1.1]{Pineda2008} with a new proof.
+In this section we will prove our main theorem for which we have already made
+the necessary preparations in the previous sections.
 \begin{theorem}\label{thm:Gaussian-maximal-function}
   Let $A, a > 0$. For all $x\in \R^d$ and all $u \in \LHG$ we have
   \begin{equation}
@@ -454,11 +357,11 @@ Our theorem is a modification of \cite[lemma 1.1]{Pineda2008} with a new proof.
   \end{equation}
 \end{theorem}
 \begin{proof}
-  We fix $x \in \R^d$ and $ (y, t) \in \Gamma_x^{(A, a)}$. 
-  Set $\alpha = aA$. 
-  We will prove \eqref{eq:Maximal-function-cone} by splitting up the
+  We fix $x \in \R^d$ and $ (y, t) \in \Gamma_x^{(A, a)}$. The proof of
+  \eqref{eq:Maximal-function-cone} is based on splitting the
   integration domain into the annuli $C_k$ as defined by
-  \eqref{eq:C_k-annulus-decomposition}: 
+  \eqref{eq:C_k-annulus-decomposition} and estimating on each annulus. More
+  explicit,
   \begin{equation}
     \label{eq:Maximal-function-cone-intermediate-step-1}
     |\e^{-t^2 L} u(y)| \leq \sum_{k = 0}^\infty I_k(y),
@@ -466,22 +369,23 @@ Our theorem is a modification of \cite[lemma 1.1]{Pineda2008} with a new proof.
     \,\D\gamma.
   \end{equation} 
   From $t \leq a m(x)$ we get $t |x| \leq a$, and by
-  Lemma~\ref{lem:m-xy-equivalence} we have $t |y| \leq 1 + \alpha$. From this
-  and Lemma~\ref{lem:On-diagonal-kernel-estimates-on-Ck} we infer, for $\xi \in
-  C_k$, that:
+  Lemma~\ref{lem:m-xy-equivalence} this implies $t |y| \leq 1 + aA$. Together
+  with Lemma~\ref{lem:On-diagonal-kernel-estimates-on-Ck} we infer, for $\xi
+  \in C_k$, that:
+  \begin{align*}
+    \label{eq:Mehler-kernel-estimate-one-sided-bound-1}
+    M_{t^2}(y, \xi) &\leq \frac{\e^{|y|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}}
+    \exp\bigl((2^{k + 1} - 1) (1 + aA) \bigr) \exp\Big(\!-\!\frac1{2 \e^{2a^2}}
+    (2^k - 1)^2 \Big)\\
+    &=: \frac{\e^{|y|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}} c_k.
+  \end{align*}
+  Combining this with Lemma~\ref{lem:Cone-Gaussians-comparable}, we obtain
   \begin{equation}
     \label{eq:Mehler-kernel-estimate-one-sided-bound-1}
-    M_{t^2}(y, \xi) \leq  \frac{\e^{|y|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}}
-    \exp\bigl((2^{k + 1} - 1) (1 + \alpha) \bigr)
-    \exp\Big(\!-\!\frac1{2 \e^{2a^2}} (2^k - 1)^2 \Big).
-  \end{equation}
-  Combining \eqref{eq:Mehler-kernel-estimate-one-sided-bound-1} and
-  Lemma~\ref{lem:Cone-Gaussians-comparable}, we obtain
-  \begin{equation*}
-    M_{t^2}(y, \xi) \leq \frac{\e^{|x|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}} c_k
-  \end{equation*}       
-  where $c_k$ depends only on $A$, $a$, and $t$. Also, by
-  \eqref{eq:C_k-annulus-decomposition-expand},
+    M_{t^2}(y, \xi) \leq \frac{\e^{|x|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}}
+    \e^{(aA)^2} \e^{2aA} c_k.
+  \end{equation}       
+  Also, by \eqref{eq:C_k-annulus-decomposition-expand},
   \begin{equation*}
     |x - \xi| \leq |x - y| + |\xi - y| \leq (A + 2^{k + 1})t .
   \end{equation*}
@@ -493,7 +397,7 @@ Our theorem is a modification of \cite[lemma 1.1]{Pineda2008} with a new proof.
   integral on the right-hand side of
   \eqref{eq:Maximal-function-cone-intermediate-step-1} by
   \begin{align*}
-    \int_{C_k}  M_{t^2}(y, \cdot) |u(\cdot)| \,\D\gamma & \leq
+    \int_{C_k}  M_{t^2}(y, \cdot) |u(\cdot)| \,\D\gamma & \lesssim_{A, a}
     c_k \frac{\e^{|x|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}}   \int_{C_k}
     |u| \,\D\gamma\\ 
     &\leq c_k \frac {\e^{|x|^2}} {(1 -
@@ -507,22 +411,22 @@ Our theorem is a modification of \cite[lemma 1.1]{Pineda2008} with a new proof.
   $D_k$ and ($\ddagger$) uses that $t \leq am(x)$ implies $t|x|\leq a$
   and $t\leq a$, the latter implying
   \begin{equation*}
-    \biggl(\frac{t^2}{1 -
-      \e^{-t^2}} \biggr)^{\frac{d}2} \leq
-    \biggl(\frac{a^2}{1 -
-      \e^{-a^2}} \biggr)^{\frac{d}2}
+    \biggl(\frac{t^2}{1 - \e^{-t^2}} \biggr)^{\frac{d}2} \leq
+    \biggl(\frac{a^2}{1 - \e^{-a^2}} \biggr)^{\frac{d}2},
   \end{equation*}
-  (note that $x/(1-\e^{-x})$ is increasing).
+  (note that $s/(1-\e^{-s})$ is increasing).
 
   Inserting the depenceny of $c_k$ upon $k$ as coming from 
-  \eqref{eq:Mehler-kernel-estimate-one-sided-bound-1} and using that $t\leq a$, 
-  we can then bound the maximal function as follows: 
+  \eqref{eq:Mehler-kernel-estimate-one-sided-bound-1} and using that $t\leq a$,
+  we obtain the bound: 
   \begin{align*}
     |\e^{-t^2 L} u(y)| &= \sum_{k = 0}^\infty I_k
-    \lesssim_{A,a,d} M_\gamma u(x) \sum_{k = 0}^\infty 2^{kd} \e^{(1+\alpha) 2^{k + 1}} 
-    \e^{-\frac1{2 \e^{2a^2}}  4^k} \e^{ 2^{k + 2} a}.
+    \lesssim_{A,a,d} M_\gamma u(x) \sum_{k = 0}^\infty 2^{kd} \e^{(1+aA) 2^{k + 1}} 
+    \e^{-\frac1{2 \e^{2a^2}}  4^k} \e^{ 2^{k + 2} a},
   \end{align*}
-  Evidently the sum on the right-hand side converges.
+  valid for all $y \in \Gamma_x^{(A, a)}$. As the sum on the right-hand side
+  evidently converges, we see that taking the supremum proves
+  \eqref{eq:Maximal-function-cone}.
 \end{proof}
 \bibliographystyle{amsplain}
 \bibliography{Teuwen-GaussianMF}

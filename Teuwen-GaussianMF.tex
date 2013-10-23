@@ -403,14 +403,14 @@ the necessary preparations in the previous sections.
     &\leq c_k \frac {\e^{|x|^2}} {(1 -
       \e^{-2t^2})^{\frac{d}2}} \int_{D_k} |u| \,\D\gamma\\ 
     &\leq c_k  \frac {\e^{|x|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}}  \gamma(D_k) M_\gamma u(x)\\
-    &\overset{(\dagger)}{\lesssim}_{A,a,d} c_k 
-    \frac {t^d}{(1 - \e^{-2t^2})^{\frac{d}2}} \e^{2((A +2^{k + 1})t)|x|} M_\gamma u(x)\\
-    &\overset{(\ddagger)}{\lesssim}_{A,a,d} c_k \e^{2^{k + 2} a} M_\gamma u(x),
+    &\overset{(\dagger)}{\lesssim}_d c_k 
+    \frac {t^d (A + 2^{k + 1})^d}{(1 - \e^{-2t^2})^{\frac{d}2}} \e^{2((A +2^{k + 1})t)|x|} M_\gamma u(x)\\
+    &\overset{(\ddagger)}{\lesssim}_{a, d} c_k (A + 2^{k + 1})^d \e^{2^{k + 2} a} M_\gamma u(x),
   \end{align*}
   where ($\dagger$) uses Lemma~\ref{lem:Gaussian-ball-shift-lemma} applied to
-  $D_k$ and ($\ddagger$) uses that $t \leq am(x)$ implies $t|x|\leq a$
-  and $t\leq a$, the latter implying
-  \begin{equation*}
+  $D_k$ and ($\ddagger$) uses that $t \leq am(x)$ implies $t|x|\leq a$ and
+  $t\leq a$, the latter implying 
+ \begin{equation*}
     \biggl(\frac{t^2}{1 - \e^{-t^2}} \biggr)^{\frac{d}2} \leq
     \biggl(\frac{a^2}{1 - \e^{-a^2}} \biggr)^{\frac{d}2},
   \end{equation*}
@@ -422,7 +422,7 @@ the necessary preparations in the previous sections.
   \begin{align*}
     |\e^{-t^2 L} u(y)| &= \sum_{k = 0}^\infty I_k
     \lesssim_{A,a,d} M_\gamma u(x) \sum_{k = 0}^\infty 2^{kd} \e^{(1+aA) 2^{k + 1}} 
-    \e^{-\frac1{2 \e^{2a^2}}  4^k} \e^{ 2^{k + 2} a},
+    \e^{-\frac1{2 \e^{2a^2}}  4^k} (A + 2^{k + 1})^d \e^{ 2^{k + 2} a},
   \end{align*}
   valid for all $y \in \Gamma_x^{(A, a)}$. As the sum on the right-hand side
   evidently converges, we see that taking the supremum proves

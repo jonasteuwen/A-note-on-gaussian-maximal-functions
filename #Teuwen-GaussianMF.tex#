@@ -13,6 +13,9 @@
 \usepackage{enumerate} 
 % \usepackage{booktabs}% Better tables
 
+\usepackage{latexsym}
+\usepackage{bbm}
+\usepackage{enumitem}
 
 % \makeatletter
 
@@ -437,7 +440,8 @@ $C$ not necessarily the same at all instances.
   Set $\alpha = \frac1{2\e^2}$
   \begin{align*}
     |\e^{-t^2 L} u(y)| &\lesssim \frac{C^d}{\Gamma\bigl(\frac{d}2 \bigr)} M_\gamma u(x) \sum_{k
-      = 0}^\infty 2^{kd} \e^{3 \cdot 2^{k + 1}} \e^{-\alpha (2^k - 1)^2}\\
+      = 0}^\infty 2^{kd} \e^{3 \cdot 2^{k + 1}} \e^{
+-\alpha (2^k - 1)^2}\\
   \end{align*}
 
 

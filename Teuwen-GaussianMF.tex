@@ -256,7 +256,7 @@ of the unit sphere in $\R^d$.
 \begin{lemma}\label{lem:Gaussian-ball-shift-lemma}
   For all $x \in \R^d$ and $t > 0$ we have the inequality:
   \begin{equation}\label{eq:Gaussian-ball-shift-lemma}
-    \gamma(B_t(x)) \leq  \frac{t^d}{\Gamma\bigl(\frac{d}2 \bigr)} \e^{2t|x|} \e^{-|x|^2}. 
+    \gamma(B_t(x)) \leq  \frac{S_d}{2 \pi^{\frac{d}{2}}} t^d \e^{2t|x|} \e^{-|x|^2}. 
   \end{equation}
 \end{lemma}
 \begin{proof}
@@ -267,33 +267,25 @@ of the unit sphere in $\R^d$.
     &\leq \e^{-|x|^2} \int_{B} \e^{-|\xi - x|^2} \e^{2 |x| |\xi - x|}
     \D\xi\\
     &\leq \e^{-|x|^2} \e^{2 t|x|} \int_{B} \e^{-|\xi - x|^2} \D\xi\\
-    &= \pi^{\frac{d}2} \e^{-|x|^2} \e^{2 t|x|} \gamma(B_t(0)).
+    &= \pi^{\frac{d}2} \e^{2 t|x|} \e^{-|x|^2} \gamma(B_t(0)).
   \end{align*}
   So, there holds that
   \begin{equation}\label{eq:Gaussian-ball-shift-lemma-proof-1}
-    \gamma(B_t(x)) \leq \e^{-|x|^2} \e^{2 t|x|} \gamma(B_t(0)).
+    \gamma(B_t(x)) \leq \e^{2 t|x|} \e^{-|x|^2} \gamma(B_t(0)).
   \end{equation}
   We will estimate the Gaussian volume of the ball $B_t(0)$. Using polar coordinates
   we proceed for $d \geq 2$ by: 
   \begin{align*}
-    \gamma(B_t(0)) &= \pi^{-\frac{d}2} \int_{B_t(0)} \e^{-|\xi|^2} \D\xi\\
-    &=\pi^{-\frac{d}2}S_d \int_0^t \e^{-r^2} r^{d - 1} \D{r}\\
-    &\leq\frac12 \pi^{-\frac{d}2}S_d t^{d-2} \int_0^t 2r \e^{-r^2} \D{r}\\
-    &= \frac12 \pi^{-\frac{d}2}S_d t^{d-2} (1-\e^{-t^2})\\
-    &\leq \frac12 \pi^{-\frac{d}2}S_d t^d,
+    \gamma(B_t(0)) &= \frac1{\pi^{\frac{d}2}} \int_{B_t(0)} \e^{-|\xi|^2} \D\xi\\
+    &= \frac{S_d}{\pi^{\frac{d}2}} \int_0^t \e^{-r^2} r^{d - 1} \D{r}\\
+    &\leq \frac{S_d}{2 \pi^{\frac{d}2}} t^{d-2} \int_0^t 2r \e^{-r^2} \D{r}\\
+    &= \frac{S_d}{2 \pi^{\frac{d}2}} t^{d-2} (1-\e^{-t^2})\\
+    &\leq \frac{S_d}{2 \pi^{\frac{d}2}} t^d,
   \end{align*}
   where the last step uses $1 - \e^{-t} \leq t$ for $t \geq 0$. The case
-  for $d = 1$ follows by a simplified argument. The surface area of the
-  $d$-dimensional sphere $S_d$ given by:
-  \begin{equation*}
-    S_d = 2 \frac{\pi^{\frac{d}2}}{\Gamma\bigl(\frac{d}2 \bigr)},
-  \end{equation*}
-  hence,
-  \begin{equation*}
-    \gamma(B_t(0)) \leq \frac{t^d}{\Gamma\bigl(\frac{d}2 \bigr)},
-  \end{equation*}
-  Upon combining this result with \eqref{eq:Gaussian-ball-shift-lemma-proof-1}
-  we obtain \eqref{eq:Gaussian-ball-shift-lemma}.
+  for $d = 1$ follows by a simplified argument. Upon combining this
+  result with \eqref{eq:Gaussian-ball-shift-lemma-proof-1} we obtain
+  \eqref{eq:Gaussian-ball-shift-lemma}.
 \end{proof}
 
 \subsection{On-diagonal kernel estimates on annuli}
@@ -301,28 +293,28 @@ As is common in harmonic analysis, we often wish to decompose
 $\R^d$ into sets on which certain phenomena are easier to handle. Here
 we will decompose the space into disjoint annuli. 
 
-Throughout this subsection we fix $x \in \R^d$, constants $A, a = 1$, a pair
-$(y,t) \in \Gamma_x$. We use the notation $rB$ to mean the ball obtained
+Throughout this subsection we fix $x \in \R^d$, constants $A, a \geq 1$, a pair
+$(y,t) \in \Gamma_x^{(A, a)}$. We use the notation $rB$ to mean the ball obtained
 from the ball $B$ by multiplying its radius by $r$.
 
 The annuli $C_k := C_k(B_t(x))$ are given by:
 \begin{equation}
   \label{eq:C_k-annulus-decomposition}
-  C_k : = (2^{k + 1} - 1)B_t(x) \setminus (2^k - 1)B_t(x)
+  C_k : = 2^{k + 1} B_t(x) \setminus 2^k B_t(x)
   \:\text{with}\: k \geq 0.
 \end{equation}
-Note that $C_0 = B_t(x)$. Whenever $\xi$ is in $C_k$, we get for $k
+Note that we need to add $B_t$ itself as the first `annulus'. Whenever $\xi$ is in $C_k$, we get for $k
 \geq 0$:
 \begin{equation}
   \label{eq:C_k-annulus-decomposition-expand}
-  (2^k - 1) t < |y - \xi| \leq (2^{k + 1} - 1) t.
+  2^k t < |y - \xi| \leq 2^{k + 1} t.
 \end{equation}
 On $C_k$ we have the following bound for $M_{t^2}(y,\cdot)$:
 \begin{lemma}\label{lem:On-diagonal-kernel-estimates-on-Ck}
   For all $\xi \in C_k$ we have:
   \begin{equation}
     M_{t^2}(y, \xi) \leq \frac{\e^{|y|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}}
-    \exp\bigl((2^{k + 1} - 1) t |y| \bigr) \exp\Big(-\frac1{2 \e^{2 a^2}} (2^k - 1)^2 \Bigr),
+    \exp\bigl(2^{k +  1} t |y| \bigr) \exp\Big(-\frac{4^k}{2 \e^{2 t^2}} \Bigr),
   \end{equation}
 \end{lemma}
 \begin{proof}
@@ -331,20 +323,19 @@ On $C_k$ we have the following bound for $M_{t^2}(y,\cdot)$:
   \eqref{eq:C_k-annulus-decomposition-expand} gives for $k \geq 0$:
   \begin{align*}
     \exp\biggl(-\e^{-2t^2} \frac{|y - \xi|^2}{1 - \e^{-2t^2}} \biggr)
-    &\overset{\phantom{(\dagger)}}{\leq} \exp\biggl(-\e^{-2t^2} \frac{(2^k - 1)^2 t^2}{1 - \e^{-2t^2}} \biggr)\\
-    &\overset{(\dagger)}{\leq} \exp\biggl(-\frac1{2 \e^{2t^2}} (2^k - 1)^2 \biggr)
-    \overset{(\ddagger)}{\leq} \exp\biggl(-\frac1{2 \e^{2}} (2^k - 1)^2 \biggr),
+    &\overset{\phantom{(\dagger)}}{\leq} \exp\biggl(-\frac{4^k}{\e^{2t^2}}
+    \frac{t^2}{1 - \e^{-2t^2}} \biggr)\\
+    &\overset{(\dagger)}{\leq} \exp\biggl(-\frac{4^k}{2 \e^{2t^2}} \biggr),
   \end{align*}
-  where $(\dagger)$ follows from $1 - \e^{-s} \leq s$ for $s \geq 0$, and $(\ddagger)$
-  uses that $t \leq m(x) \leq 1$. Using the estimate $1 + s \geq 2s$ for $0
-  \leq s \leq 1$, for the second exponential in the Mehler kernel
-  \eqref{eq:Mehler-kernel} we obtain, by
+  where $(\dagger)$ follows from $1 - \e^{-s} \leq s$ for $s \geq 0$. Using the
+  estimate $1 + s \geq 2s$ for $0 \leq s \leq 1$, for the second exponential in
+  the Mehler kernel \eqref{eq:Mehler-kernel} we obtain, by
   \eqref{eq:C_k-annulus-decomposition-expand}:
   \begin{align*}
     \exp\biggl(2\e^{-t^2} \frac{\la y, \xi \ra}{1 + \e^{- t^2}} \biggr)
     & \leq \exp(|\la y, \xi \ra|)\\
     & \leq \exp(|\langle y, \xi-y\rangle|) \e^{|y|^2}\\
-    & \leq \exp\bigl((2^{k + 1} - 1) t |y| \bigr) \e^{|y|^2}.
+    & \leq \exp\bigl(2^{k + 1} t |y| \bigr) \e^{|y|^2}.
   \end{align*}
   Combining things, we obtain the estimate in the formulation of the lemma.
 \end{proof}
@@ -353,297 +344,7 @@ On $C_k$ we have the following bound for $M_{t^2}(y,\cdot)$:
 In this section we will prove our main theorem for which we have already made
 the necessary preparations in the previous sections.
 \begin{theorem}\label{thm:Gaussian-maximal-function}
-  Let $A, a > 0$. For all $x\in \R^d$ and all $u \in \LHG$ we have
-  \begin{equation}
-    \label{eq:Maximal-function-cone}
-    \sup_{(y, t) \in \Gamma_x} |\e^{-t^2 L} u(y)| \lesssim
-    \sup_{r > 0} \frac1{\gamma(B_r(x))}\int_{B_r(x)} |u| \, \D\gamma.
-  \end{equation}
-\end{theorem}
-\begin{proof}
-  We fix $x \in \R^d$ and $ (y, t) \in \Gamma_x$. The proof of
-  \eqref{eq:Maximal-function-cone} is based on splitting the
-  integration domain into the annuli $C_k$ as defined by
-  \eqref{eq:C_k-annulus-decomposition} and estimating on each annulus. More
-  explicit,
-  \begin{equation}
-    \label{eq:Maximal-function-cone-intermediate-step-1}
-    |\e^{-t^2 L} u(y)| \leq \sum_{k = 0}^\infty I_k(y),
-    \:\text{where}\: I_k(y) := \int_{C_k} M_{t^2}(y, \cdot) |u(\cdot)|
-    \,\D\gamma.
-  \end{equation} 
-  From $t \leq m(x)$ we get $t |x| \leq 1$, and by
-  Lemma~\ref{lem:m-xy-equivalence} this implies $t |y| \leq 2$. Together
-  with Lemma~\ref{lem:On-diagonal-kernel-estimates-on-Ck} we infer, for $\xi
-  \in C_k$, that:
-  \begin{align*}
-    \label{eq:Mehler-kernel-estimate-one-sided-bound-1}
-    M_{t^2}(y, \xi) &\leq \frac{\e^{|y|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}} \e^{-1}
-    \e^{2^{k + 1}} \exp\Big(-\frac1{2 \e^2} (2^k - 1)^2 \Bigr)\\
-    &=: \frac{\e^{|y|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}} \e^{-1} c_k.
-  \end{align*}
-  Combining this with Lemma~\ref{lem:Cone-Gaussians-comparable}, we obtain
-  \begin{equation}
-    \label{eq:Mehler-kernel-estimate-one-sided-bound-1}
-    M_{t^2}(y, \xi) \lesssim \frac{\e^{|x|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}} c_k.
-  \end{equation}       
-  Also, by \eqref{eq:C_k-annulus-decomposition-expand},
-  \begin{equation*}
-    |x - \xi| \leq |x - y| + |\xi - y| \leq 2^{k + 1} t .
-  \end{equation*}
-  It follows that $C_k$ is contained in $D_k := B_{2^{k + 1} t}(x)$.
-
-  Let us denote the supremum on right-hand side of
-  \eqref{eq:Maximal-function-cone} by $M_\gamma u (x)$. Using
-  \eqref{eq:Mehler-kernel-estimate-one-sided-bound-1}, we can bound the
-  integral on the right-hand side of
-  \eqref{eq:Maximal-function-cone-intermediate-step-1} by
-  \begin{align*}
-    \int_{C_k}  M_{t^2}(y, \cdot) |u(\cdot)| \,\D\gamma & \lesssim
-    c_k \frac{\e^{|x|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}}   \int_{C_k}
-    |u| \,\D\gamma\\ 
-    &\leq c_k \frac {\e^{|x|^2}} {(1 -
-      \e^{-2t^2})^{\frac{d}2}} \int_{D_k} |u| \,\D\gamma\\ 
-    &\leq c_k  \frac {\e^{|x|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}}  \gamma(D_k) M_\gamma u(x)\\
-    &\overset{(\dagger)}{\leq} c_k 
-    \frac{2^{kd}}{\Gamma\bigl(\frac{d}2 \bigr)} \frac{2^{\frac{d}2} (2t^2)^{\frac{d}2}}{(1 -
-      \e^{-2t^2})^{\frac{d}2}} \e^{2^{k + 2} t|x|} M_\gamma u(x)\\
-    &\overset{(\ddagger)}{\leq} c_k \frac{2^{kd} 2^{\frac{d}2}
-      C^d}{\Gamma\bigl(\frac{d}2 \bigr)} \e^{2^{k + 2}} M_\gamma u(x)\\
-    &\lesssim \frac{C^d}{\Gamma\bigl(\frac{d}2 \bigr)} 2^{kd} \e^{3 \cdot 2^{k + 1}} \exp\Big(-\frac1{2 \e^2} (2^k - 1)^2 \Bigr) M_\gamma u(x)
-  \end{align*}
-$C$ not necessarily the same at all instances.
-  where ($\dagger$) uses Lemma~\ref{lem:Gaussian-ball-shift-lemma} applied to
-  $D_k$ and ($\ddagger$) uses that $t \leq m(x)$ implies $t|x|\leq 1$ and
-  $t\leq 1$, the latter implying 
- \begin{equation*}
-    \biggl(\frac{2t^2}{1 - \e^{-2t^2}} \biggr)^{\frac{d}2} \leq
-    \biggl(\frac{2}{1 - \e^{-2}} \biggr)^{\frac{d}2} =: C^d.
-  \end{equation*}
-  (note that $s/(1-\e^{-s})$ is increasing). Where $C \approx 2.313035\dots$.
-
-  Inserting the depenceny of $c_k$ upon $k$ as coming from 
-  \eqref{eq:Mehler-kernel-estimate-one-sided-bound-1} and using that $t\leq 1$,
-  we obtain the bound: 
-  \begin{align*}
-    |\e^{-t^2 L} u(y)| &= \sum_{k = 0}^\infty I_k\\
-    &\lesssim \frac{C^d}{\Gamma\bigl(\frac{d}2 \bigr)} M_\gamma u(x) \sum_{k
-      = 0}^\infty 2^{kd} \e^{3 \cdot 2^{k + 1}} \exp\Big(-\frac1{2 \e^2} (2^k -
-    1)^2 \Bigr)\\
-    &\lesssim \frac{C^d}{\Gamma\bigl(\frac{d}2 \bigr)} M_\gamma u(x) \sum_{k
-      = 0}^\infty 2^{kd} \exp\Bigl(-\frac{4^k}{2 \e^2}
-    \Bigr) \exp\Bigl(\Bigl[3 -\frac1{2 \e^2} \Bigr]2^{k + 1} \Bigr)
-  \end{align*}
-  Set $\alpha = \frac1{2\e^2}$
-  \begin{align*}
-    |\e^{-t^2 L} u(y)| &\lesssim \frac{C^d}{\Gamma\bigl(\frac{d}2 \bigr)} M_\gamma u(x) \sum_{k
-      = 0}^\infty 2^{kd} \e^{3 \cdot 2^{k + 1}} \e^{-\alpha (2^k - 1)^2}\\
-  \end{align*}
-
-
-  We split the last summation in to parts, one where $k < d$ and one where
-  $k \geq d$. We begin with $k \geq d$.
-  \begin{align*}
-\sum_{k = d}^\infty c_k &(A + 2^{k + 1})^d \e^{2(A +2^{k + 1})a}\\
-&\lesssim_{a, A} \sum_{k = d}^\infty (A + 2^{k + 1})^d \e^{2^{k + 1}(1 +
-  2a + aA)} \exp\Bigl(-\frac{4^k}{8 \e^{2a^2}}\Bigr)\\ % e^{2aA}
-&\leq \sum_{k = d}^\infty (A + 2^{k + 1})^k \e^{2^{k + 1}(1 + 2a + aA)}
-\exp\Bigl(-\frac{4^k}{8 \e^{2a^2}}\Bigr)\\
-&\lesssim_{a, A} 1.
-  \end{align*}
-  While for $k < d$ we have:
-  \begin{align*}
-\sum_{k = 0}^{d - 1} c_k &(A + 2^{k + 1})^d \e^{2(A +2^{k + 1})a}\\
-&\lesssim_{a,A} \sum_{k = 0}^{d - 1} (A + 2^{k + 1})^d \e^{2^{k + 1}(1 +
-  2a + aA)} \exp\Bigl(-\frac{4^k}{8 \e^{2a^2}}\Bigr)\\
-&\leq (A + 2^d)^d \sum_{k = 0}^{d - 1} \e^{2^{k + 1}(1 + 2a + aA)}
-\exp\Bigl(-\frac{4^k}{8 \e^{2a^2}}\Bigr)\\ % e^{2aA}
-&\lesssim_{a, A} d 2^{d^2}.
-  \end{align*}
-Considering the sum
-\begin{equation*}
-   \sum_{k = 0}^{d - 1} 2^{(k + 1)d} \e^{2^{k + 1}(1 + 2a + aA)} \exp\Bigl(-\frac{4^k}{8 \e^{2a^2}}\Bigr)
-\end{equation*}
-We proceed with estimating the argument of this sum as function of $s$ after
-setting $s = 2^{k + 1}$, $\alpha = 1 + 2a + aA$ and $B = \frac1{32} \e^{-2a^2}$,
-which is smaller than $\frac1{32}$ and $\alpha \leq 4aA$
-\begin{equation*}
-  s \mapsto s^d \e^{\alpha s} \e^{-B s^2}.
-\end{equation*}
-To find its maximum we need to solve $-2 s^2 B + s\alpha + d = 0$. As a maximum we obtain:
-\begin{equation*}
-  \biggl(\frac{\alpha+\sqrt{\alpha^2+8dB}}{B} \biggr)^d \exp\Bigl(\frac18 \frac{\alpha^2}{B}
-  \Bigr) \exp \Bigl(\frac18 \frac{\sqrt{\alpha^2+8dB}}{B} \Bigr) \frac{\e^{-\frac12 d}}{4^d}
-\end{equation*}
-Smaller than
-\begin{equation*}
-  \bigl(\alpha+4\sqrt{4 (aA)^2 +2dB} \bigr)^d \exp\Bigl(\frac{2 (aA)^2 }{B}
-  \Bigr) \exp \Bigl(\frac14 \frac{\sqrt{4(aA)^2+2dB}}{B} \Bigr) \frac{\e^{-\frac12 d}}{(4B)^d}
-\end{equation*}
-Smaller than
-\begin{equation*}
-  \bigl(aA+\sqrt{4 (aA)^2 +2dB} \bigr)^d \exp\Bigl(\frac{2 (aA)^2 }{B}
-  \Bigr) \exp \Bigl(\frac14 \frac{\sqrt{4(aA)^2+2dB}}{B} \Bigr) \frac{\e^{-\frac12 d}}{B^d}
-\end{equation*}
-Smaller than
-\begin{equation*}
-  C_{A, a}^d d^{\frac{d}2} \exp \Bigl(\alpha_{A, a} \sqrt{d} \Bigr) \e^{-\frac12 d}
-\end{equation*}
-
-Say $A^2 < d/4$, then smaller than a constant only depending on $a$ and $A$ times
-\begin{equation*}
-  C_a'^d d^{\frac{d}2} \e^{\frac14 d^2} \exp \Bigl(4 \e^{2a^2} \sqrt{\frac{d}2}
-  \Bigr) \e^{-\frac12 d}
-\end{equation*}
-where $C_a'$ only depends on $a$
-Say $A^2 > d/4$ then smaller than a constant only depending on $a$ and $A$.
-
-
-
-Concluding we get that
-\begin{equation*}
-  \sum_{k = 0}^\infty c_k (A + 2^{k + 1})^d \e^{2(A +2^{k + 1})a} \lesssim_{a,
-    A} d  C_a^d d^{\frac{d}2} \e^{\frac14 d^2} \exp \Bigl(4 \e^{2a^2} \sqrt{\frac{d}2}
-  \Bigr) \e^{-\frac12 d}
-\end{equation*}
-
-  \begin{align*}
-    |\e^{-t^2 L} u(y)| &= \sum_{k = 0}^\infty I_k
-    \lesssim_{A, a} M_\gamma u(x) \frac{1}{\Gamma\bigl(\frac{d}2
-      \bigr)}   C_{A, a}^d d^{\frac{d}2 + 1} \e^{\alpha \sqrt{d}} \e^{-\frac12 d}
-  \end{align*}
-
-Also
-\begin{equation*}
-  \Gamma\Bigl(\frac{d}2\Bigr) \sim \sqrt{\frac{4\pi}{d}}
-  \frac{d^{\frac{d}2}}{(2e)^{\frac{d}2}}
-\end{equation*}
-
-
-\begin{equation*}
-  \frac1{\Gamma\bigl(\frac{d}2\bigr)} \sim \sqrt{\frac{d}{4\pi}}
-  \frac{(2e)^{\frac{d}2}}{d^{\frac{d}2}}
-\end{equation*}
-
-
-So
-
-  \begin{align*}
-    |\e^{-t^2 L} u(y)| &= \sum_{k = 0}^\infty I_k
-    \lesssim_{A, a} M_\gamma u(x) \frac{1}{\Gamma\bigl(\frac{d}2
-      \bigr)}   C_{A, a}^d d^{\frac{d}2 + 1} \e^{\alpha \sqrt{d}} \e^{-\frac12  d}\\
-   &\sim M_\gamma u(x) \sqrt{\frac{d}{4\pi}}
-   \frac{(2e)^{\frac{d}2}}{d^{\frac{d}2}} C_{A, a}^d d^{\frac{d}2 + 1} \e^{\alpha \sqrt{d}} \e^{-\frac12
-      d}\\ 
-   &= M_\gamma u(x) \sqrt{\frac{d}{4\pi}} C_{A, a}^d d \e^{\alpha \sqrt{d}} \e^{-\frac12
-      d}\\ 
-  \end{align*}
-
-  valid for all $y \in \Gamma_x^{(A, a)}$. As the sum on the right-hand side
-  evidently converges, we see that taking the supremum proves
-  \eqref{eq:Maximal-function-cone}.
-\end{proof}
-\bibliographystyle{amsplain}
-
-\bibliography{Teuwen-GaussianMF}
-\end{document}
-
-\begin{center}
-
-  {\tt \red (Tot hier alles gecontroleerd)}
-  
-\end{center}
-
-
-\begin{equation*}
-  \sum_{k = 0}^\infty 2^{kd} \e^{-C 4^k} = \sum_{k = 0}^\infty x^{kd} \e^{-C x^{2k}}
-\end{equation*}
-Noting for $x \geq 1$ that $\exp(-C x^{2k}) \leq \exp(-C k x^2)$,
-thus,
-\begin{equation*}
-  \sum_{k = 0}^\infty 2^{kd} \e^{-C 4^k} \leq \sum_{k = 0}^\infty
-  x^{kd} (\e^{-C x^2})^k = \sum_{k = 0}^\infty (x^{d} \e^{-C x^2})^k
-\end{equation*}
-Here $x = 2$, so
-\begin{equation*}
-  \sum_{k = 0}^\infty 2^{kd} \e^{-C 4^k} \leq \sum_{k = 0}^\infty
-  (2^d \e^{-4 C})^k
-\end{equation*}
-If $2^d < \e^{4C}$, that is whenever $d \log 2 < 4C$, we can compute
-using the geometric series that
-\begin{equation*}
-  \sum_{k = 0}^\infty 2^{kd} \e^{-C 4^k} \leq \frac1{1 - 2^d
-    \e^{-4C}} = \frac{\e^{4C}}{\e^{4C} - 2^d}
-\end{equation*}
-
-
-\end{document}
-
-
-
-
-
-
-
-
-\subsection{On-diagonal kernel estimates on annuli}
-As is common in harmonic analysis, we often wish to decompose
-$\R^d$ into sets on which certain phenomena are easier to handle. Here
-we will decompose the space into disjoint annuli. 
-
-Throughout this subsection we fix $x \in \R^d$, constants $A, a > 0$, a pair
-$(y,t) \in \Gamma_x^{(A,a)}$. We use the notation $rB$ to mean the ball obtained
-from the ball $B$ by multiplying its radius by $r$.
-
-The annuli $C_k := C_k(B_t(x))$ are given by:
-\begin{equation}
-  \label{eq:C_k-annulus-decomposition}
-  C_k : = (2^{k + 1} - 1)B_t(x) \setminus (2^k - 1)B_t(x)
-  \:\text{with}\: k \geq 0.
-\end{equation}
-Note that $C_0 = B_t(x)$. Whenever $\xi$ is in $C_k$, we get for $k
-\geq 0$:
-\begin{equation}
-  \label{eq:C_k-annulus-decomposition-expand}
-  (2^k - 1) t < |y - \xi| \leq (2^{k + 1} - 1) t.
-\end{equation}
-On $C_k$ we have the following bound for $M_{t^2}(y,\cdot)$:
-\begin{lemma}\label{lem:On-diagonal-kernel-estimates-on-Ck}
-  For all $\xi \in C_k$ we have:
-  \begin{equation}
-    M_{t^2}(y, \xi) \leq \frac{\e^{|y|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}}
-    \exp\bigl((2^{k + 1} - 1) t |y| \bigr) \exp\Bigl(-\frac1{2 \e^{2 a^2}} (2^k - 1)^2 \Bigr),
-  \end{equation}
-\end{lemma}
-\begin{proof}
-  Considering the first exponential which occurs in the Mehler kernel
-  \eqref{eq:Mehler-kernel} together with
-  \eqref{eq:C_k-annulus-decomposition-expand} gives for $k \geq 0$:
-  \begin{align*}
-    \exp\biggl(-\e^{-2t^2} \frac{|y - \xi|^2}{1 - \e^{-2t^2}} \biggr)
-    &\overset{\phantom{(\dagger)}}{\leq} \exp\biggl(-\e^{-2t^2} \frac{(2^k - 1)^2 t^2}{1 - \e^{-2t^2}} \biggr)\\
-    &\overset{(\dagger)}{\leq} \exp\biggl(-\frac1{2 \e^{2t^2}} (2^k - 1)^2 \biggr)
-    \overset{(\ddagger)}{\leq} \exp\biggl(-\frac1{2 \e^{2a^2}} (2^k - 1)^2 \biggr),
-  \end{align*}
-  where $(\dagger)$ follows from $1 - \e^{-s} \leq s$ for $s \geq 0$, and $(\ddagger)$
-  uses that $t \leq am(x) \leq a$. Using the estimate $1 + s \geq 2s$ for $0
-  \leq s \leq 1$, for the second exponential in the Mehler kernel
-  \eqref{eq:Mehler-kernel} we obtain, by
-  \eqref{eq:C_k-annulus-decomposition-expand}:
-  \begin{align*}
-    \exp\biggl(2\e^{-t^2} \frac{\la y, \xi \ra}{1 + \e^{- t^2}} \biggr)
-    & \leq \exp(|\la y, \xi \ra|)\\
-    & \leq \exp(|\langle y, \xi-y\rangle|) \e^{|y|^2}\\
-    & \leq \exp\bigl((2^{k + 1} - 1) t |y| \bigr) \e^{|y|^2}.
-  \end{align*}
-  Combining things, we obtain the estimate in the formulation of the lemma.
-\end{proof}
-
-\section{The main result}
-In this section we will prove our main theorem for which we have already made
-the necessary preparations in the previous sections.
-\begin{theorem}\label{thm:Gaussian-maximal-function}
-  Let $A, a > 0$. For all $x\in \R^d$ and all $u \in \LHG$ we have
+  Let $A, a > 0$. For all $x \in \R^d$ and all $u \in \LHG$ we have
   \begin{equation}
     \label{eq:Maximal-function-cone}
     \sup_{(y, t) \in \Gamma_x^{(A, a)}} |\e^{-t^2 L} u(y)| \lesssim
@@ -669,21 +370,19 @@ the necessary preparations in the previous sections.
   \begin{align*}
     \label{eq:Mehler-kernel-estimate-one-sided-bound-1}
     M_{t^2}(y, \xi) &\leq \frac{\e^{|y|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}}
-    \exp\bigl((2^{k + 1} - 1) (1 + aA) \bigr) \exp\Bigl(-\frac1{2 \e^{2a^2}}
-    (2^k - 1)^2 \Bigr)\\
+    \exp(2^{k + 1} (1 + aA)) \exp\Big(-\frac{4^k}{2 \e^{2 a^2}} \Bigr)\\
     &=: \frac{\e^{|y|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}} c_k.
   \end{align*}
   Combining this with Lemma~\ref{lem:Cone-Gaussians-comparable}, we obtain
   \begin{equation}
     \label{eq:Mehler-kernel-estimate-one-sided-bound-1}
-    M_{t^2}(y, \xi) \leq \frac{\e^{|x|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}}
-    \e^{(aA)^2} \e^{2aA} c_k.
+    M_{t^2}(y, \xi) \lesssim_{A, a} \frac{\e^{|x|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}} c_k.
   \end{equation}       
   Also, by \eqref{eq:C_k-annulus-decomposition-expand},
   \begin{equation*}
-    |x - \xi| \leq |x - y| + |\xi - y| \leq (A + 2^{k + 1})t .
+    |x - \xi| \leq |x - y| + |\xi - y| \leq (2^{k + 1} + 1) t .
   \end{equation*}
-  It follows that $ C_k$ is contained in $D_k := B_{(A +2^{k + 1})t}(x)$.
+  It follows that $C_k$ is contained in $D_k := B_{(2^{k + 1} + 1) t}(x)$.
 
   Let us denote the supremum on right-hand side of
   \eqref{eq:Maximal-function-cone} by $M_\gamma u (x)$. Using
@@ -696,137 +395,43 @@ the necessary preparations in the previous sections.
     |u| \,\D\gamma\\ 
     &\leq c_k \frac {\e^{|x|^2}} {(1 -
       \e^{-2t^2})^{\frac{d}2}} \int_{D_k} |u| \,\D\gamma\\ 
-    &\leq c_k  \frac {\e^{|x|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}}  \gamma(D_k) M_\gamma u(x)\\
-    &\overset{(\dagger)}{\leq} c_k 
-    \frac{(A + 2^{k + 1})^d}{\Gamma\bigl(\frac{d}2 \bigr)} \frac{t^d}{(1 -
-      \e^{-2t^2})^{\frac{d}2}} \e^{2(A +2^{k + 1})t|x|} M_\gamma u(x)\\
-    &\overset{(\ddagger)}{\lesssim}_{a, d}  c_k 
-    \frac{(A + 2^{k + 1})^d C_a^d}{\Gamma\bigl(\frac{d}2 \bigr)} \e^{2(A +2^{k + 1})t|x|} M_\gamma u(x)\\
-    &\overset{(\ddagger)}{\lesssim}_{a, d} \frac{C_a^d}{\Gamma\bigl(\frac{d}2
-      \bigr)} c_k (A + 2^{k + 1})^d \e^{2(A +2^{k + 1})a} M_\gamma u(x),
+    &\leq c_k  \frac {\e^{|x|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}} \gamma(D_k) M_\gamma u(x)\\
+    &\overset{(\dagger)}{\leq} c_k S_d (2^{k + 1} + 1)^d \biggl(\frac{t^2}{1 - \e^{-2t^2}} \biggr)^{\frac{d}2} \e^{(2^{k + 1} + 1) t|x|} M_\gamma u(x)\\
+    &\overset{(\ddagger)}{\leq} c_k C_a^d S_d (2^{k + 1} + 1)^d  \e^{(2^{k
+        + 1} + 1) a} M_\gamma u(x),
   \end{align*}
   where ($\dagger$) uses Lemma~\ref{lem:Gaussian-ball-shift-lemma} applied to
-  $D_k$ and ($\ddagger$) uses that $t \leq am(x)$ implies $t|x|\leq a$ and
-  $t\leq a$, the latter implying 
+  $D_k$ and ($\ddagger$) uses that $t \leq a m(x)$ implies that $t |x| \leq a$ and
+  $t\leq a$, where the latter implying 
  \begin{equation*}
-    \biggl(\frac{t^2}{1 - \e^{-t^2}} \biggr)^{\frac{d}2} \leq
-    \biggl(\frac{a^2}{1 - \e^{-a^2}} \biggr)^{\frac{d}2} =: C_a^d.
+    \biggl(\frac{t^2}{1 - \e^{-2t^2}} \biggr)^{\frac{d}2} \leq
+    \biggl(\frac{a^2}{1 - \e^{-2 a^2}} \biggr)^{\frac{d}2} =: C_a^d.
   \end{equation*}
-  (note that $s/(1-\e^{-s})$ is increasing).
-
+  (note that $s/(1-\e^{-s})$ is increasing). Similarly, for $\xi \in B_t(x)$ we
+ obtain:
+   \begin{align*}
+    \int_{B_t}  M_{t^2}(y, \cdot) |u(\cdot)| \,\D\gamma & \lesssim_{A, a}
+    \frac{\e^{|x|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}} \int_{B_t} |u| \,\D\gamma\\
+    &\leq \frac {\e^{|x|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}} \gamma(B_t) M_\gamma
+    u(x)\\
+    &\lesssim_a S_d a^d M_\gamma u(x).
+  \end{align*}
   Inserting the depenceny of $c_k$ upon $k$ as coming from 
-  \eqref{eq:Mehler-kernel-estimate-one-sided-bound-1} and using that $t\leq a$,
+  \eqref{eq:Mehler-kernel-estimate-one-sided-bound-1} and using that $t\leq 1$,
   we obtain the bound: 
-  \begin{equation*}
-    |\e^{-t^2 L} u(y)| = \sum_{k = 0}^\infty I_k
-    \lesssim_{A,a,d} M_\gamma u(x) \sum_{k = 0}^\infty 2^{kd} \e^{(1+aA) 2^{k + 1}} 
-    \e^{-\frac1{2 \e^{2a^2}}  4^k} (A + 2^{k + 1})^d \e^{ 2^{k + 2} a},
-  \end{equation*}
-
-
-
   \begin{align*}
     |\e^{-t^2 L} u(y)| &= \sum_{k = 0}^\infty I_k\\
-    &\lesssim_{a, A, d} M_\gamma u(x) \frac{C_a^d}{\Gamma\bigl(\frac{d}2
-      \bigr)} \sum_{k = 0}^\infty c_k (A + 2^{k + 1})^d \e^{2(A +2^{k + 1})a}.
+    &\lesssim C_a^d S_d  M_\gamma u(x) \sum_{k = 0}^\infty c_k (2^{k + 1} +
+    1)^d  \e^{(2^{k + 1} + 1) a}\\
+    &=_a C_a^d S_d  M_\gamma u(x) \sum_{k
+      = 0}^\infty  c_k (2^{k + 1} + 1)^d  \exp(2^{k + 1} (1 + a(1 + A))) \exp\Big(-\frac{4^k}{2 \e^{2 a^2}} \Bigr)\\
   \end{align*}
-  We split the last summation in to parts, one where $k < d$ and one where
-  $k \geq d$. We begin with $k \geq d$.
+  Set $\alpha = \frac1{2\e^2}$
   \begin{align*}
-\sum_{k = d}^\infty c_k &(A + 2^{k + 1})^d \e^{2(A +2^{k + 1})a}\\
-&\lesssim_{a, A} \sum_{k = d}^\infty (A + 2^{k + 1})^d \e^{2^{k + 1}(1 +
-  2a + aA)} \exp\Bigl(-\frac{4^k}{8 \e^{2a^2}}\Bigr)\\ % e^{2aA}
-&\leq \sum_{k = d}^\infty (A + 2^{k + 1})^k \e^{2^{k + 1}(1 + 2a + aA)}
-\exp\Bigl(-\frac{4^k}{8 \e^{2a^2}}\Bigr)\\
-&\lesssim_{a, A} 1.
-  \end{align*}
-  While for $k < d$ we have:
-  \begin{align*}
-\sum_{k = 0}^{d - 1} c_k &(A + 2^{k + 1})^d \e^{2(A +2^{k + 1})a}\\
-&\lesssim_{a,A} \sum_{k = 0}^{d - 1} (A + 2^{k + 1})^d \e^{2^{k + 1}(1 +
-  2a + aA)} \exp\Bigl(-\frac{4^k}{8 \e^{2a^2}}\Bigr)\\
-&\leq (A + 2^d)^d \sum_{k = 0}^{d - 1} \e^{2^{k + 1}(1 + 2a + aA)}
-\exp\Bigl(-\frac{4^k}{8 \e^{2a^2}}\Bigr)\\ % e^{2aA}
-&\lesssim_{a, A} d 2^{d^2}.
-  \end{align*}
-Considering the sum
-\begin{equation*}
-   \sum_{k = 0}^{d - 1} 2^{(k + 1)d} \e^{2^{k + 1}(1 + 2a + aA)} \exp\Bigl(-\frac{4^k}{8 \e^{2a^2}}\Bigr)
-\end{equation*}
-We proceed with estimating the argument of this sum as function of $s$ after
-setting $s = 2^{k + 1}$, $\alpha = 1 + 2a + aA$ and $B = \frac1{32} \e^{-2a^2}$,
-which is smaller than $\frac1{32}$ and $\alpha \leq 4aA$
-\begin{equation*}
-  s \mapsto s^d \e^{\alpha s} \e^{-B s^2}.
-\end{equation*}
-To find its maximum we need to solve $-2 s^2 B + s\alpha + d = 0$. As a maximum we obtain:
-\begin{equation*}
-  \biggl(\frac{\alpha+\sqrt{\alpha^2+8dB}}{B} \biggr)^d \exp\Bigl(\frac18 \frac{\alpha^2}{B}
-  \Bigr) \exp \Bigl(\frac18 \frac{\sqrt{\alpha^2+8dB}}{B} \Bigr) \frac{\e^{-\frac12 d}}{4^d}
-\end{equation*}
-Smaller than
-\begin{equation*}
-  \bigl(\alpha+4\sqrt{4 (aA)^2 +2dB} \bigr)^d \exp\Bigl(\frac{2 (aA)^2 }{B}
-  \Bigr) \exp \Bigl(\frac14 \frac{\sqrt{4(aA)^2+2dB}}{B} \Bigr) \frac{\e^{-\frac12 d}}{(4B)^d}
-\end{equation*}
-Smaller than
-\begin{equation*}
-  \bigl(aA+\sqrt{4 (aA)^2 +2dB} \bigr)^d \exp\Bigl(\frac{2 (aA)^2 }{B}
-  \Bigr) \exp \Bigl(\frac14 \frac{\sqrt{4(aA)^2+2dB}}{B} \Bigr) \frac{\e^{-\frac12 d}}{B^d}
-\end{equation*}
-Smaller than
-\begin{equation*}
-  C_{A, a}^d d^{\frac{d}2} \exp \Bigl(\alpha_{A, a} \sqrt{d} \Bigr) \e^{-\frac12 d}
-\end{equation*}
-
-Say $A^2 < d/4$, then smaller than a constant only depending on $a$ and $A$ times
-\begin{equation*}
-  C_a'^d d^{\frac{d}2} \e^{\frac14 d^2} \exp \Bigl(4 \e^{2a^2} \sqrt{\frac{d}2}
-  \Bigr) \e^{-\frac12 d}
-\end{equation*}
-where $C_a'$ only depends on $a$
-Say $A^2 > d/4$ then smaller than a constant only depending on $a$ and $A$.
-
-
-
-Concluding we get that
-\begin{equation*}
-  \sum_{k = 0}^\infty c_k (A + 2^{k + 1})^d \e^{2(A +2^{k + 1})a} \lesssim_{a,
-    A} d  C_a^d d^{\frac{d}2} \e^{\frac14 d^2} \exp \Bigl(4 \e^{2a^2} \sqrt{\frac{d}2}
-  \Bigr) \e^{-\frac12 d}
-\end{equation*}
-
-  \begin{align*}
-    |\e^{-t^2 L} u(y)| &= \sum_{k = 0}^\infty I_k
-    \lesssim_{A, a} M_\gamma u(x) \frac{1}{\Gamma\bigl(\frac{d}2
-      \bigr)}   C_{A, a}^d d^{\frac{d}2 + 1} \e^{\alpha \sqrt{d}} \e^{-\frac12 d}
+    |\e^{-t^2 L} u(y)| &\lesssim \frac{C^d}{\Gamma\bigl(\frac{d}2 \bigr)} M_\gamma u(x) \sum_{k
+      = 0}^\infty 2^{kd} \e^{3 \cdot 2^{k + 1}} \e^{-\alpha (2^k - 1)^2}\\
   \end{align*}
 
-Also
-\begin{equation*}
-  \Gamma\Bigl(\frac{d}2\Bigr) \sim \sqrt{\frac{4\pi}{d}}
-  \frac{d^{\frac{d}2}}{(2e)^{\frac{d}2}}
-\end{equation*}
-
-
-\begin{equation*}
-  \frac1{\Gamma\bigl(\frac{d}2\bigr)} \sim \sqrt{\frac{d}{4\pi}}
-  \frac{(2e)^{\frac{d}2}}{d^{\frac{d}2}}
-\end{equation*}
-
-
-So
-
-  \begin{align*}
-    |\e^{-t^2 L} u(y)| &= \sum_{k = 0}^\infty I_k
-    \lesssim_{A, a} M_\gamma u(x) \frac{1}{\Gamma\bigl(\frac{d}2
-      \bigr)}   C_{A, a}^d d^{\frac{d}2 + 1} \e^{\alpha \sqrt{d}} \e^{-\frac12  d}\\
-   &\sim M_\gamma u(x) \sqrt{\frac{d}{4\pi}}
-   \frac{(2e)^{\frac{d}2}}{d^{\frac{d}2}} C_{A, a}^d d^{\frac{d}2 + 1} \e^{\alpha \sqrt{d}} \e^{-\frac12
-      d}\\ 
-   &= M_\gamma u(x) \sqrt{\frac{d}{4\pi}} C_{A, a}^d d \e^{\alpha \sqrt{d}} \e^{-\frac12
-      d}\\ 
-  \end{align*}
 
   valid for all $y \in \Gamma_x^{(A, a)}$. As the sum on the right-hand side
   evidently converges, we see that taking the supremum proves
@@ -835,35 +440,4 @@ So
 \bibliographystyle{amsplain}
 
 \bibliography{Teuwen-GaussianMF}
-\end{document}
-
-\begin{center}
-
-  {\tt \red (Tot hier alles gecontroleerd)}
-  
-\end{center}
-
-
-\begin{equation*}
-  \sum_{k = 0}^\infty 2^{kd} \e^{-C 4^k} = \sum_{k = 0}^\infty x^{kd} \e^{-C x^{2k}}
-\end{equation*}
-Noting for $x \geq 1$ that $\exp(-C x^{2k}) \leq \exp(-C k x^2)$,
-thus,
-\begin{equation*}
-  \sum_{k = 0}^\infty 2^{kd} \e^{-C 4^k} \leq \sum_{k = 0}^\infty
-  x^{kd} (\e^{-C x^2})^k = \sum_{k = 0}^\infty (x^{d} \e^{-C x^2})^k
-\end{equation*}
-Here $x = 2$, so
-\begin{equation*}
-  \sum_{k = 0}^\infty 2^{kd} \e^{-C 4^k} \leq \sum_{k = 0}^\infty
-  (2^d \e^{-4 C})^k
-\end{equation*}
-If $2^d < \e^{4C}$, that is whenever $d \log 2 < 4C$, we can compute
-using the geometric series that
-\begin{equation*}
-  \sum_{k = 0}^\infty 2^{kd} \e^{-C 4^k} \leq \frac1{1 - 2^d
-    \e^{-4C}} = \frac{\e^{4C}}{\e^{4C} - 2^d}
-\end{equation*}
-
-
 \end{document}

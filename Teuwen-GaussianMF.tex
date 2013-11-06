@@ -300,18 +300,21 @@ from the ball $B$ by multiplying its radius by $r$.
 The annuli $C_k := C_k(B_t(x))$ are given by:
 \begin{equation}
   \label{eq:C_k-annulus-decomposition}
-  C_k : = 2^{k + 1} B_t(x) \setminus 2^k B_t(x)
-  \:\text{with}\: k \geq 0.
+  C_k :=
+  \begin{cases}
+   B_t(x), &k = 0,\\
+   2^{k + 1} B_t(x) \setminus 2^k B_t(x), &k \geq 1.
+  \end{cases}
 \end{equation}
-Note that we need to add $B_t$ itself as the first `annulus'. Whenever $\xi$ is in $C_k$, we get for $k
-\geq 0$:
+Whenever $\xi$ is in $C_k$, we get for $k
+\geq 1$:
 \begin{equation}
   \label{eq:C_k-annulus-decomposition-expand}
   2^k t < |y - \xi| \leq 2^{k + 1} t.
 \end{equation}
 On $C_k$ we have the following bound for $M_{t^2}(y,\cdot)$:
 \begin{lemma}\label{lem:On-diagonal-kernel-estimates-on-Ck}
-  For all $\xi \in C_k$ we have:
+  For all $\xi \in C_k$ for $k \geq 1$ we have:
   \begin{equation}
     M_{t^2}(y, \xi) \leq \frac{\e^{|y|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}}
     \exp\bigl(2^{k +  1} t |y| \bigr) \exp\Big(-\frac{4^k}{2 \e^{2 t^2}} \Bigr),
@@ -320,7 +323,7 @@ On $C_k$ we have the following bound for $M_{t^2}(y,\cdot)$:
 \begin{proof}
   Considering the first exponential which occurs in the Mehler kernel
   \eqref{eq:Mehler-kernel} together with
-  \eqref{eq:C_k-annulus-decomposition-expand} gives for $k \geq 0$:
+  \eqref{eq:C_k-annulus-decomposition-expand} gives for $k \geq 1$:
   \begin{align*}
     \exp\biggl(-\e^{-2t^2} \frac{|y - \xi|^2}{1 - \e^{-2t^2}} \biggr)
     &\overset{\phantom{(\dagger)}}{\leq} \exp\biggl(-\frac{4^k}{\e^{2t^2}}
@@ -366,7 +369,7 @@ the necessary preparations in the previous sections.
   From $t \leq a m(x)$ we get $t |x| \leq a$, and by
   Lemma~\ref{lem:m-xy-equivalence} this implies $t |y| \leq 1 + aA$. Together
   with Lemma~\ref{lem:On-diagonal-kernel-estimates-on-Ck} we infer, for $\xi
-  \in C_k$, that:
+  \in C_k$ and $k \geq 1$, that:
   \begin{align*}
     \label{eq:Mehler-kernel-estimate-one-sided-bound-1}
     M_{t^2}(y, \xi) &\leq \frac{\e^{|y|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}}
@@ -395,44 +398,34 @@ the necessary preparations in the previous sections.
     |u| \,\D\gamma\\ 
     &\leq c_k \frac {\e^{|x|^2}} {(1 -
       \e^{-2t^2})^{\frac{d}2}} \int_{D_k} |u| \,\D\gamma\\ 
-    &\leq c_k  \frac {\e^{|x|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}} \gamma(D_k) M_\gamma u(x)\\
-    &\overset{(\dagger)}{\leq} c_k S_d (2^{k + 1} + 1)^d \biggl(\frac{t^2}{1 - \e^{-2t^2}} \biggr)^{\frac{d}2} \e^{(2^{k + 1} + 1) t|x|} M_\gamma u(x)\\
-    &\overset{(\ddagger)}{\leq} c_k C_a^d S_d (2^{k + 1} + 1)^d  \e^{(2^{k
-        + 1} + 1) a} M_\gamma u(x),
+    &\leq c_k  \frac{\e^{|x|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}} \gamma(D_k) M_\gamma u(x)\\
+    &\overset{(\dagger)}{\leq} c_k \frac{S_d}{2 \pi^{\frac{d}{2}}} \frac{t^d}{(1 - \e^{-2t^2})^{\frac{d}2}} (2^{k + 1} + 1)^d \e^{2(2^{k + 1} + 1)t|x|} M_\gamma u(x)\\
+    &\overset{(\ddagger)}{\leq} c_k \frac{S_d}{2 \pi^{\frac{d}{2}}} C_a^d (2^{k
+      + 1} + 1)^d \e^{2a(2^{k + 1} + 1)} M_\gamma u(x)\\
+    &\lesssim_{A, a} c_k S_d\widetilde{C}_a^d 2^{k d} \e^{2^{k + 2}a} M_\gamma u(x),
   \end{align*}
   where ($\dagger$) uses Lemma~\ref{lem:Gaussian-ball-shift-lemma} applied to
   $D_k$ and ($\ddagger$) uses that $t \leq a m(x)$ implies that $t |x| \leq a$ and
   $t\leq a$, where the latter implying 
  \begin{equation*}
-    \biggl(\frac{t^2}{1 - \e^{-2t^2}} \biggr)^{\frac{d}2} \leq
-    \biggl(\frac{a^2}{1 - \e^{-2 a^2}} \biggr)^{\frac{d}2} =: C_a^d.
+    \frac{t^d}{(1 - \e^{-2t^2})^{\frac{d}2}} \leq
+     \frac{a^d}{(1 - \e^{-2a^2})^{\frac{d}2}} =: C_a^d.
   \end{equation*}
   (note that $s/(1-\e^{-s})$ is increasing). Similarly, for $\xi \in B_t(x)$ we
  obtain:
-   \begin{align*}
-    \int_{B_t}  M_{t^2}(y, \cdot) |u(\cdot)| \,\D\gamma & \lesssim_{A, a}
-    \frac{\e^{|x|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}} \int_{B_t} |u| \,\D\gamma\\
-    &\leq \frac {\e^{|x|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}} \gamma(B_t) M_\gamma
-    u(x)\\
-    &\lesssim_a S_d a^d M_\gamma u(x).
-  \end{align*}
-  Inserting the depenceny of $c_k$ upon $k$ as coming from 
-  \eqref{eq:Mehler-kernel-estimate-one-sided-bound-1} and using that $t\leq 1$,
-  we obtain the bound: 
+   \begin{equation*}
+    \int_{B_t}  M_{t^2}(y, \cdot) |u(\cdot)| \,\D\gamma \lesssim_{A, a} S_d \widetilde{C}_a^d M_\gamma u(x).
+  \end{equation*}
+  Inserting the depenceny of $c_k$ upon $k$ as coming from
+  \eqref{eq:Mehler-kernel-estimate-one-sided-bound-1}, we obtain the bound:
   \begin{align*}
-    |\e^{-t^2 L} u(y)| &= \sum_{k = 0}^\infty I_k\\
-    &\lesssim C_a^d S_d  M_\gamma u(x) \sum_{k = 0}^\infty c_k (2^{k + 1} +
-    1)^d  \e^{(2^{k + 1} + 1) a}\\
-    &=_a C_a^d S_d  M_\gamma u(x) \sum_{k
-      = 0}^\infty  c_k (2^{k + 1} + 1)^d  \exp(2^{k + 1} (1 + a(1 + A))) \exp\Big(-\frac{4^k}{2 \e^{2 a^2}} \Bigr)\\
+    |\e^{-t^2 L} u(y)| &= I_0 + \sum_{k = 1}^\infty I_k\\
+    &\lesssim_{A, a} S_d \widetilde{C}_a^d \biggl[1 + \sum_{k =  1}^\infty c_k
+      2^{k d} \e^{2^{k + 2}a} \biggr] M_\gamma u(x),\\
+    &\lesssim_{A, a} S_d \widetilde{C}_a^d \biggl[1 + \sum_{k = 1}^\infty 2^{k
+        d} \e^{2^{k + 1} (1 + 2a + aA)} \e^{-\frac{4^k}{2 \e^{2 a^2}}} \biggr]
+    M_\gamma u(x),
   \end{align*}
-  Set $\alpha = \frac1{2\e^2}$
-  \begin{align*}
-    |\e^{-t^2 L} u(y)| &\lesssim \frac{C^d}{\Gamma\bigl(\frac{d}2 \bigr)} M_\gamma u(x) \sum_{k
-      = 0}^\infty 2^{kd} \e^{3 \cdot 2^{k + 1}} \e^{-\alpha (2^k - 1)^2}\\
-  \end{align*}
-
-
   valid for all $y \in \Gamma_x^{(A, a)}$. As the sum on the right-hand side
   evidently converges, we see that taking the supremum proves
   \eqref{eq:Maximal-function-cone}.
@@ -441,3 +434,4 @@ the necessary preparations in the previous sections.
 
 \bibliography{Teuwen-GaussianMF}
 \end{document}
+ \exp(2^{k + 1} (1 + aA)) \exp\Big(-\frac{4^k}{2 \e^{2 a^2}} \Bigr)

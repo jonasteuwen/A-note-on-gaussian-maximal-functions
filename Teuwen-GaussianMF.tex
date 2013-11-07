@@ -386,8 +386,8 @@ the necessary preparations in the previous sections.
     |x - \xi| \leq |x - y| + |\xi - y| \leq (2^{k + 1} + 1) t .
   \end{equation*}
   It follows that $C_k$ is contained in $D_k := B_{(2^{k + 1} + 1) t}(x)$.
-
-  Let us denote the supremum on right-hand side of
+  Let $C > 0$ denote a constant not necessarily the same at all
+  instances and let us denote the supremum on right-hand side of
   \eqref{eq:Maximal-function-cone} by $M_\gamma u (x)$. Using
   \eqref{eq:Mehler-kernel-estimate-one-sided-bound-1}, we can bound the
   integral on the right-hand side of
@@ -398,31 +398,42 @@ the necessary preparations in the previous sections.
     |u| \,\D\gamma\\ 
     &\leq c_k \frac {\e^{|x|^2}} {(1 -
       \e^{-2t^2})^{\frac{d}2}} \int_{D_k} |u| \,\D\gamma\\ 
-    &\leq c_k  \frac{\e^{|x|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}} \gamma(D_k) M_\gamma u(x)\\
-    &\overset{(\dagger)}{\leq} c_k \frac{S_d}{2 \pi^{\frac{d}{2}}} \frac{t^d}{(1 - \e^{-2t^2})^{\frac{d}2}} (2^{k + 1} + 1)^d \e^{2(2^{k + 1} + 1)t|x|} M_\gamma u(x)\\
-    &\overset{(\ddagger)}{\leq} c_k \frac{S_d}{2 \pi^{\frac{d}{2}}} C_a^d (2^{k
-      + 1} + 1)^d \e^{2a(2^{k + 1} + 1)} M_\gamma u(x)\\
-    &\lesssim_{A, a} c_k S_d\widetilde{C}_a^d 2^{k d} \e^{2^{k + 2}a} M_\gamma u(x),
+    &\leq c_k \frac{\e^{|x|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}} \gamma(D_k) M_\gamma u(x),
   \end{align*}
-  where ($\dagger$) uses Lemma~\ref{lem:Gaussian-ball-shift-lemma} applied to
-  $D_k$ and ($\ddagger$) uses that $t \leq a m(x)$ implies that $t |x| \leq a$ and
-  $t\leq a$, where the latter implying 
+  where we pause for a moment to compute a suitable bound for
+  $\gamma(D_k)$ using $t|x| \leq a$ and Lemma~\ref{lem:Gaussian-ball-shift-lemma} applied to
+  $D_k$,
+  \begin{align*}
+    \gamma(D_k) &\leq C^d S_d t^d (2^{k + 1} + 1)^d \e^{2(2^{k + 1}
+      + 1) t |x|} \e^{-|x|^2}\\
+    &\lesssim_{a, d} t^d 2^{k d} \e^{2^{k + 2} a} \e^{-|x|^2}.
+  \end{align*}
+  Continuing where we left off we get
+  \begin{align*}
+    \int_{C_k}  M_{t^2}(y, \cdot) |u(\cdot)| \,\D\gamma &\lesssim_{A,
+      a, d} c_k 2^{k d} \e^{2^{k + 2} a} \frac{t^d}{(1 -
+      \e^{-2t^2})^{\frac{d}2}} M_\gamma u(x)\\
+    &\overset{(\ddagger)}{\lesssim}_{A, a, d} c_k 2^{k d} \e^{2^{k + 2} a} M_\gamma u(x),
+  \end{align*}
+  where ($\ddagger$) uses that $t \leq a m(x)$ implies that $t\leq a$,
+  where the latter implying
  \begin{equation*}
     \frac{t^d}{(1 - \e^{-2t^2})^{\frac{d}2}} \leq
-     \frac{a^d}{(1 - \e^{-2a^2})^{\frac{d}2}} =: C_a^d.
+     \frac{a^d}{(1 - \e^{-2a^2})^{\frac{d}2}} \lesssim_{a, d} 1.
   \end{equation*}
   (note that $s/(1-\e^{-s})$ is increasing). Similarly, for $\xi \in B_t(x)$ we
  obtain:
    \begin{equation*}
-    \int_{B_t}  M_{t^2}(y, \cdot) |u(\cdot)| \,\D\gamma \lesssim_{A, a} S_d \widetilde{C}_a^d M_\gamma u(x).
+    I_0 := \int_{B_t}  M_{t^2}(y, \cdot) |u(\cdot)| \,\D\gamma \lesssim_{A,
+      a, d} M_\gamma u(x).
   \end{equation*}
   Inserting the depenceny of $c_k$ upon $k$ as coming from
   \eqref{eq:Mehler-kernel-estimate-one-sided-bound-1}, we obtain the bound:
   \begin{align*}
     |\e^{-t^2 L} u(y)| &= I_0 + \sum_{k = 1}^\infty I_k\\
-    &\lesssim_{A, a} S_d \widetilde{C}_a^d \biggl[1 + \sum_{k =  1}^\infty c_k
+    &\lesssim_{A, a, d} \biggl[1 + \sum_{k =  1}^\infty c_k
       2^{k d} \e^{2^{k + 2}a} \biggr] M_\gamma u(x),\\
-    &\lesssim_{A, a} S_d \widetilde{C}_a^d \biggl[1 + \sum_{k = 1}^\infty 2^{k
+    &\lesssim_{A, a, d} \biggl[1 + \sum_{k = 1}^\infty 2^{k
         d} \e^{2^{k + 1} (1 + 2a + aA)} \e^{-\frac{4^k}{2 \e^{2 a^2}}} \biggr]
     M_\gamma u(x),
   \end{align*}

@@ -1,28 +1,36 @@
-\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
-\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
-% \MRhref is called by the amsart/book/proc definition of \MR.
-\providecommand{\MRhref}[2]{%
-  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
-}
-\providecommand{\href}[2]{#2}
 \begin{thebibliography}{1}
-
-\bibitem{MaasNeervenPortal2011}
-Jan Maas, Jan Neerven, and Pierre Portal, \emph{{Whitney coverings and the tent
-  spaces $T^{1,q}(\gamma)$ for the Gaussian measure}}, Arkiv f\"{o}r Matematik
-  \textbf{50} (2011), no.~2, 379--395.
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
 
 \bibitem{Pineda2008}
-Ebner Pineda and Wilfredo~R. Urbina, \emph{{Non Tangential Convergence for the
-  Ornstein-Uhlenbeck Semigroup}}, Divulgaciones Matem\'{a}ticas \textbf{13}
-  (2008), no.~2, 1--19.
+E.~Pineda, W.~R. Urbina,
+  \href{http://www.emis.ams.org/journals/DM/v16-1/art7.pdf}{{Non Tangential
+  Convergence for the Ornstein-Uhlenbeck Semigroup}}, Divulgaciones
+  Matem\'{a}ticas 13~(2) (2008) 1--19.
+\newline\urlprefix\url{http://www.emis.ams.org/journals/DM/v16-1/art7.pdf}
 
 \bibitem{Portal2012}
-Pierre Portal, \emph{{Maximal and quadratic Gaussian Hardy spaces}},  (2012).
+P.~Portal, \href{http://arxiv.org/abs/1203.1998}{{Maximal and quadratic
+  Gaussian Hardy spaces}}\href {http://arxiv.org/abs/1203.1998}
+  {\path{arXiv:1203.1998}}.
+\newline\urlprefix\url{http://arxiv.org/abs/1203.1998}
 
 \bibitem{Sjogren1997}
-Peter Sj\"{o}gren, \emph{{Operators associated with the hermite semigroup — A
-  survey}}, The Journal of Fourier Analysis and Applications \textbf{3} (1997),
-  no.~S1, 813--823.
+P.~Sj\"{o}gren, \href{http://link.springer.com/10.1007/BF02656487}{{Operators
+  associated with the hermite semigroup -- A survey}}, The Journal of Fourier
+  Analysis and Applications 3~(S1) (1997) 813--823.
+\newblock \href {http://dx.doi.org/10.1007/BF02656487}
+  {\path{doi:10.1007/BF02656487}}.
+\newline\urlprefix\url{http://link.springer.com/10.1007/BF02656487}
+
+\bibitem{MaasNeervenPortal2011}
+J.~Maas, J.~Neerven, P.~Portal, {Whitney coverings and the tent spaces
+  $T^{1,q}(\gamma)$ for the Gaussian measure}, Arkiv f\"{o}r Matematik 50~(2)
+  (2011) 379--395.
+\newblock \href {http://dx.doi.org/10.1007/s11512-010-0143-z}
+  {\path{doi:10.1007/s11512-010-0143-z}}.
 
 \end{thebibliography}

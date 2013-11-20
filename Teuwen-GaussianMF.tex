@@ -1,5 +1,4 @@
-% \RequirePackage[l2tabu, orthodox]{nag}
-\documentclass{amsart}
+\documentclass[preprint,12pt]{elsarticle}
 
 \usepackage{amsmath, amssymb, color, verbatim}
 \usepackage[active]{srcltx}
@@ -80,9 +79,42 @@
 
 
 
+\journal{Indagationes Mathematicae}
+
 \begin{document}
-\title[Gaussian maximal functions]{A note on the Gaussian maximal
-  function}
+
+\begin{frontmatter}
+
+%% Title, authors and addresses
+
+%% use the tnoteref command within \title for footnotes;
+%% use the tnotetext command for the associated footnote;
+%% use the fnref command within \author or \address for footnotes;
+%% use the fntext command for the associated footnote;
+%% use the corref command within \author for corresponding author footnotes;
+%% use the cortext command for the associated footnote;
+%% use the ead command for the email address,
+%% and the form \ead[url] for the home page:
+%%
+%% \title{Title\tnoteref{label1}}
+%% \tnotetext[label1]{}
+%% \author{Name\corref{cor1}\fnref{label2}}
+%% \ead{email address}
+%% \ead[url]{home page}
+%% \fntext[label2]{}
+%% \cortext[cor1]{}
+%% \address{Address\fnref{label3}}
+%% \fntext[label3]{}
+
+\title{A note on the Gaussian maximal function}
+
+
+
+%% use optional labels to link authors explicitly to addresses:
+%% \author[label1,label2]{<author name>}
+%% \address[label1]{<address>}
+%% \address[label2]{<address>}
+
 
 
 
@@ -90,12 +122,15 @@
 \address{Delft Institute of Applied Mathematics,
   Delft University of Technology, P.O. Box 5031, 2600 GA Delft, The
   Netherlands}%
-\email{j.j.b.teuwen@tudelft.nl}%
-\urladdr{http://fa.its.tudelft.nl/~teuwen/}%
-\thanks{}%
-\date{\today}
+%% \email{j.j.b.teuwen@tudelft.nl}%
+%% \urladdr{http://fa.its.tudelft.nl/~teuwen/}%
+%% \thanks{}%
+%% \date{\today}
 
-\maketitle
+%% \maketitle
+
+
+
 
 \begin{abstract}
   This note presents a proof that the non-tangential maximal function of the
@@ -107,10 +142,19 @@
   of arbitrary aperture.
 \end{abstract}
 
+\begin{keyword}
+%% keywords here, in the form: keyword \sep keyword
+ornstein-uhlenbeck \sep ornstein-uhlenbeck semigroup
+\end{keyword}
+
+\end{frontmatter}
+
+
+
 % \subjclass[2010]{42B25 (Primary); 46E40 (Secondary)}
 % \keywords{R-bounds, dyadic cubes}
 
-\maketitle
+
 \section{Introduction}
 Maximal functions are among the most studied objects in harmonic
 analysis. 
@@ -302,7 +346,7 @@ The annuli $C_k := C_k(B_t(x))$ are given by:
   \label{eq:C_k-annulus-decomposition}
   C_k :=
   \begin{cases}
-   B_t(x), &k = 0,\\
+   2B_t(x), &k = 0,\\
    2^{k + 1} B_t(x) \setminus 2^k B_t(x), &k \geq 1.
   \end{cases}
 \end{equation}
@@ -351,8 +395,9 @@ the necessary preparations in the previous sections.
   \begin{equation}
     \label{eq:Maximal-function-cone}
     \sup_{(y, t) \in \Gamma_x^{(A, a)}} |\e^{-t^2 L} u(y)| \lesssim
-    \sup_{r > 0} \frac1{\gamma(B_r(x))}\int_{B_r(x)} |u| \, \D\gamma.
+    \sup_{r > 0} \frac1{\gamma(B_r(x))}\int_{B_r(x)} |u| \, \D\gamma,
   \end{equation}
+  where the implicit constant only depends on $A, a$ and $d$.
 \end{theorem}
 \begin{proof}
   We fix $x \in \R^d$ and $ (y, t) \in \Gamma_x^{(A, a)}$. The proof of
@@ -366,10 +411,10 @@ the necessary preparations in the previous sections.
     \:\text{where}\: I_k(y) := \int_{C_k} M_{t^2}(y, \cdot) |u(\cdot)|
     \,\D\gamma.
   \end{equation} 
-  From $t \leq a m(x)$ we get $t |x| \leq a$, and by
-  Lemma~\ref{lem:m-xy-equivalence} this implies $t |y| \leq 1 + aA$. Together
-  with Lemma~\ref{lem:On-diagonal-kernel-estimates-on-Ck} we infer, for $\xi
-  \in C_k$ and $k \geq 1$, that:
+  We have $t \leq a m(x) \leq a$ and, by Lemma~\ref{lem:m-xy-equivalence}, $t
+  |y| \leq 1 + aA$. Together with
+  Lemma~\ref{lem:On-diagonal-kernel-estimates-on-Ck} we infer, for $\xi \in
+  C_k$ and $k \geq 1$, that:
   \begin{align*}
     \label{eq:Mehler-kernel-estimate-one-sided-bound-1}
     M_{t^2}(y, \xi) &\leq \frac{\e^{|y|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}}
@@ -383,15 +428,23 @@ the necessary preparations in the previous sections.
   \end{equation}       
   Also, by \eqref{eq:C_k-annulus-decomposition-expand},
   \begin{equation*}
-    |x - \xi| \leq |x - y| + |\xi - y| \leq (2^{k + 1} + 1) t .
+    |x - \xi| \leq |x - y| + |\xi - y| \leq (2^{k + 1} + A) t .
   \end{equation*}
-  It follows that $C_k$ is contained in $D_k := B_{(2^{k + 1} + 1) t}(x)$.
-  Let $C > 0$ denote a constant not necessarily the same at all
-  instances and let us denote the supremum on right-hand side of
+  Let $K$ be the smallest integer such that $2^{k + 1} \geq A$ whenever $k \geq
+  K$. Then it follows that $C_k$ for $k \geq K$ is contained in $B_{2^{k +
+      2}t}(x)$ and for $k < K$ is contained in $B_{2At}(x)$. We set,
+  \begin{equation*}
+    D_k := D_k(x) =
+    \begin{cases}
+      B_{2^{k + 2}t}(x) &\text{if $k \geq K$,}\\
+      B_{2At}(x) &\text{elsewhere.}
+    \end{cases}
+  \end{equation*}
+  Let us denote the supremum on right-hand side of
   \eqref{eq:Maximal-function-cone} by $M_\gamma u (x)$. Using
   \eqref{eq:Mehler-kernel-estimate-one-sided-bound-1}, we can bound the
   integral on the right-hand side of
-  \eqref{eq:Maximal-function-cone-intermediate-step-1} by
+  \eqref{eq:Maximal-function-cone-intermediate-step-1} by 
   \begin{align*}
     \int_{C_k}  M_{t^2}(y, \cdot) |u(\cdot)| \,\D\gamma & \lesssim_{A, a}
     c_k \frac{\e^{|x|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}}   \int_{C_k}
@@ -400,49 +453,53 @@ the necessary preparations in the previous sections.
       \e^{-2t^2})^{\frac{d}2}} \int_{D_k} |u| \,\D\gamma\\ 
     &\leq c_k \frac{\e^{|x|^2}}{(1 - \e^{-2t^2})^{\frac{d}2}} \gamma(D_k) M_\gamma u(x),
   \end{align*}
-  where we pause for a moment to compute a suitable bound for
-  $\gamma(D_k)$ using $t|x| \leq a$ and Lemma~\ref{lem:Gaussian-ball-shift-lemma} applied to
-  $D_k$,
+  where we pause for a moment to compute a suitable bound for $\gamma(D_k)$. As
+  above we have both $t|x| \leq a m(x)|x| \leq a$ and $t \leq a$. Together with
+  Lemma~\ref{lem:Gaussian-ball-shift-lemma} applied to $D_k$ for $k \geq K$ we
+  obtain:
   \begin{align*}
-    \gamma(D_k) &\leq C^d S_d t^d (2^{k + 1} + 1)^d \e^{2(2^{k + 1}
-      + 1) t |x|} \e^{-|x|^2}\\
-    &\lesssim_{a, d} t^d 2^{k d} \e^{2^{k + 2} a} \e^{-|x|^2}.
+    \gamma(D_k) \e^{|x|^2} &\leq_A C^d S_d t^d 2^{kd} \e^{2^{k + 2} t |x|}
+    \e^{-|x|^2} \e^{|x|^2}\\
+    &\lesssim_{A, a, d} t^d 2^{k d} \e^{2^{k + 2} a}.
   \end{align*}
-  Continuing where we left off we get
-  \begin{align*}
-    \int_{C_k}  M_{t^2}(y, \cdot) |u(\cdot)| \,\D\gamma &\lesssim_{A,
-      a, d} c_k 2^{k d} \e^{2^{k + 2} a} \frac{t^d}{(1 -
-      \e^{-2t^2})^{\frac{d}2}} M_\gamma u(x)\\
-    &\overset{(\ddagger)}{\lesssim}_{A, a, d} c_k 2^{k d} \e^{2^{k + 2} a} M_\gamma u(x),
-  \end{align*}
-  where ($\ddagger$) uses that $t \leq a m(x)$ implies that $t\leq a$,
-  where the latter implying
- \begin{equation*}
-    \frac{t^d}{(1 - \e^{-2t^2})^{\frac{d}2}} \leq
-     \frac{a^d}{(1 - \e^{-2a^2})^{\frac{d}2}} \lesssim_{a, d} 1.
+  Similarly, for $k < K$:
+  \begin{equation*}
+    \gamma(D_k) \e^{|x|^2} \lesssim_{A, a, d} t^d \e^{2 A a}.
   \end{equation*}
-  (note that $s/(1-\e^{-s})$ is increasing). Similarly, for $\xi \in B_t(x)$ we
- obtain:
+  Using the bound $t\leq a$, we can infer that
+ \begin{equation*}
+    \frac{t^d}{(1 - \e^{-2t^2})^{\frac{d}2}} \leq \frac{a^d}{(1 -
+      \e^{-2a^2})^{\frac{d}2}} \lesssim_{a, d} 1.
+  \end{equation*}
+  (note that $s/(1-\e^{-s})$ is increasing). Combining these computations with
+ where we left off we get for $k \geq K$,
+  \begin{equation*}
+    \int_{C_k}  M_{t^2}(y, \cdot) |u(\cdot)| \,\D\gamma \lesssim_{A,
+      a, d} c_k 2^{k d} \e^{2^{k + 2} a} M_\gamma u(x),
+  \end{equation*}
+  while we get for $k < K$,
+  \begin{equation*}
+    \int_{C_k}  M_{t^2}(y, \cdot) |u(\cdot)| \,\D\gamma \lesssim_{A,
+      a, d} c_k M_\gamma u(x).
+  \end{equation*} 
+ Similarly, for $\xi \in 2B_t(x)$ we obtain:
    \begin{equation*}
-    I_0 := \int_{B_t}  M_{t^2}(y, \cdot) |u(\cdot)| \,\D\gamma \lesssim_{A,
+    I_0 := \int_{2B_t}  M_{t^2}(y, \cdot) |u(\cdot)| \,\D\gamma \lesssim_{A,
       a, d} M_\gamma u(x).
   \end{equation*}
   Inserting the depenceny of $c_k$ upon $k$ as coming from
   \eqref{eq:Mehler-kernel-estimate-one-sided-bound-1}, we obtain the bound:
   \begin{align*}
-    |\e^{-t^2 L} u(y)| &= I_0 + \sum_{k = 1}^\infty I_k\\
-    &\lesssim_{A, a, d} \biggl[1 + \sum_{k =  1}^\infty c_k
+    |\e^{-t^2 L} u(y)| &= I_0 + \sum_{k = 1}^{K - 1} I_k + \sum_{k = K}^\infty I_k\\
+    &\lesssim_{A, a, d} \biggl[1 + \sum_{k =  1}^{K - 1} c_k +  \sum_{k =  K}^\infty c_k
       2^{k d} \e^{2^{k + 2}a} \biggr] M_\gamma u(x),\\
-    &\lesssim_{A, a, d} \biggl[1 + \sum_{k = 1}^\infty 2^{k
-        d} \e^{2^{k + 1} (1 + 2a + aA)} \e^{-\frac{4^k}{2 \e^{2 a^2}}} \biggr]
-    M_\gamma u(x),
+    &\lesssim_{A, a, d} \biggl[1 + \sum_{k =  1}^{K - 1} \e^{-\frac{4^k}{2 \e^{2 a^2}}} + \sum_{k = K}^\infty 2^{k d} \e^{2^{k + 1} (1 + 2a + aA)} \e^{-\frac{4^k}{2 \e^{2 a^2}}} \biggr] M_\gamma u(x),
   \end{align*}
   valid for all $y \in \Gamma_x^{(A, a)}$. As the sum on the right-hand side
   evidently converges, we see that taking the supremum proves
   \eqref{eq:Maximal-function-cone}.
 \end{proof}
-\bibliographystyle{amsplain}
-
+\bibliographystyle{elsarticle-num}
 \bibliography{Teuwen-GaussianMF}
+
 \end{document}
- \exp(2^{k + 1} (1 + aA)) \exp\Big(-\frac{4^k}{2 \e^{2 a^2}} \Bigr)

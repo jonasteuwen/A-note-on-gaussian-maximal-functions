@@ -1,5 +1,12 @@
 \documentclass[preprint,12pt]{elsarticle}
 
+\makeatletter
+\def\ps@pprintTitle{%
+ \let\@oddhead\@empty
+ \let\@evenhead\@empty
+ \def\@oddfoot{\centerline{\thepage}}%
+ \let\@evenfoot\@oddfoot}
+\makeatother
 \usepackage{amsmath, amssymb, color, verbatim}
 \usepackage[active]{srcltx}
 \usepackage{amsthm}
@@ -41,21 +48,7 @@
 \newcommand{\la}{\langle}
 \newcommand{\ra}{\rangle}
 \newcommand{\LHG}{{L^2(\R^d,\gamma)}}
-
-%% Bar int
-% \def\Xint#1{\mathchoice
-% {\XXint\displaystyle\textstyle{#1}}%
-% {\XXint\textstyle\scriptstyle{#1}}%
-% {\XXint\scriptstyle\scriptscriptstyle{#1}}%
-% {\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
-% \!\int}
-% \def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
-% \vcenter{\hbox{$#2#3$ }}\kern-.535\wd0}}
-% \def\ddashint{\Xint=}
-% \def\dashint{\Xint-}
-
-\def\LI{{L^1_\gamma}}
-
+\newcommand{\CcR}{{C_{\text{c}}(\R^d)}}
 
 %% Symbols
 \renewcommand{\leq}{\leqslant}
@@ -163,7 +156,7 @@ with the heat semigroup is bounded almost everywhere by the Hardy-Littlewood
 maximal function,
 \begin{equation}\label{eq:classical}
   \sup_{\substack{(y, t) \in   \R^{d + 1}_+\\ |x - y| < t}} |\e^{-t \Delta} u(y)| \lesssim \sup_{r
-    > 0}  \frac1{|B_r(x)|}\int_{B_r(x)} |u| \D\lambda.
+    > 0}  \frac1{|B_r(x)|}\int_{B_r(x)} |u| \D\lambda, \:\text{with}\: u \in \CcR.
 \end{equation}
 Here the action of \emph{heat semigroup} $\e^{-t \Delta} u = \rho_t \ast u$ is
 given by a convolution of $u$ with the \emph{heat kernel}
@@ -203,7 +196,7 @@ is the \textit{Gaussian cone} with aperture $A$ and cut-off parameter $a$, and
   m(x) := \min\biggl\{1, \frac1{|x|} \biggr\}.
 \end{equation}
 
-A slighly weaker version of the inequality \eqref{eq:main} has been proved by 
+A slightly weaker version of the inequality \eqref{eq:main} has been proved by 
 Pineda and Urbina \cite{Pineda2008} who showed that 
 \begin{equation*}
   \sup_{(y, t) \in \widetilde{\Gamma}_x} |\e^{-t^2 L} u(y)|
@@ -223,7 +216,7 @@ than the one presented in \cite{Pineda2008}. It has the further advantage of
 allowing the extension to cones with arbitrary aperture $A > 0$ and cut-off
 parameter $a > 0$ without any additional technicalities. This additional
 generality is very important and has already been used by Portal (cf. the claim
-made in \cite[discussion preceding Lemma 2.3]{Portal2012}) to prove the
+made in \cite[discussion preceding Lemma 2.3]{Portal2014}) to prove the
 $H^1$-boundedness of the Riesz transform associated with $L$.
 
 \section{The Mehler kernel}
@@ -391,7 +384,7 @@ On $C_k$ we have the following bound for $M_{t^2}(y,\cdot)$:
 In this section we will prove our main theorem for which we have already made
 the necessary preparations in the previous sections.
 \begin{theorem}\label{thm:Gaussian-maximal-function}
-  Let $A, a > 0$. For all $x \in \R^d$ and all $u \in \LHG$ we have
+  Let $A, a > 0$. For all $x \in \R^d$ and all $u \in \CcR$ we have
   \begin{equation}
     \label{eq:Maximal-function-cone}
     \sup_{(y, t) \in \Gamma_x^{(A, a)}} |\e^{-t^2 L} u(y)| \lesssim

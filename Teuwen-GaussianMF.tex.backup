@@ -504,8 +504,7 @@ the necessary preparations in the previous sections.
 \end{proof}
 
 \section{Acknowledgments}
-This work initiated as part of a larger project in collaboration with Mikko Kemppainen.
-I would like to thank the referee for his/her useful suggestions.
+
 
 \bibliographystyle{elsarticle-num}
 \bibliography{Teuwen-GaussianMF}

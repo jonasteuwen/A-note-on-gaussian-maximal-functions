@@ -12,13 +12,29 @@ E.~Pineda, W.~R. Urbina,
   Matem\'{a}ticas 13~(2) (2008) 1--19.
 \newline\urlprefix\url{http://www.emis.ams.org/journals/DM/v16-1/art7.pdf}
 
+\bibitem{Stein1993}
+E.~M. Stein, Harmonic analysis: real-variable methods, orthogonality, and
+  oscillatory integrals, Vol.~43 of Princeton Mathematical Series, Princeton
+  University Press, Princeton, NJ, 1993, with the assistance of Timothy S.
+  Murphy, Monographs in Harmonic Analysis, III.
+
+\bibitem{MaasNeervenPortal2011b}
+J.~Maas, J.~van Neerven, P.~Portal,
+  \href{http://projecteuclid.org/euclid.pm/1308748950
+  http://arxiv.org/abs/1003.4092}{{Non-tangential maximal functions and conical
+  square functions with respect to the Gaussian measure}}, Publicacions
+  Matem\`{a}tiques 55~(2) (2010) 21.
+\newblock \href {http://arxiv.org/abs/1003.4092} {\path{arXiv:1003.4092}}.
+\newline\urlprefix\url{http://projecteuclid.org/euclid.pm/1308748950
+  http://arxiv.org/abs/1003.4092}
+
 \bibitem{Portal2014}
 P.~Portal, {Maximal and quadratic Gaussian Hardy spaces}, Revista
-  Matem\'{a}ticas Iberoamericana 30~(1), to appear (2014).
+  Matem\'{a}tica Iberoamericana 30~(1), to appear (2014).
 
 \bibitem{Sjogren1997}
 P.~Sj\"{o}gren, \href{http://link.springer.com/10.1007/BF02656487}{{Operators
-  associated with the hermite semigroup -- A survey}}, The Journal of Fourier
+  associated with the hermite semigroup -- a survey}}, The Journal of Fourier
   Analysis and Applications 3~(S1) (1997) 813--823.
 \newblock \href {http://dx.doi.org/10.1007/BF02656487}
   {\path{doi:10.1007/BF02656487}}.
@@ -30,5 +46,14 @@ J.~Maas, J.~Neerven, P.~Portal, {Whitney coverings and the tent spaces
   (2011) 379--395.
 \newblock \href {http://dx.doi.org/10.1007/s11512-010-0143-z}
   {\path{doi:10.1007/s11512-010-0143-z}}.
+
+\bibitem{Mauceri2007}
+G.~Mauceri, S.~Meda,
+  \href{http://linkinghub.elsevier.com/retrieve/pii/S0022123607002613}{{BMO and
+  $H^1$ for the Ornstein–Uhlenbeck operator}}, Journal of Functional Analysis
+  252~(1) (2007) 278--313.
+\newblock \href {http://dx.doi.org/10.1016/j.jfa.2007.06.017}
+  {\path{doi:10.1016/j.jfa.2007.06.017}}.
+\newline\urlprefix\url{http://linkinghub.elsevier.com/retrieve/pii/S0022123607002613}
 
 \end{thebibliography}

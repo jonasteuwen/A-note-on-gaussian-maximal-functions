@@ -18,15 +18,18 @@ E.~M. Stein, Harmonic analysis: real-variable methods, orthogonality, and
   University Press, Princeton, NJ, 1993, with the assistance of Timothy S.
   Murphy, Monographs in Harmonic Analysis, III.
 
-\bibitem{MaasNeervenPortal2011b}
-J.~Maas, J.~van Neerven, P.~Portal,
-  \href{http://projecteuclid.org/euclid.pm/1308748950
-  http://arxiv.org/abs/1003.4092}{{Non-tangential maximal functions and conical
-  square functions with respect to the Gaussian measure}}, Publicacions
-  Matem\`{a}tiques 55~(2) (2010) 21.
-\newblock \href {http://arxiv.org/abs/1003.4092} {\path{arXiv:1003.4092}}.
-\newline\urlprefix\url{http://projecteuclid.org/euclid.pm/1308748950
-  http://arxiv.org/abs/1003.4092}
+\bibitem{Mattila1995}
+P.~Mattila, {Geometry of Sets and Measures in Euclidean Spaces}, Cambridge
+  University Press, Cambridge, 1995.
+\newblock \href {http://dx.doi.org/10.1017/CBO9780511623813}
+  {\path{doi:10.1017/CBO9780511623813}}.
+
+\bibitem{Liliana2002}
+F.~Liliana, S.~Roberto, S.~Peter, U.~Wilfredo, {On the $L^p$ boundedness of the
+  non-centered Gaussian Hardy-Littlewood maximal function}, Proceedings of the
+  American Mathematical Society 130~(1) (2002) 73--79.
+\newblock \href {http://dx.doi.org/10.1090/S0002-9939-01-06156-1}
+  {\path{doi:10.1090/S0002-9939-01-06156-1}}.
 
 \bibitem{Portal2014}
 P.~Portal, {Maximal and quadratic Gaussian Hardy spaces}, Revista
@@ -34,14 +37,14 @@ P.~Portal, {Maximal and quadratic Gaussian Hardy spaces}, Revista
 
 \bibitem{Sjogren1997}
 P.~Sj\"{o}gren, \href{http://link.springer.com/10.1007/BF02656487}{{Operators
-  associated with the hermite semigroup -- a survey}}, The Journal of Fourier
+  associated with the Hermite semigroup -- a survey}}, The Journal of Fourier
   Analysis and Applications 3~(S1) (1997) 813--823.
 \newblock \href {http://dx.doi.org/10.1007/BF02656487}
   {\path{doi:10.1007/BF02656487}}.
 \newline\urlprefix\url{http://link.springer.com/10.1007/BF02656487}
 
 \bibitem{MaasNeervenPortal2011}
-J.~Maas, J.~Neerven, P.~Portal, {Whitney coverings and the tent spaces
+J.~Maas, J.~van Neerven, P.~Portal, {Whitney coverings and the tent spaces
   $T^{1,q}(\gamma)$ for the Gaussian measure}, Arkiv f\"{o}r Matematik 50~(2)
   (2011) 379--395.
 \newblock \href {http://dx.doi.org/10.1007/s11512-010-0143-z}

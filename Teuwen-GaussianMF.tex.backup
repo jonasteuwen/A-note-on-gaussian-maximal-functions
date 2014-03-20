@@ -201,14 +201,12 @@ is the \textit{Gaussian cone} with aperture $A$ and cut-off parameter $a$, and
   m(x) := \min\biggl\{1, \frac1{|x|} \biggr\}.
 \end{equation}
 As shown in \cite[Theorem 2.19]{Mattila1995} the centered Gaussian
-Hardy-Littlewood maximal function is of weak-type $(1, 1)$ and is
-$L^p(\gamma)$-bounded for $1 < p \leq \infty$. In fact, the same result holds
-when the Gaussian measure $\gamma$ is replaced by any Radon measure $\mu$.
-Furthermore, if $\mu$ is doubling, then these results even hold for the
-\textit{uncentered} Hardy-Littlewood maximal function. For the Gaussian measure
-$\gamma$ the uncentered weak-type $(1, 1)$ result is known to fail for $d > 1$.
-Nevertheless, the uncentered Hardy-Littlewood maximal function for $\gamma$ is
-$L^p$-bounded for $1 < p \leq \infty$ \cite{Liliana2002}.
+Hardy-Littlewood maximal function is of weak-type $(1, 1)$ and for $p > 1$
+bounded on $L^p(\gamma)$. In fact, the result holds for any Radon measure.
+Furthermore, it should be noted that the same result shows the boundedness of
+the \textit{non-centered} Hardy-Littlewood maximal function in case the measure
+is doubling, while the weak-type $(1, 1)$ result is known to be false for the
+Gaussian measure \cite{Liliana2002}.
 
 A slightly weaker version of the inequality \eqref{eq:main} has been proved by 
 Pineda and Urbina \cite{Pineda2008} who showed that 
@@ -521,7 +519,7 @@ side
   \eqref{eq:Maximal-function-cone}.
 \end{proof}
 
-\section{Acknowledgments}
+\section{Acknowledgements}
 This work initiated as part of a larger project in collaboration with Mikko
 Kemppainen.
 I would like to thank the referee for his/her useful suggestions.

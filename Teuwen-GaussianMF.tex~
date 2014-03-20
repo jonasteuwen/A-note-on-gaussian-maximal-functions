@@ -202,13 +202,12 @@ is the \textit{Gaussian cone} with aperture $A$ and cut-off parameter $a$, and
 \end{equation}
 As shown in \cite[Theorem 2.19]{Mattila1995} the centered Gaussian
 Hardy-Littlewood maximal function is of weak-type $(1, 1)$ and is
-$L^p(\gamma)$-bounded for $1 < p \leq \infty$. In fact, the same result holds
-when the Gaussian measure $\gamma$ is replaced by any Radon measure $\mu$.
-Furthermore, if $\mu$ is doubling, then these results even hold for the
-\textit{uncentered} Hardy-Littlewood maximal function. For the Gaussian measure
-$\gamma$ the uncentered weak-type $(1, 1)$ result is known to fail for $d > 1$.
-Nevertheless, the uncentered Hardy-Littlewood maximal function for $\gamma$ is
-$L^p$-bounded for $1 < p \leq \infty$ \cite{Liliana2002}.
+$L^p(\gamma)$-bounded for $1 < p \leq \infty$. In fact, the result holds for any
+Radon measure $\mu$. Furthermore, if $\mu$ is doubling, then these results even
+hold for the \textit{uncentered} Hardy-Littlewood maximal function. For the
+Gaussian measure $\gamma$ the uncentered weak-type $(1, 1)$ result is known to
+fail for $d > 1$. Nevertheless, the uncentered Hardy-Littlewood maximal function
+for $\gamma$ is $L^p$-bounded for $1 < p \leq \infty$ \cite{Liliana2002}.
 
 A slightly weaker version of the inequality \eqref{eq:main} has been proved by 
 Pineda and Urbina \cite{Pineda2008} who showed that 

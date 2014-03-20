@@ -118,16 +118,3 @@ publisher = {Cambridge University Press},
 title = {{Geometry of Sets and Measures in Euclidean Spaces}},
 year = {1995}
 }
-
-
-@article{Liliana2002,
-author = {Liliana, Forzani and Roberto, Scotto and Peter, Sj\"ogren and Wilfredo, Urbina},
-doi = {10.1090/S0002-9939-01-06156-1},
-journal = {Proceedings of the American Mathematical Society},
-mendeley-groups = {Mathematics},
-number = {1},
-pages = {73--79},
-title = {{On the $L^p$ boundedness of the non-centered Gaussian Hardy-Littlewood maximal function}},
-volume = {130},
-year = {2002}
-}

@@ -52,25 +52,11 @@ journal = {Revista Matem\'{a}tica Iberoamericana},
 title = {{Maximal and quadratic Gaussian Hardy spaces}},
 number = {1},
 volume = {30},
-pages = {79--108}
 keywords = {Hardy,gaussian,ornstein,uhlenbeck},
 month = mar,
 year = {2014},
+note = {To appear (2014)}
 }
-
-@article{Sjogren1983,
-author = {Sj\"{o}gren, Peter},
-doi = {10.2307/2374340},
-issn = {00029327},
-journal = {American Journal of Mathematics},
-month = oct,
-number = {5},
-pages = {1231--1233},
-title = {{A Remark on the Maximal Function for Measures in $\mathbf{R}^n$}},
-volume = {105},
-year = {1983}
-}
-
 
 @article{Sjogren1997,
 author = {Sj\"{o}gren, Peter},
@@ -135,7 +121,7 @@ year = {1995}
 
 
 @article{Liliana2002,
-author = {L. Forzani and R. Scotto and P. Sj\"{o}gren and W. Urbina},
+author = {Liliana, Forzani and Roberto, Scotto and Peter, Sj\"ogren and Wilfredo, Urbina},
 doi = {10.1090/S0002-9939-01-06156-1},
 journal = {Proceedings of the American Mathematical Society},
 mendeley-groups = {Mathematics},

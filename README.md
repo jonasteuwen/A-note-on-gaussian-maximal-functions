@@ -1,4 +1,4 @@
 gaussian-maximal-function
 =========================
 
-Paper on Gaussian maximal functions
+Accepted paper: "A note on Gaussian maximal functions"
